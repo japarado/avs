@@ -24,6 +24,10 @@ class PositionTableSeeder extends Seeder
 			[
 				'name' => 'AIC',
 				'desc' => 'Accounting matters'
+			],
+			[
+				'name' => 'Secretary',
+				'desc' => 'Documentation manager and resolver'
 			]
 		]);
     }

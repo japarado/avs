@@ -17,8 +17,10 @@ class CreateCandidateTable extends Migration
 			$table->id();
 			$table->string('name');
 			$table->text('desc')->nullable();
-			$table->bigInteger('position_id');
+			$table->unsignedBigInteger('position_id');
 			$table->timestamps();
+
+			$table->foreign('position_id')->references('id')->on('position');
 		});
 	}
 

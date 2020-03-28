@@ -13,7 +13,6 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
