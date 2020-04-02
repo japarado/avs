@@ -1,0 +1,73 @@
+.overview {
+    &__header {
+        background: $client-blue-green;
+        font-family: lemonmilk;
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 1rem;
+        width: max-content;
+        padding: .5rem 6rem;
+        border-radius: 0 20px 20px 0;
+        text-shadow: $client-text-shadow;
+    }
+
+    &__value {
+        margin-left: 12rem;
+    }
+
+    &__entry {
+        width: 100%;
+    }
+
+    &__input {
+        background: transparent;
+        font-size: 2rem;
+        overflow: hidden;
+        border: 0;
+        height: initial !important;
+        pointer-events: none;
+    }
+
+    &__title {
+        background: $client-blue-green;
+        font-family: lemonmilk;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 1rem;
+        width: max-content;
+        padding: .5rem 6rem;
+        border-radius: 20px;
+        text-shadow: $client-text-shadow;
+    }
+
+    &__body {
+        padding: 1rem 5rem;
+        overflow: auto;
+    }
+
+    &__name {
+        padding: 1rem 0;
+    }
+
+    &__body-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__img {
+        height: 450px;
+        @include no-drag;
+    }
+
+    &__entry {
+
+        &--padding {
+            padding-right: 5rem;
+        }
+    }
+}

@@ -10,6 +10,42 @@ class DashboardController extends Controller
     {
         return view('dashboard/instructions');
     }
+
+    public function overview()
+    {
+        $data = [];
+        $candidates = [
+            [
+                "id" => 1,
+                "name" => 'Geralt Dean',
+                "type" => "president",
+            ],
+            [
+                "id" => 2,
+                "name" => 'Geralt Dean',
+                "type" => "vice_president",
+            ],
+            [
+                "id" => 3,
+                "name" => 'Abstained',
+                "type" => "secretary",
+            ],
+            [
+                "id" => 4,
+                "name" => 'Geralt Dean',
+                "type" => "treasurer",
+            ],
+            [
+                "id" => 5,
+                "name" => 'Geralt Dean',
+                "type" => "auditor",
+            ],
+        ];
+        $data = [
+            'candidates' => $candidates
+        ];
+        return view('dashboard.overview', $data);
+    }
     /**
      * Display a listing of the resource.
      *
