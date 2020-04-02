@@ -17,6 +17,7 @@ class CreateCandidateTable extends Migration
 			$table->id();
 			$table->string('name');
 			$table->text('desc')->nullable();
+			$table->string('image')->nullable();
 			$table->unsignedBigInteger('position_id');
 			$table->unsignedBigInteger('strand_id');
 			$table->timestamps();
