@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
+use App\Position;
+use App\Strand;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -22,7 +25,12 @@ class CandidateController extends Controller
      */
     public function create()
     {
-        //
+        $context = [
+            'strands' => Strand::all(),
+            'positions' => Position::all(),
+        ];
+
+		return view('candidate.create', $context);
     }
 
     /**
@@ -33,7 +41,16 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$candidate = Candidate::create([
+			'name' => $request->name,
+			'desc' => $request->create,
+			'image' => $request->image,
+			'position_id' => $request->position,
+			'strand_id' => $request->strand,
+		]);
+
+		/* return redirect()->action('CandidateController@edit', ['id' => $candidate->id]); */
+		return redirect()->route('candidates.edit', ['id' => $candidate->id]);
     }
 
     /**
@@ -55,7 +72,13 @@ class CandidateController extends Controller
      */
     public function edit($id)
     {
-        //
+		$context = [
+			'candidate' => Candidate::find($id),
+			'strands' => Strand::all(),
+			'positions' => Position::all(),
+		];
+
+		return view('candidate.edit', $context);
     }
 
     /**
@@ -67,7 +90,15 @@ class CandidateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		$candidate = Candidate::find($id);
+		$candidate->name = $request->input('name');
+		$candidate->desc = $request->input('desc');
+		$candidate->position_id = $request->input('position');
+		$candidate->strand_id = $request->input('strand');
+		$candidate->save();
+
+		return redirect()->back();
+		/* return redirect()->action('CandidateController@create'); */
     }
 
     /**
