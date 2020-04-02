@@ -28,4 +28,5 @@
         @include('inc/footer')
     </div>
 </body>
+@yield('javascript')
 </html>

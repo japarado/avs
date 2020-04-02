@@ -10946,7 +10946,6 @@ gothic:(
   user-select: none;
   /* Hide the browser's default radio button */
   /* Create a custom radio button */
-  /* On mouse-over, add a grey background color */
   /* When the radio button is checked, add a blue background */
   /* Create the indicator (the dot/circle - hidden when not checked) */
   /* Show the indicator (dot/circle) when checked */
@@ -10966,10 +10965,6 @@ gothic:(
   width: 25px;
   border-radius: 50%;
   border: 2px solid #FFB630;
-}
-
-.custom-radio-button:hover input ~ .checkmark {
-  background-color: #ccc;
 }
 
 .custom-radio-button input:checked ~ .checkmark {

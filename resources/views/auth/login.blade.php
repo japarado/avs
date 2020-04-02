@@ -8,21 +8,21 @@
                 @include('parts/logo-text')
             </div>
             <div class="login-page__card-body">
-                <form class="login-page__form">
+                <form id="js-login-form" onsubmit="promptAlert()" class="login-page__form">
                     <div class="form-group">
-                        <input type="text" class="form-control client-custom-input" name="student_number"
+                        <input id="js-student-number" type="text" class="form-control client-custom-input" name="student_number"
                             placeholder="Student Number">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control client-custom-input" name="password"
+                        <input id="js-password" type="password" class="form-control client-custom-input" name="password"
                             placeholder="Password">
                     </div>
 
                     <div class="form-group">
                         <label class="custom-radio-button">I understand that the choices I will make is influenced by my
                             own preference and is not coerced by any candidate or party.
-                            <input type="radio" name="access">
+                            <input id="js-access" type="checkbox" name="access">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -35,4 +35,19 @@
         </div>
     </div>
 </article>
+@endsection
+
+@section('javascript')
+    <script>
+        function promptAlert(){
+            const studentNumber = document.getElementById('js-student-number');
+            const password = document.getElementById('js-password');
+            const access = document.getElementById('js-access');
+            console.log({student: studentNumber.value,password:password.value,access:access.checked})
+
+            if(!studentNumber.value || !password.value || !access.checked) {
+                alert(`Missing values: ${!studentNumber.value ? "-STUDENT NUMBER":""} ${!password.value ? "-PASSWORD":""} ${!access.checked ? "-AGREEMENT":""}`)
+            }
+        }
+    </script>
 @endsection
