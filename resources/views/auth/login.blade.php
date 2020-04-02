@@ -10,7 +10,7 @@
                 @include('parts/logo-text')
             </div>
             <div class="login-page__card-body">
-                <form id="js-login-form"  class="login-page__form" action="{{ route('login') }}" method="post">
+                <form id="js-login-form" onsubmit="promptAlert(event)" class="login-page__form" action="{{ route('login') }}" method="post">
 					@csrf
                     <div class="form-group">
                         <input id="js-student-number" type="text" class="form-control client-custom-input" name="email"
@@ -46,15 +46,32 @@
 
 @section('javascript')
     <script>
-        function promptAlert(){
+        function promptAlert(e){
             const studentNumber = document.getElementById('js-student-number');
             const password = document.getElementById('js-password');
             const access = document.getElementById('js-access');
-            console.log({student: studentNumber.value,password:password.value,access:access.checked})
+            var values = {
+                "Student Number":studentNumber.value,
+                "Password":password.value,
+                "Access": access.checked
+            }
+            var missingValues = setMissingValues(values);
+            if(missingValues.length <= 0){
+                return true;
+            }
+            e.preventDefault();
+            alert(`Missing values: ${missingValues.join(', ')}`)
+            return false;
+        }
 
-            if(!studentNumber.value || !password.value || !access.checked) {
-                alert(`Missing values: ${!studentNumber.value ? "-STUDENT NUMBER":""} ${!password.value ? "-PASSWORD":""} ${!access.checked ? "-AGREEMENT":""}`)
+    function setMissingValues(inputs) {
+        var values = [];
+        for(var i=0;i<Object.keys(inputs).length;i++){
+            if(!inputs[Object.keys(inputs)[i]]){
+            values.push(Object.keys(inputs)[i]);
             }
         }
+        return values;
+    }
     </script>
 @endsection

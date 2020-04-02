@@ -217,11 +217,11 @@
             Treasurer: getValue(treasurerElements),
             Auditor: getValue(auditorElements),
         }
-        var missingValues = setMissingValues(votes).join(', ');
+        var missingValues = setMissingValues(votes);
         if(missingValues.length <= 0){
             return true;
         }
-        positionsText.innerHTML = `It appears that you do not have an answer for (${missingValues}), if you don't want to vote in the said position click abstain.`;
+        positionsText.innerHTML = `It appears that you do not have an answer for (${missingValues.join(', ')}), if you don't want to vote in the said position click abstain.`;
         voteModal.classList.remove('d-none');
         e.preventDefault();
         return false;
