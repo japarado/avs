@@ -12,7 +12,7 @@
                 </div>
                 <div class="login-modal__footer">
                     <div class="d-flex justify-content-center mt-3">
-                        <a href="{{route('dashboard.index')}}" type="submit" class="btn btn-lg client-custom-button login-modal__button">ok</a>
+                        <a href="{{route('dashboard.instructions')}}" type="submit" class="btn btn-lg client-custom-button login-modal__button">ok</a>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="app-client" id="app">
-        @include('inc/header')
+        @yield('header')
         <main class="app-client__main-container p-4">
             @yield('content')
         </main>

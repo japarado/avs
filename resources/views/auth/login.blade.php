@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('header')
+    @include('inc/header')
+@endsection
 @section('content')
 <article class="login-page">
     <div class="login-page__container">
