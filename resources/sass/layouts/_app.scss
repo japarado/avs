@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+}
+
+.app-client {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__main-container {
+        background: $client-sky-blue;
+        flex-grow: 1;
+    }
+}

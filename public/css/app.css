@@ -1,54 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-/**
-* IMPORTANT!
-* Get a woff file generator at https://www.fontsquirrel.com/tools/webfont-generator
-* Rename the file as what the class name should be. e.g. gothic-italic-300.woff will create a css class named "gothic-italic-300"
-*/
-
-/*
-fontName:(
-  normal/italic: (100,...,900),
-),
-open_sans:(
-  normal:(300,400,500,600),
-  italic: (700),
-),
-gothic:(
-  normal:(300,400,500,600)
-)
-*/
-
-/**
-* Create @font-face and css classes named .font-fontStyle-fontWeight
-*/
-
-@font-face {
-  font-family: lemonmilk;
-  src: url(../fonts/lemonmilk-normal-400-webfont.woff2?a9da04a5fcf1479ad28b0253486d5330) format("woff2"), url(../fonts/lemonmilk-normal-400-webfont.woff?a7a2426b68650b746e1eca791febe6db) format("woff");
-  font-style: normal;
-  font-weight: 400;
-}
-
-.lemonmilk-normal-400 {
-  font-family: lemonmilk !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-}
-
-@font-face {
-  font-family: lemonmilk;
-  src: url(../fonts/lemonmilk-normal-700-webfont.woff2?704309d14d487d70123b01508e974cdd) format("woff2"), url(../fonts/lemonmilk-normal-700-webfont.woff?8d4fac4f6d1cac492bbde7773ca2a79e) format("woff");
-  font-style: normal;
-  font-weight: 700;
-}
-
-.lemonmilk-normal-700 {
-  font-family: lemonmilk !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-}
-
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10929,6 +10880,230 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+/**
+* IMPORTANT!
+* Get a woff file generator at https://www.fontsquirrel.com/tools/webfont-generator
+* Rename the file as what the class name should be. e.g. gothic-italic-300.woff will create a css class named "gothic-italic-300"
+*/
+
+/*
+fontName:(
+  normal/italic: (100,...,900),
+),
+open_sans:(
+  normal:(300,400,500,600),
+  italic: (700),
+),
+gothic:(
+  normal:(300,400,500,600)
+)
+*/
+
+/**
+* Create @font-face and css classes named .font-fontStyle-fontWeight
+*/
+
+@font-face {
+  font-family: lemonmilk;
+  src: url(../fonts/lemonmilk-normal-400-webfont.woff2?a9da04a5fcf1479ad28b0253486d5330) format("woff2"), url(../fonts/lemonmilk-normal-400-webfont.woff?a7a2426b68650b746e1eca791febe6db) format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+.lemonmilk-normal-400 {
+  font-family: lemonmilk !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+
+@font-face {
+  font-family: lemonmilk;
+  src: url(../fonts/lemonmilk-normal-700-webfont.woff2?704309d14d487d70123b01508e974cdd) format("woff2"), url(../fonts/lemonmilk-normal-700-webfont.woff?8d4fac4f6d1cac492bbde7773ca2a79e) format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
+.lemonmilk-normal-700 {
+  font-family: lemonmilk !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+/* The container */
+
+.custom-radio-button {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+}
+
+.custom-radio-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-radio-button .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 2px solid #FFB630;
+}
+
+.custom-radio-button:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.custom-radio-button input:checked ~ .checkmark {
+  background-color: #FFB630;
+}
+
+.custom-radio-button .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-radio-button input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.client-custom-input {
+  height: 60px !important;
+  font-size: 1.5rem !important;
+  border-radius: 0 !important;
+  border: 2px solid #FFB630 !important;
+}
+
+.client-custom-button {
+  background: #008080 !important;
+  border-radius: 0 !important;
+  font-size: 2rem !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  color: white !important;
+  max-width: 30rem !important;
+}
+
+body {
+  height: 100vh;
+}
+
+.app-client {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-client__main-container {
+  background: #E1F7FF;
+  flex-grow: 1;
+}
+
+.iuris-logo-text {
+  height: auto;
+  width: 250px;
+}
+
+.header-nav-logo-img {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 991.98px) {
+  .header-nav-logo-img--responsive {
+    width: 120px;
+  }
+}
+
+.header-nav__logo {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+@media (max-width: 991.98px) {
+  .header-nav__logo {
+    position: static;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.header-nav__container {
+  position: relative;
+  background: #008080;
+  height: 100px;
+}
+
+@media (max-width: 991.98px) {
+  .header-nav__container {
+    height: auto;
+  }
+}
+
+.footer-area__text {
+  color: white;
+}
+
+.footer-area__container {
+  background: #008080;
+}
+
+.footer-area__text-container {
+  text-align: center;
+}
+
+.footer-area__text {
+  font-size: 1.5rem;
+}
+
+.login-page__card-header {
+  background: #008080;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #FFB630;
+}
+
+.login-page__card {
+  border: 2px solid #FFB630;
+  width: 50%;
+  max-width: 45rem;
+}
+
+@media (max-width: 991.98px) {
+  .login-page__card {
+    width: 100%;
+  }
+}
+
+.login-page__card-body {
+  background: white;
+  padding: 3rem;
+}
+
+.login-page__container {
+  display: flex;
+  justify-content: center;
 }
 
 

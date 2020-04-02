@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // Default Routes
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -29,4 +29,3 @@ Route::group([], function() {
 		Route::resource('positions', 'PositionController');
 	});
 });
-

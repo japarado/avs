@@ -1,0 +1,17 @@
+.footer-area {
+    &__text {
+        color: white;
+    }
+
+    &__container {
+        background: $client-blue-green;
+    }
+
+    &__text-container {
+        text-align: center;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+    }
+}

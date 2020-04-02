@@ -1,0 +1,10 @@
+.header-nav-logo-img {
+    width: 200px;
+    height: auto;
+
+    &--responsive {
+        @include media-breakpoint-down(md) {
+            width: 120px;
+        }
+    }
+}
