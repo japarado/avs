@@ -13,17 +13,8 @@ class PositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-public function index()
+    public function index()
     {
-		$user = User::first();
-		if($user->role_id == Config::get('constants.roles.admin'))
-		{
-			return "User is admin";
-		}
-		else 
-		{
-			return "User is not admin";
-		}
     }
 
     /**
