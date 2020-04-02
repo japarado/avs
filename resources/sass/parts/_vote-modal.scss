@@ -43,5 +43,9 @@
         max-width: 10rem;
     }
 
+    &__img {
+        @include no-drag;
+    }
+
 
 }

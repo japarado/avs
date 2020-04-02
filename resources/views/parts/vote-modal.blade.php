@@ -9,7 +9,7 @@
                             <span id="js-positions"></span>
                         </span>
                         <div>
-                            <img src="{{asset('img/abstain-text.png')}}" />
+                            <img class="vote-modal__img" src="{{asset('img/abstain-text.png')}}" />
                             <div>
                                 formally decline to vote either for or against a proposal or motion <br />
                                  - Oxford Dictionary

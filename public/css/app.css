@@ -11122,6 +11122,14 @@ body {
   max-width: 10rem;
 }
 
+.vote-modal__img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 .header-nav__logo {
   position: absolute;
   top: 15px;
