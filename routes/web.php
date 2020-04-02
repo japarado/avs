@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('candidates', 'CandidateController');
-Route::resource('positions', 'PositionController');
-Route::resource('sections', 'SectionController');
+Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
+Route::resource('positions', 'PositionController')->parameter('positions', 'id');
+Route::resource('sections', 'SectionController')->parameter('sections', 'id');
