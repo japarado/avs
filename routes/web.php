@@ -11,22 +11,16 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-// Default Routes
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Custom Routes
-/* Route::group(['middleware' => ['auth']], function() { */
-Route::group([], function() {
-	Route::group(['middleware' => ['admin.rights']], function() {
-		Route::resource('candidates', 'CandidateController');
-		Route::resource('positions', 'PositionController');
-	});
-});
-
+Route::resource('candidates', 'CandidateController');
+Route::resource('positions', 'PositionController');
+Route::resource('sections', 'SectionController');
