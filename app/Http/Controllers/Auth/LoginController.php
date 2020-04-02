@@ -37,4 +37,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function prompt()
+    {
+        return view('auth/login')->with('showModal',true);
+    }
 }

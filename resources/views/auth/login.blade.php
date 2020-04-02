@@ -23,7 +23,7 @@
                     <div class="form-group">
                         <label class="custom-radio-button">I understand that the choices I will make is influenced by my
                             own preference and is not coerced by any candidate or party.
-                            <input id="js-access" type="checkbox" name="access">
+                            <input id="js-access" type="checkbox" value="true" name="access">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -36,6 +36,10 @@
         </div>
     </div>
 </article>
+@endsection
+
+@section('modal')
+    @include('parts/login-modal')
 @endsection
 
 @section('javascript')

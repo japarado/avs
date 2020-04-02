@@ -19,8 +19,8 @@ Route::get("/", function() {
 	return redirect()->route('login');
 });
 
+Auth::routes();
+Route::get('/prompt', 'Auth\LoginController@prompt')->name('login.prompt');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
-Route::resource('positions', 'PositionController')->parameter('positions', 'id');
-Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
