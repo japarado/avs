@@ -3,7 +3,7 @@
 @include('inc/dashboard-header')
 @endsection
 @section('content')
-<section class="instructions">
+<section class="instructions p-4">
     <article class="instructions__container">
         <div class="instructions__header">
             <div class="instructions__header-container"><span

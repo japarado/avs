@@ -23,6 +23,7 @@
 @import 'parts/logo-text';
 @import 'parts/logo';
 @import 'parts/login-modal';
+@import 'parts/vote-modal';
 
 // Inc
 @import 'inc/header';
@@ -31,3 +32,4 @@
 // Pages
 @import 'pages/login';
 @import 'pages/instructions';
+@import 'pages/vote';

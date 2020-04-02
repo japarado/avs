@@ -21,31 +21,43 @@ class DashboardController extends Controller
         $candidates = [
             [
                 "id" => 1,
-                "img" => 'https://picsum.photos/id/237/200/300',
+                "img" => 'https://picsum.photos/id/237/1200',
                 "name" => 'Geralt Dean',
                 "type" => "president",
             ],
             [
                 "id" => 2,
-                "img" => 'https://picsum.photos/id/237/200/300',
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'John Doe',
+                "type" => "president",
+            ],
+            [
+                "id" => 3,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Mary Jane',
+                "type" => "president",
+            ],
+            [
+                "id" => 4,
+                "img" => 'https://picsum.photos/id/237/1200',
                 "name" => 'Geralt Dean',
                 "type" => "vice_president",
             ],
             [
-                "id" => 3,
-                "img" => 'https://picsum.photos/id/237/200/300',
+                "id" => 5,
+                "img" => 'https://picsum.photos/id/237/1200',
                 "name" => 'Geralt Dean',
                 "type" => "secretary",
             ],
             [
-                "id" => 4,
-                "img" => 'https://picsum.photos/id/237/200/300',
+                "id" => 6,
+                "img" => 'https://picsum.photos/id/237/1200',
                 "name" => 'Geralt Dean',
                 "type" => "treasurer",
             ],
             [
-                "id" => 5,
-                "img" => 'https://picsum.photos/id/237/200/300',
+                "id" => 7,
+                "img" => 'https://picsum.photos/id/237/1200',
                 "name" => 'Geralt Dean',
                 "type" => "auditor",
             ],
@@ -53,7 +65,7 @@ class DashboardController extends Controller
         $data = [
             'candidates' => $candidates
         ];
-        return view('dashboard/vote', $data);
+        return view('dashboard.vote', $data);
     }
 
     /**
