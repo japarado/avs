@@ -17,6 +17,55 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $data = [];
+        $candidates = [
+            [
+                "id" => 1,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "president",
+            ],
+            [
+                "id" => 2,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'John Doe',
+                "type" => "president",
+            ],
+            [
+                "id" => 3,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Mary Jane',
+                "type" => "president",
+            ],
+            [
+                "id" => 4,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "vice_president",
+            ],
+            [
+                "id" => 5,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "secretary",
+            ],
+            [
+                "id" => 6,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "treasurer",
+            ],
+            [
+                "id" => 7,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "auditor",
+            ],
+        ];
+        $data = [
+            'candidates' => $candidates
+        ];
+        return view('dashboard.vote', $data);
     }
 
     /**

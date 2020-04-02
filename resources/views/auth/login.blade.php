@@ -3,7 +3,7 @@
     @include('inc/header')
 @endsection
 @section('content')
-<article class="login-page">
+<article class="login-page p-4">
     <div class="login-page__container">
         <div class="login-page__card">
             <div class="login-page__card-header">
