@@ -24,7 +24,6 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +34,6 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
