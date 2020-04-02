@@ -4,11 +4,28 @@
 // Variables
 @import 'abstracts/variables';
 
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Mixins
 @import 'abstracts/mixins';
 
 // Fonts
 @import 'base/fonts';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Globals
+@import 'globals';
+
+// Layouts
+@import 'layouts/app';
+
+// Parts
+@import 'parts/logo-text';
+@import 'parts/logo';
+
+// Inc
+@import 'inc/header';
+@import 'inc/footer';
+
+// Pages
+@import 'pages/login';
