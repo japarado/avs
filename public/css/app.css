@@ -10996,6 +10996,7 @@ gothic:(
   width: 100% !important;
   color: white !important;
   max-width: 30rem;
+  text-shadow: 1px 2px 3px #494949;
 }
 
 body {
@@ -11102,6 +11103,37 @@ body {
   }
 }
 
+.dashboard-header__logo {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+@media (max-width: 991.98px) {
+  .dashboard-header__logo {
+    position: static;
+  }
+}
+
+.dashboard-header__container {
+  position: relative;
+  background: #008080;
+  padding: 0.5rem 2rem;
+}
+
+@media (max-width: 991.98px) {
+  .dashboard-header__container {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.dashboard-header__logo-text .iuris-logo-text {
+  width: 200px;
+}
+
 .footer-area__text {
   color: white;
 }
@@ -11145,6 +11177,86 @@ body {
 .login-page__container {
   display: flex;
   justify-content: center;
+}
+
+.instructions {
+  height: 100%;
+  word-break: break-word;
+}
+
+.instructions__card {
+  border: 3px solid #FFA500;
+  padding: 2rem;
+  background: white;
+  height: 100%;
+}
+
+.instructions__card-header {
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  .instructions__card-header {
+    font-size: 1.5rem;
+  }
+}
+
+.instructions__body-container {
+  height: 100%;
+}
+
+.instructions__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.instructions__body {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .instructions__body {
+    padding: 2rem 0;
+  }
+}
+
+.instructions__header {
+  display: flex;
+  justify-content: center;
+}
+
+.instructions__header-container {
+  background: #008080;
+  text-align: center;
+  border-radius: 15px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0 3rem;
+}
+
+@media (max-width: 767.98px) {
+  .instructions__header-container {
+    padding: 0 1rem;
+  }
+}
+
+.instructions__header-container-text {
+  color: white;
+  text-shadow: 1px 2px 3px #494949;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  word-break: break-word;
+}
+
+@media (max-width: 767.98px) {
+  .instructions__header-container-text {
+    font-size: 2rem;
+  }
 }
 
 

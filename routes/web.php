@@ -23,4 +23,4 @@ Auth::routes();
 Route::get('/prompt', 'Auth\LoginController@prompt')->name('login.prompt');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');

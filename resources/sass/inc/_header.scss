@@ -23,3 +23,35 @@
         }
     }
 }
+
+.dashboard-header {
+
+    &__logo {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+
+        @include media-breakpoint-down(md) {
+            position: static;
+        }
+    }
+
+    &__container {
+        position: relative;
+        background: $client-blue-green;
+        padding: .5rem 2rem;
+
+        @include media-breakpoint-down(md) {
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__logo-text {
+        .iuris-logo-text {
+            width: 200px;
+        }
+    }
+}

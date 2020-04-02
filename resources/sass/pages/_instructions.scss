@@ -1,0 +1,70 @@
+.instructions {
+    height: 100%;
+    word-break: break-word;
+
+
+    &__card {
+        border: 3px solid $client-yellow;
+        padding: 2rem;
+        background: white;
+        height: 100%;
+    }
+
+    &__card-header {
+        font-size: 2rem;
+        text-align: center;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__body-container {
+        height: 100%;
+    }
+
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__body {
+        flex-grow: 1;
+        padding: 2rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 2rem 0;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__header-container {
+        background: $client-blue-green;
+        text-align: center;
+        border-radius: 15px;
+        width: max-content;
+        padding: 0 3rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 0 1rem;
+        }
+    }
+
+    &__header-container-text {
+        color: white;
+        text-shadow: $client-text-shadow;
+        font-size: 4rem;
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+        word-break: break-word;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 2rem;
+        }
+    }
+}
