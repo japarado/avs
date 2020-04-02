@@ -1,0 +1,13 @@
+.navbar {
+	min-height: 10vh;
+
+	&-brand {
+		position: absolute;
+	}
+
+    &__image {
+        width: 10rem;
+		transform: translateY(50%);
+		position: absolute;
+    }
+}

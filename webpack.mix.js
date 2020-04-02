@@ -1,4 +1,4 @@
- mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,11 @@
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js")
+	.sass("resources/sass/app.scss", "public/css")
+	.browserSync({
+	// proxy: "http://localhost:3000",
+		proxy: "https://avs.apc",
+		notify: false
+	})
+	.sourceMaps(true, "source-map");

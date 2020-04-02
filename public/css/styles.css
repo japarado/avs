@@ -1,0 +1,433 @@
+/************************************************GlobalCSS*****************************************************/
+@font-face {
+  font-family: LEMONMILK-Bold;
+  src: url(fonts/LEMONMILK-Bold.otf); 
+}
+@font-face {
+  font-family: LEMONMILK-Regular;
+  src: url(fonts/LEMONMILK-Regular.otf);
+}
+
+body {
+  background-color: #e1f7ff;
+  font-family: "Comfortaa", cursive;
+  color: white;
+}
+
+#logo {
+  width: 140px;
+  height: 140px;
+  margin: 28px 25px;
+  float: left;
+}
+
+#logo1 {
+  height: 91px;
+  width: 273px;
+  object-fit: cover;
+  margin: 0 2em;
+  float: left;
+}
+
+#logo2 {
+  width: 140px;
+  height: 140px;
+  margin: 28px 25px;
+  float: right;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #008080;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  background-color: #008080;
+}
+
+footer p {
+  text-align: center;
+}
+
+h1 {
+  all: none;
+}
+
+/************************************************index.html*****************************************************/
+
+/*FORM CSS*/
+form {
+  border: #ff9900 solid 2px;
+  margin: auto;
+  margin-top: 120px;
+  width: 600px;
+  background-color: #ffffff;
+}
+
+form .form-header {
+  background-color: #006666;
+  text-align: center;
+  border-bottom: #ff9900 solid 0.25px;
+  width: 100%;
+  height: 90px;
+  font-size: 70px;
+}
+
+#form-logo {
+  position: relative;
+  height: 90px;
+  width: 300px;
+  object-fit: cover;
+  bottom: 13px;
+  margin-left: 1.9em;
+}
+
+form .form-contents {
+  margin: 20px;
+  text-align: center;
+}
+
+#student-number {
+  height: 50px;
+  width: 100%;
+  margin: auto;
+  border: #ff9900 solid 0.25px;
+  font-size: 20px;
+}
+
+#password {
+  height: 50px;
+  width: 100%;
+  margin: auto;
+  border: #ff9900 solid 0.25px;
+  font-size: 20px;
+}
+
+.fa-eye {
+  position: relative;
+  left: 16rem;
+  top: 38px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #999;
+}
+
+.active {
+  color: dodgerblue;
+}
+
+input {
+  padding: 25px;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;  
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: solid #ff9900 1px;
+  border-radius: 50%;
+  bottom: 4em;
+  right: 8px;
+}
+
+input[type='checkbox']:checked {
+  border: solid #ff9900 5px;
+  background-color: #93e026;
+}
+
+.checkbox-label {
+  color: #000000;
+  width: 300px;
+  display: inline-block;
+  margin: 20px 0;
+  text-align: left;
+}
+
+#submit-button {
+  color: white;
+  background-color: #006666;
+  height: 60px;
+  width: 70%;
+  padding: 0px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 920px) {
+  #logo {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  form {
+    margin-top: 40px;
+    width: 340px;
+  }
+  .round label {
+    left: 15px;
+  }
+  #form-logo {
+    margin-left: 5rem;
+  }
+  .checkbox-label {
+    width: 200px;
+  }
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  .fa {
+    left: 8rem;
+  }
+  input[type='checkbox'] {
+    bottom: 7rem;
+  }
+}
+/************************************************instructions.html*****************************************************/
+.instructions {
+  height: 5em;
+  width: 41em;
+  background-color: #006666;
+  top: 118px;
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  left: 25%;
+}
+.instructions h1 {
+  position: relative;
+  font-size: 4em;
+  top: 7px;
+  margin: 0px 56.5px;
+  bottom: 4px;
+  letter-spacing: 3px;
+}
+.contents {
+  position: relative;
+  height: 23em;
+  width: 67em;
+  border: solid #ff9900;
+  left: 10%;
+  top: 9em;
+  color: black;
+  text-align: center;
+}
+.contents h6 {
+  margin-top: 20px;
+}
+
+#proceed-button {
+  position: relative;
+  color: white;
+  background-color: #006666;
+  width: 10%;
+  padding: 0px;
+  margin-top: -10px;
+  text-align: center;
+  font-size: 20px;
+  top: 165px;
+  left: 31em;
+}
+
+/************************************************voting-page.html*****************************************************/
+
+.position-header {
+  position: relative;
+  width: 34em;
+  text-align: center;
+  background-color: #008080;
+  boder-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  letter-spacing: 7px;
+  font-family: LEMONMILK-Bold;
+  height: 5rem;
+  padding-top: 7px;
+}
+
+.position-header h1  {
+  font-size: 50px;
+}
+
+.d-flex {
+  position: relative;
+  top: -5rem;
+  color: #000000;
+  margin: 80px 80px;
+  right: 7rem;  
+  height: 23rem;
+  width: 1286px;
+}
+
+.p-2 {
+  margin: 50px 95px;
+}
+
+.fa-user-circle {
+  position: relative;
+  color: #999;
+  font-size: 250px;
+  margin: 0 5px;
+}
+
+.fa-user-times {
+  position: relative;
+  color: #999;
+  font-size: 250px;
+}
+
+.d-flex input {
+  border: #ff9900;
+  margin-right: 10px;
+}
+
+.d-flex label {
+  position: relative;
+  top: 20px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;  
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: solid #ff9900 1px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  border: solid #ff9900 5px;
+  background-color: #93e026;
+}
+
+.position-group {
+  position: relative;
+  margin: auto;
+  height: 600px;
+  top: 7rem;
+  padding: 0;
+  bottom: 233px;
+  width: 1349px;
+}
+
+.candidates-wrapper {
+  position: absolute;
+  z-index: -1;
+}
+
+#submit-vote {
+  position: relative;
+  color: white;
+  background-color: #006666;
+  width: 6%;
+  padding: 0px;
+  margin-top: -10px;
+  text-align: center;
+  font-size: 20px;
+  top: 189rem;
+  left: 31em;
+}
+
+/************************************************votes-overview.html*****************************************************/
+
+.overview-header {
+  position: relative;
+  width: 25em;
+  text-align: center;
+  background-color: #008080;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  letter-spacing: 7px;
+  font-family: LEMONMILK-Bold;
+  height: 5rem;
+  padding-top: 7px;
+  top: 7rem;
+}
+
+.overview-header h1 {
+  font-size: 50px;
+}
+
+.e-flex {
+  position: relative;
+  top: 7rem;
+  left: 7rem;
+  width: 30rem;
+  display: inline-block;
+}
+
+.e-flex .p-2 {
+  position: relative;
+  width: 25em;
+  text-align: center;
+  background-color: #008080;
+  border-radius: 10px;
+  letter-spacing: 7px;
+  height: 3rem;
+  padding-top: 7px; 
+  margin: 4rem;
+  bottom: 3rem;
+  font-family: LEMONMILK-Regular;
+}
+
+.f-flex .p-2 {
+  position: relative;
+  display: inline-block;
+  left: 17rem;
+}
+
+span {
+  font-family: "Comfortaa", cursive;
+  position: relative;
+  font-size: 20px;
+  margin: 0px -122.5px;
+  bottom: 4px;
+  letter-spacing: 3px;
+  color: #000000;
+  left: 8rem;
+  top: 15px;
+}
+
+
+.f-flex .p-2 #change-vote {
+  position: relative;
+  padding: 5px 30px;
+  background-color: #ff9900;
+  color: #ffffff;
+}
+
+.f-flex .p-2 #vote {
+  position: relative;
+  padding: 5px 30px;
+  right: 10em;
+  background-color: #006666;
+  color: #ffffff;
+}
+
+.overview-wrapper {
+  position: absolute;
+  z-index: -1;
+}

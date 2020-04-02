@@ -13,20 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Default Routes
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
+
+Route::resource('candidates', 'CandidateController');
+
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Custom Routes
-/* Route::group(['middleware' => ['auth']], function() { */
-Route::group([], function() {
-	Route::group(['middleware' => ['admin.rights']], function() {
-		Route::resource('candidates', 'CandidateController');
-		Route::resource('positions', 'PositionController');
-	});
-});
-

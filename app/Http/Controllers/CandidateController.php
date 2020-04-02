@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -13,6 +14,11 @@ class CandidateController extends Controller
      */
     public function index()
     {
+		$context = [
+			'candidates' => Candidate::all()
+		];
+
+		return view('candidate.index', $context);
     }
 
     /**
@@ -33,7 +39,6 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

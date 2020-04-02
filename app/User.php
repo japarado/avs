@@ -5,13 +5,10 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Candidate;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
-	protected $table = 'user';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'student_number'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -40,7 +37,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-	public function candidates() {
-		return $this->belongsToMany(Candidate::class, 'candidate_user', 'user_id', 'candidate_id');
-	}
+	protected $table = 'user';
 }
