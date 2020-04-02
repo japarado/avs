@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
-class CandidateController extends Controller
+class PositionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+public function index()
     {
+		$user = User::first();
+		if($user->role_id == Config::get('constants.roles.admin'))
+		{
+			return "User is admin";
+		}
+		else 
+		{
+			return "User is not admin";
+		}
     }
 
     /**
