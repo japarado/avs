@@ -19,7 +19,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/prompt', 'Auth\LoginController@prompt')->name('login.prompt');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 
 // Custom Routes
 /* Route::group(['middleware' => ['auth']], function() { */

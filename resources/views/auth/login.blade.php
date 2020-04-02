@@ -37,6 +37,10 @@
 </article>
 @endsection
 
+@section('modal')
+    @include('parts/login-modal')
+@endsection
+
 @section('javascript')
     <script>
         function promptAlert(){
