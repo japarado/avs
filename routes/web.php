@@ -23,4 +23,5 @@ Auth::routes();
 Route::get('/prompt', 'Auth\LoginController@prompt')->name('login.prompt');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/dashboard/vote', 'DashboardController@index')->name('dashboard.vote');
 Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');

@@ -21,7 +21,7 @@
         <div class="instructions__footer">
             <div class="instructions__footer-container">
                 <div class="d-flex justify-content-center">
-                    <a type="submit" class="btn btn-lg client-custom-button">Proceed</a>
+                    <a href="{{route('dashboard.vote')}}" type="submit" class="btn btn-lg client-custom-button">Proceed</a>
                 </div>
             </div>
         </div>
