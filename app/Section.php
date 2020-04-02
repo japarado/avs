@@ -11,6 +11,12 @@ class Section extends Model
 {
     protected $table = 'section';
 
+    protected $fillable = [
+        'number',
+        'level',
+        'strand'
+    ];
+
     public function strand()
     {
         return $this->belongsTo(Strand::class);
