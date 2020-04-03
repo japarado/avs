@@ -6,8 +6,8 @@
 	<section class="vote py-4">
 		<article class="vote__container">
 
-			<form onsubmit="submitVote(event)" id="js-vote-form">
-
+			<form id="js-vote-form" method='post' action="{{ action("VoteController@overview") }}">
+				@csrf
 
 				@foreach($positions as $position)
 					<div class="vote__type">
@@ -34,7 +34,7 @@
 								<div class="vote__entry vote__entry--padding">
 									<div class="form-group">
 										<label class="custom-radio-button text-uppercase">abstain
-											<input type="radio" value="none" name="{{ $position->id }}">
+											<input type="radio" value="-1" name="{{ $position->id }}">
 											<span class="checkmark"></span>
 										</label>
 									</div>
@@ -55,8 +55,13 @@
 @endsection
 
 @section('modal')
-	@include('parts/vote-modal')
-	@include('parts/vote-prompt')
+	@if(session('show-vote-modal'))
+		@include('parts.vote-modal')
+	@endif
+
+	@if(session('show_vote_prompt'))
+		@include('parts.vote-prompt')
+	@endif
 @endsection
 
 @section('javascript')

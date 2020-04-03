@@ -1,4 +1,4 @@
-<article class="vote-modal d-none" id="js-vote-modal">
+<article class="vote-modal" id="js-vote-modal">
     <div class="vote-modal__container">
         <div class="vote-modal__card">
             <div class="vote-modal__card-header"><span class="vote-modal__card-header-text">PROMPT</span></div>

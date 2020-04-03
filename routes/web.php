@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get("/", function() {
-	return redirect()->route('login');
+Route::get("/", function () {
+    return redirect()->route('login');
 });
 
-Route::get("/admin", function() {
-	return view('admin.login');
+Route::get("/admin", function () {
+    return view('admin.login');
 });
 
 Auth::routes();
@@ -36,8 +36,9 @@ Route::get('/dashboard/vote', 'DashboardController@index')->name('dashboard.vote
 Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');
 Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboard.overview');
 
-Route::prefix('votes')->group(function() {
-	Route::get('/create', 'VoteController@create');
+Route::resource('votes', 'VoteController');
+Route::prefix('votes')->group(function () {
+    Route::post('/create/overview', 'VoteController@overview');
 });
 
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
