@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Candidate;
+use App\Position;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
@@ -23,20 +24,31 @@ class VoteController extends Controller
      */
     public function create()
     {
-		$candidates = Candidate::with('strand')->with('position')->get();
-		$candidates_by_position = [];
+		$context = [
+			'positions' => Position::with('candidates.strand')->get()
+		];
 
-		foreach($candidates as $index => $candidate)
-		{ 
-			if(array_key_exists($candidate->position->name, $candidates_by_position))
-			{
-				array_push($candidates_by_position[$candidate->position->name], $candidate);
-			}
-			else 
-			{
-				$candidates_by_position[$candidate->position->name] = [$candidate];
-			}
-		}
+		return view('vote.create', $context);
+		/* $candidates = Candidate::with('strand')->with('position')->get(); */
+		/* $candidates_by_position = []; */
+
+		/* foreach($candidates as $candidate) */
+		/* { */ 
+		/* 	if(array_key_exists($candidate->position->name, $candidates_by_position)) */
+		/* 	{ */
+		/* 		array_push($candidates_by_position[$candidate->position->name], $candidate); */
+		/* 	} */
+		/* 	else */ 
+		/* 	{ */
+		/* 		$candidates_by_position[$candidate->position->name] = [$candidate]; */
+		/* 	} */
+		/* } */
+
+		/* $context = [ */
+		/* 	'positions' => $candidates_by_position */
+		/* ]; */        
+
+		/* return view('vote.create', $context); */
     }
 
     /**

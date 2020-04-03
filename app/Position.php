@@ -15,7 +15,7 @@ class Position extends Model
         'desc'
     ];
 
-	public function candidate() 
+	public function candidates() 
 	{
 		return $this->hasMany(Candidate::class);
 	}
