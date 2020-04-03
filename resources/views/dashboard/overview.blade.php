@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="{{route('dashboard.votePrompt')}}" class="btn btn-lg client-custom-button-2">I
+                <a href="{{route('dashboard.vote',['showVotePrompt'=>true])}}" class="btn btn-lg client-custom-button-2">I
                     change my
                     mind</a>
                 <button type="submit" class="btn btn-lg client-custom-button ml-4">Vote</button>
