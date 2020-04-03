@@ -35,3 +35,5 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 Route::prefix('votes')->group(function() {
 	Route::get('/create', 'VoteController@create');
 });
+
+Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');

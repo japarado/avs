@@ -1,0 +1,29 @@
+.logout {
+    height: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    &__bubble {
+        width: 60%;
+        text-align: center;
+        background: $client-blue-green;
+        font-family: lemonmilk;
+        text-transform: uppercase;
+        color: white;
+        font-size: 3rem;
+        font-weight: 700;
+        padding: 2rem;
+        border-radius: 4rem;
+        text-shadow: $client-text-shadow;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+    }
+}

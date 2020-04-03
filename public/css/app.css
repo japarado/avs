@@ -11502,5 +11502,37 @@ body {
   padding-right: 5rem;
 }
 
+.logout {
+  height: 100%;
+}
+
+.logout__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.logout__bubble {
+  width: 60%;
+  text-align: center;
+  background: #008080;
+  font-family: lemonmilk;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 2rem;
+  border-radius: 4rem;
+  text-shadow: 1px 2px 3px #494949;
+}
+
+@media (max-width: 991.98px) {
+  .logout__bubble {
+    width: 100%;
+  }
+}
+
 
 /*# sourceMappingURL=app.css.map*/
