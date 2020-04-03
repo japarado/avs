@@ -11141,6 +11141,10 @@ body {
   user-drag: none;
 }
 
+.vote-modal__card-admin-text {
+  font-size: 4rem;
+}
+
 .vote-prompt {
   position: fixed;
   top: 0;
@@ -11296,6 +11300,16 @@ body {
 .login-page__container {
   display: flex;
   justify-content: center;
+}
+
+.login-page__admin-header {
+  font-family: lemonmilk;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 1rem 0;
+  color: #FFA500;
 }
 
 .instructions {
