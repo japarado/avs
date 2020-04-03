@@ -29,6 +29,24 @@ class AdminController extends Controller
                                 "name" => "PES",
                             ]
                         ]
+                    ],
+                    [
+                        "name" => "John Doe",
+                        "image" => "https://picsum.photos/id/237/1200",
+                        "strand" => [
+                            [
+                                "name" => "PES",
+                            ]
+                        ]
+                    ],
+                    [
+                        "name" => "John Doe",
+                        "image" => "https://picsum.photos/id/237/1200",
+                        "strand" => [
+                            [
+                                "name" => "PES",
+                            ]
+                        ]
                     ]
                 ]
             ],
@@ -60,9 +78,23 @@ class AdminController extends Controller
                     ]
                 ]
             ],
+            [
+                'name' => "Auditor",
+                'candidates' => []
+            ],
 
         ];
 
-        return view('admin.candidates')->with('candidates', $data);
+        return view('admin.candidates')->with('positions', $data);
+    }
+
+    public function candidatesAdd()
+    {
+        return view('admin.candidates-add');
+    }
+
+    public function candidatesUpdate()
+    {
+        return view('admin.candidates-update');
     }
 }

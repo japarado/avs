@@ -10920,6 +10920,19 @@ gothic:(
 
 @font-face {
   font-family: lemonmilk;
+  src: url(../fonts/lemonmilk-normal-600-webfont.woff2?e4c00560f3c79fb34ec02951a85bd48a) format("woff2"), url(../fonts/lemonmilk-normal-600-webfont.woff?1e76080220ac83c8f579064db62250f2) format("woff");
+  font-style: normal;
+  font-weight: 600;
+}
+
+.lemonmilk-normal-600 {
+  font-family: lemonmilk !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+}
+
+@font-face {
+  font-family: lemonmilk;
   src: url(../fonts/lemonmilk-normal-700-webfont.woff2?704309d14d487d70123b01508e974cdd) format("woff2"), url(../fonts/lemonmilk-normal-700-webfont.woff?8d4fac4f6d1cac492bbde7773ca2a79e) format("woff");
   font-style: normal;
   font-weight: 700;
@@ -11635,6 +11648,90 @@ body {
 
 .admin-dashboard__card-content {
   margin-top: 1.5rem;
+}
+
+.candidates__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candidates__header {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: lemonmilk;
+  letter-spacing: 0.5rem;
+  color: #767171;
+}
+
+.candidates__position {
+  margin: 1.5rem 0;
+}
+
+.candidates__position-header {
+  text-align: center;
+  font-family: lemonmilk;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+}
+
+.candidates__table-button {
+  font-weight: 600;
+  font-family: lemonmilk;
+  letter-spacing: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.candidates__button-container + .candidates__button-container {
+  margin-top: 0.5rem;
+}
+
+.candidates__body {
+  width: 100%;
+}
+
+.candidates__table {
+  margin: auto;
+}
+
+.candidates__table thead th {
+  background: #FFC000;
+  border: 2px solid white;
+  padding: 0.5rem 5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-family: lemonmilk;
+  color: white;
+  text-align: center;
+}
+
+.candidates__table tr td {
+  border: 2px solid white;
+  padding: 1rem;
+  word-break: break-word;
+  text-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.candidates__table tr:nth-child(odd) td {
+  background: #FFE8CB;
+}
+
+.candidates__table tr:nth-child(even) td {
+  background: #FFF4E7;
+}
+
+.candidates__table-container {
+  overflow: auto;
+  margin: 0 2rem;
+}
+
+.candidates__img {
+  height: 200px;
 }
 
 

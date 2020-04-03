@@ -10,9 +10,11 @@
         </div>
         <div class="candidates__body">
             <div class="candidates__body-container">
+                {{-- CUT --}}
+                @foreach ($positions as $position)
                 <div class="candidates__position">
                     <div class="candidates__position-container">
-                        <div class="candidates__position-header">PResident</div>
+                    <div class="candidates__position-header">{{$position['name']}}</div>
                         <div class="candidates__position-body">
                             <div class="candidates__position-body-container">
                                 <div class="candidates__table-container">
@@ -27,33 +29,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>aw</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>
-                                                    <a class="btn btn-lg client-custom-button">update</a>
-                                                    <a class="btn btn-lg client-custom-button-2">hide</a>
-                                                    <a class="btn btn-lg client-custom-button">remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>aw</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>
-                                                    <a class="btn btn-lg client-custom-button">update</a>
-                                                    <a class="btn btn-lg client-custom-button-2">hide</a>
-                                                    <a class="btn btn-lg client-custom-button">remove</a>
-                                                </td>
-                                            </tr>
+                                            @if(count($position['candidates']) > 0)
+                                                @foreach ($position['candidates'] as $candidate)
+                                                    <tr>
+                                                        <td>{{$candidate['name']}}</td>
+                                                        <td>{{$candidate['strand'][0]['name']}}</td>
+                                                        <td>{{$position['name']}}</td>
+                                                        <td><img class="candidates__img" src="{{$candidate['image']}}" alt="candidate image"/></td>
+                                                        <td>
+                                                            <div class="candidates__button-container">
+                                                                <a href="{{route('admin.candidatesUpdate')}}" class="btn candidates__table-button client-custom-button">update</a>
+                                                            </div>
+                                                            <form class="candidates__button-container">
+                                                                <button class="btn candidates__table-button client-custom-button-2">hide</button>
+                                                            </form>
+                                                            <form class="candidates__button-container">
+                                                                <button class="btn candidates__table-button client-custom-button">remove</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td>[empty]</td>
+                                                    <td>[empty]</td>
+                                                    <td>[empty]</td>
+                                                    <td>[empty]</td>
+                                                    <td></td>
+                                                </tr>
+                                            @endif
                                             <tr>
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <a class="btn btn-lg client-custom-button">add</a>
+                                                    <a href="{{route('admin.candidatesAdd')}}" class="btn candidates__table-button client-custom-button">add</a>
                                                 </td>
                                                 <td></td>
                                                 <td></td>
@@ -65,8 +74,13 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
 </article>
+@endsection
+
+@section('footer')
+    @include('inc.admin-footer')
 @endsection
