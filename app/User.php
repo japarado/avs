@@ -43,9 +43,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /* public function candidates() */
+    /* { */
+    /*     return $this->belongsToMany(Candidate::class, 'candidate_user', 'user_id', 'candidate_id'); */
+    /* } */
+
     public function candidates()
     {
-        return $this->belongsToMany(Candidate::class, 'candidate_user', 'user_id', 'candidate_id');
+        return $this->belongsToMany(Candidate::class)
+              ->using(Vote::class)
+              ->withPivot([
+                  'created_at',
+                  'updated_at'
+              ]);
     }
 
     public function section()

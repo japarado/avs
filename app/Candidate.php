@@ -20,18 +20,28 @@ class Candidate extends Model
         'strand_id'
     ];
 
+    /* public function users() */
+    /* { */
+    /*     return $this->belongsToMany(User::class, 'candidate_user', 'candidate_id', 'user_id'); */
+    /* } */
+
     public function users()
     {
-        return $this->belongsToMany(User::class, 'candidate_user', 'candidate_id', 'user_id');
+        return $this->belongsToMany(User::class)
+              ->using(Vote::class)
+              ->withPivot([
+                  'created_at',
+                  'updated_at'
+              ]);
     }
 
-	public function position() 
-	{
-		return $this->belongsTo(Position::class);
-	}
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
 
-	public function strand() 
-	{
-		return $this->belongsTo(Strand::class);
-	}
+    public function strand()
+    {
+        return $this->belongsTo(Strand::class);
+    }
 }
