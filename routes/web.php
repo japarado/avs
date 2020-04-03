@@ -45,3 +45,6 @@ Route::prefix('votes')->group(function () {
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
 
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+Route::get('/admin/dashboard/candidates', 'AdminController@candidates')->name('admin.candidates');
+Route::get('/admin/dashboard/candidates/add', 'AdminController@candidatesAdd')->name('admin.candidatesAdd');
+Route::get('/admin/dashboard/candidates/update', 'AdminController@candidatesUpdate')->name('admin.candidatesUpdate');
