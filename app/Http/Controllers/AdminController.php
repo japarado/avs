@@ -98,4 +98,19 @@ class AdminController extends Controller
     {
         return view('admin.candidates-update');
     }
+
+    public function registry()
+    {
+        return view('admin.registry');
+    }
+
+    public function registryStudent()
+    {
+        return view('admin.registryStudent');
+    }
+
+    public function registrySection()
+    {
+        return view('admin.registrySection');
+    }
 }
