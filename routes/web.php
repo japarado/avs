@@ -19,6 +19,10 @@ Route::get("/", function() {
 	return redirect()->route('login');
 });
 
+Route::get("/admin", function() {
+	return view('admin.login');
+});
+
 Auth::routes();
 
 Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
