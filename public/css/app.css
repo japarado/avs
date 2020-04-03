@@ -11643,8 +11643,23 @@ body {
   justify-content: center;
 }
 
+.admin-dashboard__header {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: lemonmilk;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+}
+
 .admin-dashboard__card-body {
   padding: 1rem 3rem;
+}
+
+@media (max-width: 767.98px) {
+  .admin-dashboard__card-body {
+    padding: 1rem;
+  }
 }
 
 .admin-dashboard__button {

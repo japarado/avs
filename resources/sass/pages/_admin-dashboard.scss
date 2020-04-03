@@ -46,15 +46,28 @@
         justify-content: center;
     }
 
+    &__header {
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: lemonmilk;
+        font-weight: 700;
+        letter-spacing: .5rem;
+    }
+
     &__card-body {
         padding: 1rem 3rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 1rem;
+        }
     }
 
     &__button {
         max-width: initial;
     }
 
-    &__button-container + &__button-container {
+    &__button-container+&__button-container {
         margin-top: 1.5rem;
     }
 
