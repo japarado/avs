@@ -47,11 +47,12 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         $candidate = Candidate::create([
-            'name' => $request->name,
-            'desc' => $request->create,
-            'image' => $request->image,
-            'position_id' => $request->position,
-            'strand_id' => $request->strand,
+            'name' => $request->input('name'),
+            'desc' => $request->input('desc'),
+            'image' => $request->input('image'),
+			'type' => config('constants.candidatetypes.regular'),
+            'position_id' => $request->input('position_id'),
+            'strand_id' => $request->input('strand_id'),
         ]);
 
         /* return redirect()->action('CandidateController@edit', ['id' => $candidate->id]); */

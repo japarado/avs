@@ -18,6 +18,7 @@ class CreateCandidateTable extends Migration
 			$table->string('name');
 			$table->text('desc')->nullable();
 			$table->string('image')->nullable();
+			$table->integer('type')->default(config('constants.candidatetypes.regular'));
 			$table->unsignedBigInteger('position_id');
 			$table->unsignedBigInteger('strand_id');
 			$table->timestamps();

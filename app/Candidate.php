@@ -16,6 +16,7 @@ class Candidate extends Model
         'name',
         'desc',
         'image',
+		'type',
         'position_id',
         'strand_id'
     ];

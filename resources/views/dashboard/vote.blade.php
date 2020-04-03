@@ -195,6 +195,10 @@
 </section>
 @endsection
 
+@section('footer')
+@include('inc/footer')
+@endsection
+
 @section('modal')
 @include('parts/vote-modal')
     @include('parts/vote-prompt')

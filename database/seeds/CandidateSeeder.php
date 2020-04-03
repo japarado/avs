@@ -28,11 +28,21 @@ class CandidateSeeder extends Seeder
                 $candidate = [
                     'name' => "$position->name $count_value",
                     'position_id' => $position->id,
+				'type' => config('constants.candidatetypes.regular'),
                     'strand_id' => Arr::random($strands->toArray())['id'],
                 ];
 
                 array_push($candidates, $candidate);
             }
+
+			$candidate = [
+				'name' => "$position->name ABSTAIN",
+				'position_id' => $position->id,
+				'type' => config('constants.candidatetypes.abstain'),
+				'strand_id' => Arr::random($strands->toArray())['id'],
+			];
+
+			array_push($candidates, $candidate);
         }
 
         Candidate::insert($candidates);

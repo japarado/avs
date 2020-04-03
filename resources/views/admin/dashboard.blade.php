@@ -51,3 +51,7 @@
     </div>
 </article>
 @endsection
+
+@section('footer')
+    @include('inc.admin-footer')
+@endsection

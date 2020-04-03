@@ -1,4 +1,4 @@
-<article class="vote-prompt {{$showVotePrompt ?? false ? '':'d-none'}}" id="js-vote-prompt">
+<article class="vote-prompt" id="js-vote-prompt">
     <div class="vote-prompt__container">
         <div class="vote-prompt__card">
             <div class="vote-prompt__card-header"><span class="vote-prompt__card-header-text">PROMPT</span></div>
