@@ -31,7 +31,7 @@
                                         <tbody>
                                             @if(count($position['candidates']) > 0)
                                                 @foreach ($position['candidates'] as $candidate)
-                                                    <tr>
+                                                    <tr class="{{$candidate['isHidden'] ?? false ? "candidates__tr-border":""}}">
                                                         <td>{{$candidate['name']}}</td>
                                                         <td>{{$candidate['strand'][0]['name']}}</td>
                                                         <td>{{$position['name']}}</td>
@@ -40,9 +40,15 @@
                                                             <div class="candidates__button-container">
                                                                 <a href="{{route('admin.candidatesUpdate')}}" class="btn candidates__table-button client-custom-button">update</a>
                                                             </div>
+                                                            @if($candidate['isHidden'] ?? false)
+                                                            <form class="candidates__button-container">
+                                                                <button class="btn candidates__table-button client-custom-button-2">show</button>
+                                                            </form>
+                                                            @else
                                                             <form class="candidates__button-container">
                                                                 <button class="btn candidates__table-button client-custom-button-2">hide</button>
                                                             </form>
+                                                            @endif
                                                             <form class="candidates__button-container">
                                                                 <button class="btn candidates__table-button client-custom-button">remove</button>
                                                             </form>

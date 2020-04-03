@@ -74,6 +74,21 @@
         }
     }
 
+    &__tr-border {
+        td {
+            border-top: 3px solid red !important;
+            border-bottom: 3px solid red !important;
+
+            &:first-child {
+                border-left: 3px solid red !important;
+            }
+
+            &:last-child {
+                border-right: 3px solid red !important;
+            }
+        }
+    }
+
     &__position-header {
         text-align: center;
         font-family: lemonmilk;

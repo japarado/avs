@@ -11733,6 +11733,19 @@ body {
   }
 }
 
+.candidates__tr-border td {
+  border-top: 3px solid red !important;
+  border-bottom: 3px solid red !important;
+}
+
+.candidates__tr-border td:first-child {
+  border-left: 3px solid red !important;
+}
+
+.candidates__tr-border td:last-child {
+  border-right: 3px solid red !important;
+}
+
 .candidates__position-header {
   text-align: center;
   font-family: lemonmilk;
