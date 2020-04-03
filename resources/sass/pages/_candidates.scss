@@ -17,6 +17,39 @@
         margin: 1.5rem 0;
     }
 
+    &__input-container {
+        display: flex;
+        align-items: center;
+        border: 1px solid $client-yellow;
+        flex-wrap: nowrap;
+
+        .input-group-text {
+            background: $client-yellow;
+            color: white;
+        }
+    }
+
+    &__file-input {
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__tr-border {
+        td {
+            border-top: 3px solid red !important;
+            border-bottom: 3px solid red !important;
+
+            &:first-child {
+                border-left: 3px solid red !important;
+            }
+
+            &:last-child {
+                border-right: 3px solid red !important;
+            }
+        }
+    }
+
     &__position-header {
         text-align: center;
         font-family: lemonmilk;

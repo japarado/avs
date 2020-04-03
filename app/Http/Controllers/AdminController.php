@@ -22,8 +22,9 @@ class AdminController extends Controller
                 'name' => "President",
                 'candidates' => [
                     [
-                        "name" => "John Doe",
+                        "name" => "John Doesss",
                         "image" => "https://picsum.photos/id/237/1200",
+                        "isHidden"=>true,
                         "strand" => [
                             [
                                 "name" => "PES",

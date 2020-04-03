@@ -11668,6 +11668,37 @@ body {
   margin: 1.5rem 0;
 }
 
+.candidates__input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #FFA500;
+  flex-wrap: nowrap;
+}
+
+.candidates__input-container .input-group-text {
+  background: #FFA500;
+  color: white;
+}
+
+@media (max-width: 767.98px) {
+  .candidates__file-input {
+    flex-direction: column;
+  }
+}
+
+.candidates__tr-border td {
+  border-top: 3px solid red !important;
+  border-bottom: 3px solid red !important;
+}
+
+.candidates__tr-border td:first-child {
+  border-left: 3px solid red !important;
+}
+
+.candidates__tr-border td:last-child {
+  border-right: 3px solid red !important;
+}
+
 .candidates__position-header {
   text-align: center;
   font-family: lemonmilk;
