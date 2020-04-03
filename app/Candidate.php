@@ -27,7 +27,7 @@ class Candidate extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)
+        return $this->belongsToMany(User::class, 'vote')
               ->using(Vote::class)
               ->withPivot([
                   'created_at',

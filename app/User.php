@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function candidates()
     {
-        return $this->belongsToMany(Candidate::class)
+        return $this->belongsToMany(Candidate::class, 'vote')
               ->using(Vote::class)
               ->withPivot([
                   'created_at',
