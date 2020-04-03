@@ -77,6 +77,9 @@
                 @endforeach
             </div>
         </div>
+        <div class="d-flex justify-content-center mb-4">
+            <a href="{{route('admin.dashboard')}}" class="btn btn-lg client-custom-button">Home</a>
+        </div>
     </div>
 </article>
 @endsection
