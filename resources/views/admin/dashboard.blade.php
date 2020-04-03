@@ -11,7 +11,7 @@
                     <div class="admin-dashboard__card-body-container">
                         <div class="d-flex flex-column">
                             <div class="admin-dashboard__button-container">
-                                <a class="btn btn-lg client-custom-button admin-dashboard__button">edit candidates</a>
+                            <a href="{{route('admin.candidates')}}" class="btn btn-lg client-custom-button admin-dashboard__button">edit candidates</a>
                             </div>
                             <div class="admin-dashboard__button-container">
                                 <a class="btn btn-lg client-custom-button-2 admin-dashboard__button">student registry</a>
