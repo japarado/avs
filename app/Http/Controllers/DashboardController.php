@@ -10,6 +10,96 @@ class DashboardController extends Controller
     {
         return view('dashboard/instructions');
     }
+
+    public function votePrompt()
+    {
+        $data = [];
+        $candidates = [
+            [
+                "id" => 1,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "president",
+            ],
+            [
+                "id" => 2,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'John Doe',
+                "type" => "president",
+            ],
+            [
+                "id" => 3,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Mary Jane',
+                "type" => "president",
+            ],
+            [
+                "id" => 4,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "vice_president",
+            ],
+            [
+                "id" => 5,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "secretary",
+            ],
+            [
+                "id" => 6,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "treasurer",
+            ],
+            [
+                "id" => 7,
+                "img" => 'https://picsum.photos/id/237/1200',
+                "name" => 'Geralt Dean',
+                "type" => "auditor",
+            ],
+        ];
+        $data = [
+            'candidates' => $candidates,
+            'showVotePrompt' => true,
+        ];
+        return view('dashboard.vote', $data);
+    }
+
+    public function overview()
+    {
+        $data = [];
+        $candidates = [
+            [
+                "id" => 1,
+                "name" => 'Geralt Dean',
+                "type" => "president",
+            ],
+            [
+                "id" => 2,
+                "name" => 'Geralt Dean',
+                "type" => "vice_president",
+            ],
+            [
+                "id" => 3,
+                "name" => 'Abstained',
+                "type" => "secretary",
+            ],
+            [
+                "id" => 4,
+                "name" => 'Geralt Dean',
+                "type" => "treasurer",
+            ],
+            [
+                "id" => 5,
+                "name" => 'Geralt Dean',
+                "type" => "auditor",
+            ],
+        ];
+        $data = [
+            'candidates' => $candidates
+        ];
+        return view('dashboard.overview', $data);
+    }
     /**
      * Display a listing of the resource.
      *
