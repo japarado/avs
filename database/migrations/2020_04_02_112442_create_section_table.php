@@ -15,9 +15,9 @@ class CreateSectionTable extends Migration
     {
         Schema::create('section', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('number');
             $table->unsignedInteger('level');
 			$table->unsignedBigInteger('strand_id');
+            $table->unsignedInteger('number');
             $table->timestamps();
 
 			$table->foreign('strand_id')->references('id')->on('strand');
