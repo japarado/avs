@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 			PositionSeeder::class,
 			StrandSeeder::class,
 			UserSeeder::class,
+			CandidateSeeder::class,
 		]);
     }
 }
