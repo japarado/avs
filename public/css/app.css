@@ -11548,5 +11548,72 @@ body {
   }
 }
 
+.admin-dashboard__container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 7rem 0;
+}
+
+@media (max-width: 991.98px) {
+  .admin-dashboard__container {
+    flex-direction: column;
+    padding: 0 0 2rem 0;
+  }
+}
+
+.admin-dashboard__card-header {
+  text-align: center;
+  font-family: lemonmilk;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: #008080;
+  color: white;
+  text-shadow: 1px 2px 3px #494949;
+}
+
+.admin-dashboard__card-title {
+  font-size: 2.5rem;
+}
+
+.admin-dashboard__card-content {
+  font-size: 2rem;
+}
+
+.admin-dashboard__actions {
+  flex-basis: 45%;
+  background: white;
+  border: 2px solid #FFA500;
+}
+
+@media (max-width: 991.98px) {
+  .admin-dashboard__actions {
+    flex-basis: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.admin-dashboard__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-dashboard__card-body {
+  padding: 1rem 3rem;
+}
+
+.admin-dashboard__button {
+  max-width: initial;
+}
+
+.admin-dashboard__button-container + .admin-dashboard__button-container {
+  margin-top: 1.5rem;
+}
+
+.admin-dashboard__card-content {
+  margin-top: 1.5rem;
+}
+
 
 /*# sourceMappingURL=app.css.map*/
