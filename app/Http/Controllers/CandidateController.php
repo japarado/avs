@@ -115,7 +115,6 @@ class CandidateController extends Controller
     public function destroy($id)
     {
         Candidate::destroy($id);
-
         return redirect()->back();
     }
 }

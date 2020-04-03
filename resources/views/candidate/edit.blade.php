@@ -27,3 +27,4 @@
 
 	<input type="submit" value="Submit">
 </form>
+<a href="{{ action('CandidateController@index') }}">Back</a>
