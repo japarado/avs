@@ -21,3 +21,7 @@
     </article>
 </section>
 @endsection
+
+@section('footer')
+@include('inc/footer')
+@endsection

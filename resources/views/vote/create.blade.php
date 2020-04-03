@@ -61,6 +61,10 @@
 	</section>
 @endsection
 
+@section('footer')
+@include('inc/footer')
+@endsection
+
 @section('modal')
 	@if(session('show-vote-modal'))
 		@include('parts.vote-modal')

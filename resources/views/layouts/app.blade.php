@@ -25,7 +25,7 @@
         <main class="app-client__main-container">
             @yield('content')
         </main>
-        @include('inc/footer')
+        @yield('footer')
     </div>
     @yield('modal')
     @yield('javascript')
