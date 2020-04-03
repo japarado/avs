@@ -10,7 +10,7 @@
                 </div>
                 <div class="vote-prompt__footer">
                     <div class="d-flex justify-content-center mt-3">
-                    <a href="{{route('dashboard.vote')}}" class="btn btn-lg client-custom-button vote-prompt__button">ok</a>
+                    <a onclick="hideVotePrompt()" class="btn btn-lg client-custom-button vote-prompt__button">ok</a>
                     </div>
                 </div>
             </div>

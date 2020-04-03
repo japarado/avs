@@ -202,10 +202,17 @@
 
 @section('javascript')
 <script>
+
+    const params = new URLSearchParams(document.location.search.substring(1));
+
     var positionsText = document.getElementById("js-positions");
     var voteModal = document.getElementById("js-vote-modal");
     var voteForm = document.getElementById("js-vote-form");
     var votePrompt = document.getElementById('js-vote-prompt')
+
+    if(params.get('showVotePrompt')){
+        votePrompt.classList.remove('d-none');
+    }
 
     function submitVote(e){
         var presidentElements = document.getElementsByName('president_vote');
@@ -257,6 +264,7 @@
 
     function hideVotePrompt(){
         votePrompt.classList.add('d-none');
+        params.set('showVotePrompt',false)
     }
 </script>
 @endsection
