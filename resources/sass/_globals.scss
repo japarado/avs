@@ -75,3 +75,13 @@
     max-width: 30rem;
     text-shadow: $client-text-shadow;
 }
+
+.client-custom-file-input {
+    .custom-file-label {
+        white-space: nowrap;
+        overflow: hidden;
+        &:after{
+            display: none;
+        }
+    }
+}
