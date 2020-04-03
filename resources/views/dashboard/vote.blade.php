@@ -197,6 +197,7 @@
 
 @section('modal')
 @include('parts/vote-modal')
+    @include('parts/vote-prompt')
 @endsection
 
 @section('javascript')
@@ -204,6 +205,8 @@
     var positionsText = document.getElementById("js-positions");
     var voteModal = document.getElementById("js-vote-modal");
     var voteForm = document.getElementById("js-vote-form");
+    var votePrompt = document.getElementById('js-vote-prompt')
+
     function submitVote(e){
         var presidentElements = document.getElementsByName('president_vote');
         var vicePresidentElements = document.getElementsByName('vice_president_vote');
@@ -250,6 +253,10 @@
 
     function hideModal(){
         voteModal.classList.add('d-none');
+    }
+
+    function hideVotePrompt(){
+        votePrompt.classList.add('d-none');
     }
 </script>
 @endsection
