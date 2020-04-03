@@ -15,22 +15,24 @@ class CandidateSeeder extends Seeder
      */
     public function run()
     {
-		$positions = Position::all();
-		$strands = Strand::all();
-		$candidates = [];
+        $positions = Position::all();
+        $strands = Strand::all();
+        $candidates = [];
 
-		foreach($positions as $position) 
-		{
-			for($ctr = 0; $ctr < 3; $ctr++)
-			{
-				$count_value = $ctr + 1;
+        foreach ($positions as $position) {
+            for ($ctr = 0; $ctr < 3; $ctr++) {
+                $count_value = $ctr + 1;
 
-				$candidate = new Candidate();
-				$candidate->name = "$position->name $count_value";
-				$candidate->position_id = $position->id;
-				$candidate->strand_id = Arr::random($strands->toArray())['id'];
-				$candidate->save();
-			}
-		}
+                $candidate = [
+                    'name' => "$position->name $count_value",
+                    'position_id' => $position->id,
+                    'strand_id' => Arr::random($strands->toArray())['id'],
+                ];
+
+                array_push($candidates, $candidate);
+            }
+        }
+
+        Candidate::insert($candidates);
     }
 }
