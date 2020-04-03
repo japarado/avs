@@ -31,3 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard/vote', 'DashboardController@index')->name('dashboard.vote');
 Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');
 Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboard.overview');
+
+Route::prefix('votes')->group(function() {
+	Route::get('/create', 'VoteController@create');
+});

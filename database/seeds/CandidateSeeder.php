@@ -19,8 +19,10 @@ class CandidateSeeder extends Seeder
         $strands = Strand::all();
         $candidates = [];
 
-        foreach ($positions as $position) {
-            for ($ctr = 0; $ctr < 3; $ctr++) {
+		foreach ($positions as $position)
+	   	{
+			for ($ctr = 0; $ctr < 3; $ctr++)
+		   	{
                 $count_value = $ctr + 1;
 
                 $candidate = [
