@@ -5,7 +5,9 @@
 @section('content')
 	<section class="vote py-4">
 		<article class="vote__container">
+
 			<form onsubmit="submitVote(event)" id="js-vote-form">
+
 
 				@foreach($positions as $position)
 					<div class="vote__type">
@@ -23,7 +25,7 @@
 												<label class="custom-radio-button">{{ $candidate->name }}
 													<input type="radio" value="{{ $candidate->id }}"
 																		name="{{ $position->id }}">
-													<span class="checkmark"></span>
+																		<span class="checkmark"></span>
 												</label>
 											</div>
 										</div>
@@ -43,189 +45,9 @@
 					</div>
 				@endforeach
 
-				{{-- <div class="vote__type"> --}}
-					{{-- 	<div class="vote__header"><span>President</span></div> --}}
-					{{-- 	<div class="vote__body"> --}}
-						{{-- 		<div class="vote__body-container"> --}}
-							{{-- 			@foreach ($candidates as $candidate) --}}
-								{{-- 				@if($candidate['type'] == 'president') --}}
-									{{-- 					<div class="vote__entry"> --}}
-										{{-- 						<div class="vote__img-container"> --}}
-											{{-- 							<img class="vote__img" src="{{$candidate['img']}}" /> --}}
-											{{-- 						</div> --}}
-										{{-- 						<div class="vote__name"> --}}
-
-											{{-- 							<div class="form-group"> --}}
-												{{-- 								<label class="custom-radio-button">{{$candidate['name']}} --}}
-													{{-- 									<input type="radio" value="{{$candidate['id']}}" --}}
-													{{-- 														name="president_vote"> --}}
-													{{-- 									<span class="checkmark"></span> --}}
-													{{-- 								</label> --}}
-												{{-- 							</div> --}}
-											{{-- 						</div> --}}
-										{{-- 					</div> --}}
-									{{-- 				@endif --}}
-									{{-- 			@endforeach --}}
-									{{-- 			<div class="vote__entry vote__entry--padding"> --}}
-										{{-- 				<div class="form-group"> --}}
-											{{-- 					<label class="custom-radio-button text-uppercase">abstain --}}
-												{{-- 						<input type="radio" value="none" name="president_vote"> --}}
-												{{-- 						<span class="checkmark"></span> --}}
-												{{-- 					</label> --}}
-											{{-- 				</div> --}}
-										{{-- 			</div> --}}
-
-									{{-- 		</div> --}}
-								{{-- 	</div> --}}
-							{{-- </div> --}}
-
-						{{-- <div class="vote__type"> --}}
-							{{-- 	<div class="vote__header"><span>Vice President</span></div> --}}
-							{{-- 	<div class="vote__body"> --}}
-								{{-- 		<div class="vote__body-container"> --}}
-									{{-- 			@foreach ($candidates as $candidate) --}}
-										{{-- 				@if($candidate['type'] == 'vice_president') --}}
-											{{-- 					<div class="vote__entry"> --}}
-												{{-- 						<div class="vote__img-container"> --}}
-													{{-- 							<img class="vote__img" src="{{$candidate['img']}}" /> --}}
-													{{-- 						</div> --}}
-												{{-- 						<div class="vote__name"> --}}
-
-													{{-- 							<div class="form-group"> --}}
-														{{-- 								<label class="custom-radio-button">{{$candidate['name']}} --}}
-															{{-- 									<input type="radio" value="{{$candidate['id']}}" --}}
-															{{-- 														name="vice_president_vote"> --}}
-															{{-- 									<span class="checkmark"></span> --}}
-															{{-- 								</label> --}}
-														{{-- 							</div> --}}
-													{{-- 						</div> --}}
-												{{-- 					</div> --}}
-											{{-- 				@endif --}}
-											{{-- 			@endforeach --}}
-											{{-- 			<div class="vote__entry vote__entry--padding"> --}}
-												{{-- 				<div class="form-group"> --}}
-													{{-- 					<label class="custom-radio-button text-uppercase">abstain --}}
-														{{-- 						<input type="radio" value="none" --}}
-														{{-- 											name="vice_president_vote"> --}}
-														{{-- 						<span class="checkmark"></span> --}}
-														{{-- 					</label> --}}
-													{{-- 				</div> --}}
-												{{-- 			</div> --}}
-
-											{{-- 		</div> --}}
-										{{-- 	</div> --}}
-									{{-- </div> --}}
-
-								{{-- <div class="vote__type"> --}}
-									{{-- 	<div class="vote__header"><span>Secretary</span></div> --}}
-									{{-- 	<div class="vote__body"> --}}
-										{{-- 		<div class="vote__body-container"> --}}
-											{{-- 			@foreach ($candidates as $candidate) --}}
-												{{-- 				@if($candidate['type'] == 'secretary') --}}
-													{{-- 					<div class="vote__entry"> --}}
-														{{-- 						<div class="vote__img-container"> --}}
-															{{-- 							<img class="vote__img" src="{{$candidate['img']}}" /> --}}
-															{{-- 						</div> --}}
-														{{-- 						<div class="vote__name"> --}}
-
-															{{-- 							<div class="form-group"> --}}
-																{{-- 								<label class="custom-radio-button">{{$candidate['name']}} --}}
-																	{{-- 									<input type="radio" value="{{$candidate['id']}}" --}}
-																	{{-- 														name="secretary_vote"> --}}
-																	{{-- 									<span class="checkmark"></span> --}}
-																	{{-- 								</label> --}}
-																{{-- 							</div> --}}
-															{{-- 						</div> --}}
-														{{-- 					</div> --}}
-													{{-- 				@endif --}}
-													{{-- 			@endforeach --}}
-													{{-- 			<div class="vote__entry vote__entry--padding"> --}}
-														{{-- 				<div class="form-group"> --}}
-															{{-- 					<label class="custom-radio-button text-uppercase">abstain --}}
-																{{-- 						<input type="radio" value="none" name="secretary_vote"> --}}
-																{{-- 						<span class="checkmark"></span> --}}
-																{{-- 					</label> --}}
-															{{-- 				</div> --}}
-														{{-- 			</div> --}}
-
-													{{-- 		</div> --}}
-												{{-- 	</div> --}}
-											{{-- </div> --}}
-
-										{{-- <div class="vote__type"> --}}
-											{{-- 	<div class="vote__header"><span>Teasurer</span></div> --}}
-											{{-- 	<div class="vote__body"> --}}
-												{{-- 		<div class="vote__body-container"> --}}
-													{{-- 			@foreach ($candidates as $candidate) --}}
-														{{-- 				@if($candidate['type'] == 'treasurer') --}}
-															{{-- 					<div class="vote__entry"> --}}
-																{{-- 						<div class="vote__img-container"> --}}
-																	{{-- 							<img class="vote__img" src="{{$candidate['img']}}" /> --}}
-																	{{-- 						</div> --}}
-																{{-- 						<div class="vote__name"> --}}
-
-																	{{-- 							<div class="form-group"> --}}
-																		{{-- 								<label class="custom-radio-button">{{$candidate['name']}} --}}
-																			{{-- 									<input type="radio" value="{{$candidate['id']}}" --}}
-																			{{-- 														name="treasurer_vote"> --}}
-																			{{-- 									<span class="checkmark"></span> --}}
-																			{{-- 								</label> --}}
-																		{{-- 							</div> --}}
-																	{{-- 						</div> --}}
-																{{-- 					</div> --}}
-															{{-- 				@endif --}}
-															{{-- 			@endforeach --}}
-															{{-- 			<div class="vote__entry vote__entry--padding"> --}}
-																{{-- 				<div class="form-group"> --}}
-																	{{-- 					<label class="custom-radio-button text-uppercase">abstain --}}
-																		{{-- 						<input type="radio" value="none" name="treasurer_vote"> --}}
-																		{{-- 						<span class="checkmark"></span> --}}
-																		{{-- 					</label> --}}
-																	{{-- 				</div> --}}
-																{{-- 			</div> --}}
-
-															{{-- 		</div> --}}
-														{{-- 	</div> --}}
-													{{-- </div> --}}
-
-												{{-- <div class="vote__type"> --}}
-													{{-- 	<div class="vote__header"><span>Auditor</span></div> --}}
-													{{-- 	<div class="vote__body"> --}}
-														{{-- 		<div class="vote__body-container"> --}}
-															{{-- 			@foreach ($candidates as $candidate) --}}
-																{{-- 				@if($candidate['type'] == 'auditor') --}}
-																	{{-- 					<div class="vote__entry"> --}}
-																		{{-- 						<div class="vote__img-container"> --}}
-																			{{-- 							<img class="vote__img" src="{{$candidate['img']}}" /> --}}
-																			{{-- 						</div> --}}
-																		{{-- 						<div class="vote__name"> --}}
-
-																			{{-- 							<div class="form-group"> --}}
-																				{{-- 								<label class="custom-radio-button">{{$candidate['name']}} --}}
-																					{{-- 									<input type="radio" value="{{$candidate['id']}}" --}}
-																					{{-- 														name="auditor_vote"> --}}
-																					{{-- 									<span class="checkmark"></span> --}}
-																					{{-- 								</label> --}}
-																				{{-- 							</div> --}}
-																			{{-- 						</div> --}}
-																		{{-- 					</div> --}}
-																	{{-- 				@endif --}}
-																	{{-- 			@endforeach --}}
-																	{{-- 			<div class="vote__entry vote__entry--padding"> --}}
-																		{{-- 				<div class="form-group"> --}}
-																			{{-- 					<label class="custom-radio-button text-uppercase">abstain --}}
-																				{{-- 						<input type="radio" value="none" name="auditor_vote"> --}}
-																				{{-- 						<span class="checkmark"></span> --}}
-																				{{-- 					</label> --}}
-																			{{-- 				</div> --}}
-																		{{-- 			</div> --}}
-
-																	{{-- 		</div> --}}
-																{{-- 	</div> --}}
-															{{-- </div> --}}
-														<div class="d-flex justify-content-center">
-															<button type="submit" class="btn btn-lg client-custom-button">Vote</button>
-														</div>
+				<div class="d-flex justify-content-center">
+					<button type="submit" class="btn btn-lg client-custom-button">Vote</button>
+				</div>
 			</form>
 
 		</article>
