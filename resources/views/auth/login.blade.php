@@ -8,9 +8,10 @@
                 @include('parts/logo-text')
             </div>
             <div class="login-page__card-body">
-                <form id="js-login-form" onsubmit="promptAlert()" class="login-page__form">
+                <form id="js-login-form"  class="login-page__form" action="{{ route('login') }}" method="post">
+					@csrf
                     <div class="form-group">
-                        <input id="js-student-number" type="text" class="form-control client-custom-input" name="student_number"
+                        <input id="js-student-number" type="text" class="form-control client-custom-input" name="email"
                             placeholder="Student Number">
                     </div>
 
