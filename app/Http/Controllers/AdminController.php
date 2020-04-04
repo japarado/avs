@@ -111,7 +111,30 @@ class AdminController extends Controller
 
     public function registryStudentList()
     {
-        return view('admin.registryStudentList');
+        $students = [
+            [
+                'status'=>"Voted",
+                'cn' => '1',
+                'student_number'=>'2018-696969',
+                'full_name' => 'Jogn B. Doe',
+                'password'=>'1212142346'
+            ],
+            [
+                'status'=>"Voted",
+                'cn' => '1',
+                'student_number'=>'2018-696969',
+                'full_name' => 'Jogn B. Doe',
+                'password'=>'1212142346'
+            ],
+            [
+                'status'=>"Voted",
+                'cn' => '1',
+                'student_number'=>'2018-696969',
+                'full_name' => 'Jogn B. Doe',
+                'password'=>'1212142346'
+            ],
+        ];
+        return view('admin.registryStudentList',['students'=>$students]);
     }
 
     public function registrySection()
