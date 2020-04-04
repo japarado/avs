@@ -1,0 +1,79 @@
+.result-doc {
+    background: white;
+    height: 100%;
+    font-family: Arial;
+
+    &__logo-img {
+        height: 200px;
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__logo-pru {
+        height: 200px;
+    }
+
+    &__header-title {
+        text-transform: uppercase;
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    &__header-content {
+        font-size: 25px;
+        margin-top: 12px;
+        font-weight: 700;
+    }
+
+    &__header-text {
+        text-align: center;
+    }
+
+    &__table {
+        min-width: 40%;
+        margin-top: 2.5rem;
+
+        th,
+        td {
+            border: 2px solid black;
+            padding: 3px 5px;
+            text-align: center;
+            word-break: break-word;
+            min-width: 60px;
+        }
+
+        th {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    &__body-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__table-row-custom {
+        td {
+            font-weight: 700;
+        }
+    }
+
+    &__footer-body {
+        font-weight: 700;
+    }
+
+    &__sign {
+        border-top: 2px solid black;
+        width: 50%;
+        padding-top: 5px;
+    }
+
+    &__footer-text {
+        margin-top: 70px;
+    }
+}

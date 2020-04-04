@@ -12451,5 +12451,83 @@ body {
   margin-top: 1.5rem;
 }
 
+.result-doc {
+  background: white;
+  height: 100%;
+  font-family: Arial;
+}
+
+.result-doc__logo-img {
+  height: 200px;
+}
+
+.result-doc__container {
+  display: flex;
+}
+
+.result-doc__logo-pru {
+  height: 200px;
+}
+
+.result-doc__header-title {
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.result-doc__header-content {
+  font-size: 25px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.result-doc__header-text {
+  text-align: center;
+}
+
+.result-doc__table {
+  min-width: 40%;
+  margin-top: 2.5rem;
+}
+
+.result-doc__table th,
+.result-doc__table td {
+  border: 2px solid black;
+  padding: 3px 5px;
+  text-align: center;
+  word-break: break-word;
+  min-width: 60px;
+}
+
+.result-doc__table th {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.result-doc__body-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-doc__table-row-custom td {
+  font-weight: 700;
+}
+
+.result-doc__footer-body {
+  font-weight: 700;
+}
+
+.result-doc__sign {
+  border-top: 2px solid black;
+  width: 50%;
+  padding-top: 5px;
+}
+
+.result-doc__footer-text {
+  margin-top: 70px;
+}
+
 
 /*# sourceMappingURL=app.css.map*/
