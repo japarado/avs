@@ -62,11 +62,11 @@
 @endsection
 
 @section('modal')
-	@if(session('show-vote-modal'))
+	@if(session("show-vote-modal"))
 		@include('parts.vote-modal')
 	@endif
 
-	@if(session('show_vote_prompt'))
+	@if(session('show-vote-prompt'))
 		@include('parts.vote-prompt')
 	@endif
 @endsection
