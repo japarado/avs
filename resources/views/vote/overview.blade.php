@@ -5,7 +5,8 @@
 @section('content')
 	<section class="overview py-4">
 		<article class="overview__container">
-			<form>
+			<form action="{{ action('VoteController@store') }}" metho="post">
+				@csrf
 				<div class="overview__type">
 					<div class="overview__header"><span>Overview</span></div>
 					<div class="overview__body">
@@ -15,10 +16,10 @@
 									<div class="overview__title"><span>{{ $position->name }}</span></div>
 									@foreach($position->candidates as $candidate)
 										<div class="overview__value">
-											<input type="hidden" value="" />
+											<input type="hidden" value="{{ $position->name }}" />
 											<textarea class="overview__input form-control"
 													  name="president">
-												{{$candidate->type === config('constants.candidatetypes.regular') ? $candidate->name : ABSTAIN }}
+												{{$candidate->type === config('constants.candidatetypes.regular') ? $candidate->name : 'abstain' }}
 											</textarea>
 										</div>
 									@endforeach
