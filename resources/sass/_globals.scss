@@ -80,7 +80,8 @@
     .custom-file-label {
         white-space: nowrap;
         overflow: hidden;
-        &:after{
+
+        &:after {
             display: none;
         }
     }
@@ -92,4 +93,21 @@
 
 .no-text-shadow {
     text-shadow: initial !important;
+}
+
+.custom-form-input-text {
+    label {
+        text-transform: uppercase;
+        font-family: lemonmilk;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    input, select {
+        letter-spacing: .5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        border: 2px solid $client-blue-green;
+        border-radius: 0;
+    }
 }
