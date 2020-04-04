@@ -22,6 +22,8 @@ class CreateCandidateTable extends Migration
 			$table->unsignedBigInteger('position_id');
 			$table->unsignedBigInteger('strand_id');
 			$table->timestamps();
+			$table->softDeletes();
+
 
 			$table->foreign('position_id')->references('id')->on('position');
 			$table->foreign('strand_id')->references('id')->on('strand');
