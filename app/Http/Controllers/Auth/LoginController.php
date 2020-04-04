@@ -46,6 +46,6 @@ class LoginController extends Controller
 
 	public function redirectTo()
 	{
-		return action('StudentController@index');
+		return action('VoteController@instructions');
 	}
 }

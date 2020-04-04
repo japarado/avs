@@ -15,10 +15,10 @@ class VoteController extends Controller
 
 	}
 
-	public function dashboard()
-	{
-
-	}
+	public function instructions()
+    {
+        return view('vote.instructions');
+    }
 
 	public function create()
 	{
@@ -30,7 +30,7 @@ class VoteController extends Controller
 		return view('vote.create', $context);
 	}
 
-	public function overview(Request $request) 
+	public function overview(Request $request)
 	{
 		$position_ids = [];
 		$candidate_ids = [];
