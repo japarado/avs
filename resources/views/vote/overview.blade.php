@@ -17,9 +17,9 @@
 									@foreach($position->candidates as $candidate)
 										<div class="overview__value">
 											<input type="hidden" name="{{ $position->id }}" value="{{ $candidate->id }}" />
-											<textarea class="overview__input form-control">
+											<div class="overview__input form-control">
 												{{$candidate->type === config('constants.candidatetypes.regular') ? $candidate->name : 'abstain' }}
-											</textarea>
+											</div>
 										</div>
 									@endforeach
 								</div>

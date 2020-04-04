@@ -11507,8 +11507,21 @@ body {
   text-shadow: 1px 2px 3px #494949;
 }
 
+@media (max-width: 767.98px) {
+  .overview__header {
+    padding: 0.5rem 1rem;
+    font-size: 2.5rem;
+  }
+}
+
 .overview__value {
   margin-left: 12rem;
+}
+
+@media (max-width: 991.98px) {
+  .overview__value {
+    margin-left: 0;
+  }
 }
 
 .overview__entry {
@@ -11538,11 +11551,26 @@ body {
   padding: 0.5rem 6rem;
   border-radius: 20px;
   text-shadow: 1px 2px 3px #494949;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+@media (max-width: 991.98px) {
+  .overview__title {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+  }
 }
 
 .overview__body {
   padding: 1rem 5rem;
   overflow: auto;
+}
+
+@media (max-width: 991.98px) {
+  .overview__body {
+    padding: 1rem 1rem;
+  }
 }
 
 .overview__name {
