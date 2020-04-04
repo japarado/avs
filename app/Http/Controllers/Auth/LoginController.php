@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/prompt";
+    /* protected $redirectTo = "/prompt"; */
 
     /**
      * Create a new controller instance.
@@ -43,4 +43,9 @@ class LoginController extends Controller
     {
         return view('auth/login')->with('showModal',true);
     }
+
+	public function redirectTo()
+	{
+		return action('VoteController@create');
+	}
 }
