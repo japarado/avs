@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
 use App\Position;
+use App\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
@@ -83,6 +86,37 @@ class VoteController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$position_ids = [];
+		$candidate_ids = [];
+
+		foreach($request->except('_token') as $key => $value)
+		{
+			array_push($position_ids, $key);
+			array_push($candidate_ids, $value);
+		}
+
+		$unused_positions = Position::whereNotIn('id', $position_ids)->get();
+
+		if(count($unused_positions) > 0)
+		{
+			$unused_position_names = $unused_positions->implode('name', ', ');
+			return redirect()
+				->action('VoteController@create')
+				->with([
+					'show-vote-modal' => true,
+					'unused_position_names' => $unused_position_names
+				]);
+		}
+		else
+		{
+			$votes = [];
+			$candidates = Candidate::whereIn('id', $candidate_ids)->get();
+
+			Auth::user()->candidates()->detach();
+			Auth::user()->candidates()->attach($candidates);
+
+			return view('vote.logout');
+		}
 	}
 
 	/**
