@@ -25,9 +25,9 @@ Route::get("/admin", function () {
 
 Auth::routes();
 
-Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
+/*Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
 Route::resource('sections', 'SectionController')->parameter('sections', 'id');
-Route::resource('strands', 'StrandController')->parameter('strands', 'id');
+Route::resource('strands', 'StrandController')->parameter('strands', 'id');*/
 
 Route::get('/prompt', 'Auth\LoginController@prompt')->name('login.prompt');
 Route::get('/home', 'HomeController@index')->name('home');
