@@ -17,7 +17,9 @@ class CandidateController extends Controller
     public function index()
     {
         $context = [
-            'candidates' => Candidate::with('strand')->with('position')->get()
+			'positions' => Position::with(['candidates' => function($query) {
+				$query->where('type', config('constants.candidatetypes.regular'));
+			}])->get()
         ];
 
         return view('candidate.index', $context);
