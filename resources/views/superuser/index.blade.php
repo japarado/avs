@@ -11,7 +11,7 @@
                     <div class="admin-dashboard__card-body-container">
                         <div class="d-flex flex-column">
                             <div class="admin-dashboard__button-container">
-                            <a href="{{route('admin.candidates')}}" class="btn btn-lg client-custom-button admin-dashboard__button">edit candidates</a>
+                            <a href="{{action('CandidateController@index')}}" class="btn btn-lg client-custom-button admin-dashboard__button">edit candidates</a>
                             </div>
                             <div class="admin-dashboard__button-container">
                                 <a href="{{route('admin.registry')}}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">student registry</a>
@@ -27,7 +27,7 @@
         <div class="admin-dashboard__actions">
             <div class="admin-dashboard__card">
                 <div class="admin-dashboard__card-header">
-                    <div class="admin-dashboard__card-title">admin id: {{$data['id']}}</div>
+                    <div class="admin-dashboard__card-title">admin id: {{ $id }}</div>
                     <div class="admin-dashboard__card-content">
                         Polling station<br />rm. 7d<br />Buenaventura garcia paredes O.P.
                     </div>
