@@ -141,4 +141,26 @@ class AdminController extends Controller
     {
         return view('admin.registrySection');
     }
+
+    public function registrySectionList()
+    {
+        $sections = [
+            [
+                'level'=>"11",
+                'strand' => 'abm',
+                'section'=>'1',
+            ],
+            [
+                'level'=>"11",
+                'strand' => 'abm',
+                'section'=>'1',
+            ],
+            [
+                'level'=>"11",
+                'strand' => 'abm',
+                'section'=>'1',
+            ],
+        ];
+        return view('admin.registrySectionList',['sections'=>$sections]);
+    }
 }

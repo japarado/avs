@@ -70,3 +70,4 @@ Route::get('/admin/dashboard/registry', 'AdminController@registry')->name('admin
 Route::get('/admin/dashboard/registry/student', 'AdminController@registryStudent')->name('admin.registryStudent');
 Route::get('/admin/dashboard/registry/student/list', 'AdminController@registryStudentList')->name('admin.registryStudentList');
 Route::get('/admin/dashboard/registry/section', 'AdminController@registrySection')->name('admin.registrySection');
+Route::get('/admin/dashboard/registry/section/list', 'AdminController@registrySectionList')->name('admin.registrySectionList');
