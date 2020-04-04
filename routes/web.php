@@ -39,6 +39,7 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 Route::resource('votes', 'VoteController');
 Route::prefix('votes')->group(function () {
     Route::post('/create/overview', 'VoteController@overview');
+	Route::get('/create/restart', "VoteController@restart");
 });
 
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
