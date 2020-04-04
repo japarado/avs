@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
+use App\Position;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -34,6 +36,14 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
+		$position = Position::create(['name' => $request->name, 'desc' => $request->desc]);
+
+		// Create ABSTAIN candidate
+		Candidate::create([
+			'name' => "$position->name ABSTAIN",
+			'desc' => "Abstain position for $position->name",
+			'type' => config('constants.candidatetypes.abstain')
+		]);
     }
 
     /**
