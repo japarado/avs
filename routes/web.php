@@ -48,6 +48,9 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::prefix('superuser')->group(function() {
+
+	Route::get('registry', 'SuperUserController@registry');
+
 	Route::prefix('candidates')->group(function() {
 		Route::delete('/hide/{id}', 'CandidateController@hide');
 	});

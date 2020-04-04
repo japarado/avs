@@ -52,12 +52,10 @@ class CandidateController extends Controller
             'name' => $request->input('name'),
             'desc' => $request->input('desc'),
             'image' => $request->input('image'),
-			'type' => config('constants.candidatetypes.regular'),
-            'position_id' => $request->input('position_id'),
-            'strand_id' => $request->input('strand_id'),
+            'position_id' => $request->input('position'),
+            'strand_id' => $request->input('strand'),
         ]);
 
-        /* return redirect()->action('CandidateController@edit', ['id' => $candidate->id]); */
         return redirect()->route('candidates.edit', ['id' => $candidate->id]);
     }
 
@@ -69,7 +67,6 @@ class CandidateController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -80,13 +77,15 @@ class CandidateController extends Controller
      */
     public function edit($id)
     {
-        $context = [
-            'candidate' => Candidate::find($id),
-            'strands' => Strand::all(),
-            'positions' => Position::all(),
-        ];
+		$candidate = Candidate::find($id);
 
-        return view('candidate.edit', $context);
+		$context = [
+			'candidate' => Candidate::find($id),
+			'strands' => Strand::all(),
+			'positions' => Position::all()
+		];
+
+		return view('candidate.edit', $context);
     }
 
     /**
@@ -106,7 +105,6 @@ class CandidateController extends Controller
         $candidate->save();
 
         return redirect()->back();
-        /* return redirect()->action('CandidateController@create'); */
     }
 
     /**

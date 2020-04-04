@@ -38,7 +38,8 @@
 																<td><img class="candidates__img" src="{{ $candidate->image }}" alt="candidate image"/></td>
 																<td>
 																	<div class="candidates__button-container">
-																		<a href="{{route('admin.candidatesUpdate')}}" class="btn candidates__table-button client-custom-button">update</a>
+																		<a href="{{action('CandidateController@edit', ['id' => $candidate->id])}}" 
+																			class="btn candidates__table-button client-custom-button">update</a>
 																	</div>
 																	@if($candidate->trashed() ?? false)
 																		<form class="candidates__button-container"
@@ -81,7 +82,7 @@
 														<td></td>
 														<td></td>
 														<td>
-															<a href="{{route('admin.candidatesAdd')}}" class="btn candidates__table-button client-custom-button">add</a>
+															<a href="{{action('CandidateController@create')}}" class="btn candidates__table-button client-custom-button">add</a>
 														</td>
 														<td></td>
 														<td></td>

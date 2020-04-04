@@ -14,7 +14,7 @@
                             <a href="{{action('CandidateController@index')}}" class="btn btn-lg client-custom-button admin-dashboard__button">edit candidates</a>
                             </div>
                             <div class="admin-dashboard__button-container">
-                                <a href="{{route('admin.registry')}}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">student registry</a>
+                                <a href="{{action('registry')}}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">student registry</a>
                             </div>
                             <div class="admin-dashboard__button-container">
                                 <a class="btn btn-lg client-custom-button admin-dashboard__button">results</a>
