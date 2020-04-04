@@ -7,7 +7,7 @@
                     <div class="vote-modal__card-body-text">
                         <span class="">
 							<span id="js-positions">
-								It appears that you do not have an answer for ({{ $unused_position_names }}), if you don't want to vote in the said position click abstain
+								It appears that you do not have an answer for ({{ session('unused_position_names') }}), if you don't want to vote in the said position click abstain
 							</span>
                         </span>
                         <div>
