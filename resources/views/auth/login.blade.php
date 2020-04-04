@@ -40,6 +40,10 @@
 </article>
 @endsection
 
+@section('footer')
+    @include('inc/footer')
+@endsection
+
 @section('modal')
     @include('parts/login-modal')
 @endsection
