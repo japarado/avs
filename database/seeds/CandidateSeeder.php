@@ -28,6 +28,7 @@ class CandidateSeeder extends Seeder
                 $candidate = [
                     'name' => "$position->name $count_value",
                     'position_id' => $position->id,
+					'image' => 'https://picsum.photos/id/237/1200',
 					'type' => config('constants.candidatetypes.regular'),
                     'strand_id' => Arr::random($strands->toArray())['id'],
                 ];
@@ -38,6 +39,7 @@ class CandidateSeeder extends Seeder
 			$candidate = [
 				'name' => "$position->name ABSTAIN",
 				'position_id' => $position->id,
+				'image' => 'https://picsum.photos/id/237/1200',
 				'type' => config('constants.candidatetypes.abstain'),
 				'strand_id' => Arr::random($strands->toArray())['id'],
 			];

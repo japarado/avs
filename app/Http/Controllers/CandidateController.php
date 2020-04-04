@@ -18,7 +18,7 @@ class CandidateController extends Controller
     {
         $context = [
 			'positions' => Position::with(['candidates' => function($query) {
-				$query->where('type', config('constants.candidatetypes.regular'));
+				$query->where('type', config('constants.candidatetypes.regular'))->withTrashed()->with('strand');
 			}])->get()
         ];
 
@@ -117,7 +117,11 @@ class CandidateController extends Controller
      */
     public function destroy($id)
     {
-        Candidate::destroy($id);
+		Candidate::find($id)->forceDelete();
         return redirect()->back();
     }
+
+	public function hide($id)
+	{
+	}
 }

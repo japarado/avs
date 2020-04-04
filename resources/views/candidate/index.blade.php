@@ -31,16 +31,16 @@
                                         <tbody>
                                             @if(count($position['candidates']) > 0)
 												@foreach ($position->candidates as $candidate)
-                                                    <tr class="{{$candidate['isHidden'] ?? false ? "candidates__tr-border":""}}">
-                                                        <td>{{$candidate['name']}}</td>
-                                                        <td>{{$candidate['strand'][0]['name']}}</td>
-                                                        <td>{{$position['name']}}</td>
-                                                        <td><img class="candidates__img" src="{{$candidate['image']}}" alt="candidate image"/></td>
+													<tr class="{{$candidate->trashed() ?? false ? "candidates__tr-border":""}}">
+														<td>{{ $candidate->name }}</td>
+														<td>{{ $candidate->strand->name }}</td>
+														<td>{{ $position->name }}</td>
+														<td><img class="candidates__img" src="{{ $candidate->image }}" alt="candidate image"/></td>
                                                         <td>
                                                             <div class="candidates__button-container">
                                                                 <a href="{{route('admin.candidatesUpdate')}}" class="btn candidates__table-button client-custom-button">update</a>
                                                             </div>
-                                                            @if($candidate['isHidden'] ?? false)
+															@if($candidate->trashed() ?? false)
                                                             <form class="candidates__button-container">
                                                                 <button class="btn candidates__table-button client-custom-button-2">show</button>
                                                             </form>
