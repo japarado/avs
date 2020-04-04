@@ -11938,5 +11938,126 @@ body {
   margin-top: 1.5rem;
 }
 
+.student-list__container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 7rem 12rem;
+}
+
+@media (max-width: 1199.98px) {
+  .student-list__container {
+    padding: 7rem 2rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .student-list__container {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+}
+
+.student-list__table thead th {
+  font-family: "Comfortaa";
+  background: #4472C4;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.5rem 2rem;
+}
+
+.student-list__table tr td {
+  padding: 0.5rem;
+  text-transform: capitalize;
+}
+
+.student-list__table tr:nth-child(odd) td {
+  background: #CFD5EA;
+}
+
+.student-list__table tr:nth-child(even) td {
+  background: #E9EBF5;
+}
+
+.student-list__card-header {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: lemonmilk;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+
+.student-list__card-title {
+  font-size: 2.5rem;
+}
+
+.student-list__card-content {
+  font-size: 2rem;
+}
+
+.student-list__actions {
+  width: 100%;
+  background: white;
+  border: 2px solid #FFA500;
+}
+
+.student-list__actions--custom {
+  border: 2px solid #FFA500;
+}
+
+.student-list__actions--custom .registry-student__card-header {
+  background: #FFA500;
+  font-size: 2.5rem;
+}
+
+.student-list__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.student-list__header {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: lemonmilk;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+}
+
+.student-list__card-body {
+  padding: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .student-list__card-body {
+    padding: 1rem;
+  }
+}
+
+.student-list__actions-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .student-list__actions-container {
+    flex-direction: column;
+  }
+}
+
+.student-list__button {
+  max-width: initial;
+}
+
+.student-list__button-container + .student-list__button-container {
+  margin-top: 1.5rem;
+}
+
+.student-list__card-content {
+  margin-top: 1.5rem;
+}
+
 
 /*# sourceMappingURL=app.css.map*/

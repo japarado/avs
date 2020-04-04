@@ -1,0 +1,122 @@
+.student-list {
+    &__container {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 7rem 12rem;
+
+        @include media-breakpoint-down(lg) {
+            padding: 7rem 2rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            padding: 2rem 0;
+        }
+    }
+
+    &__table {
+        thead th {
+            font-family: 'Comfortaa';
+            background: $client-blue;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 0.5rem 2rem;
+        }
+
+        tr {
+            td {
+                padding: .5rem;
+                text-transform: capitalize;
+            }
+
+            &:nth-child(odd) {
+                td {
+                    background: $client-blue-2;
+                }
+            }
+
+            &:nth-child(even) {
+                td {
+                    background: $client-blue-3;
+                }
+            }
+        }
+    }
+
+    &__card-header {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: lemonmilk;
+        font-size: 3rem;
+        font-weight: 600;
+        margin: 1rem;
+    }
+
+    &__card-title {
+        font-size: 2.5rem;
+    }
+
+    &__card-content {
+        font-size: 2rem;
+    }
+
+    &__actions {
+        width: 100%;
+        background: white;
+        border: 2px solid $client-yellow;
+
+        &--custom {
+            border: 2px solid $client-yellow;
+
+            .registry-student__card-header {
+                background: $client-yellow;
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    &__card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__header {
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: lemonmilk;
+        font-weight: 700;
+        letter-spacing: .5rem;
+    }
+
+    &__card-body {
+        padding: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 1rem;
+        }
+    }
+
+    &__actions-container {
+        display: flex;
+        margin-top: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__button {
+        max-width: initial;
+    }
+
+    &__button-container+&__button-container {
+        margin-top: 1.5rem;
+    }
+
+    &__card-content {
+        margin-top: 1.5rem;
+    }
+}
