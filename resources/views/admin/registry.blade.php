@@ -22,6 +22,10 @@
                 </div>
             </div>
         </div>
+
+        <div class="d-flex justify-content-center align-items-center no-wrap mt-3">
+            <a href="{{route('admin.dashboard')}}" class="btn btn-lg client-custom-button no-text-shadow">back</a>
+        </div>
     </div>
 </article>
 @endsection
