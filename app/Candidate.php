@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Position;
 use App\Strand;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Candidate extends Model
 {
+	use SoftDeletes;
+
     protected $table = 'candidate';
 
     protected $fillable = [
