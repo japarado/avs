@@ -13,7 +13,11 @@ class SuperUserController extends Controller
      */
     public function index()
    {
-       return 'asdf';
+       $context = [
+           'id' => '1234'
+       ];
+
+       return view('superuser.index', $context);
    }
 
     /**
