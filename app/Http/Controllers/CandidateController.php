@@ -117,11 +117,21 @@ class CandidateController extends Controller
      */
     public function destroy($id)
     {
-		Candidate::find($id)->forceDelete();
+		$candidate = Candidate::where('id', $id)->withTrashed()->forceDelete();
         return redirect()->back();
     }
 
 	public function hide($id)
 	{
+		$candidate = Candidate::where('id', $id)->withTrashed()->get()->first();
+		if($candidate->trashed())
+		{
+			$candidate->restore();
+		}
+		else 
+		{
+			$candidate->delete();
+		}
+		return redirect()->back();
 	}
 }

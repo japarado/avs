@@ -49,6 +49,9 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::prefix('superuser')->group(function() {
+	Route::prefix('candidates')->group(function() {
+		Route::delete('/hide/{id}', 'CandidateController@hide');
+	});
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
     Route::resource('', 'SuperUserController');
 });
