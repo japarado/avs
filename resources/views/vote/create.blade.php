@@ -15,30 +15,37 @@
 						<div class="vote__body">
 							<div class="vote__body-container">
 								@foreach ($position->candidates as $candidate)
-									<div class="vote__entry">
-										<div class="vote__img-container">
-											<img class="vote__img" src="https://picsum.photos/id/237/1200" />
-										</div>
-										<div class="vote__name">
+									@if($candidate->type === config('constants.candidatetypes.regular'))
+										<div class="vote__entry">
+											<div class="vote__img-container">
+												<img class="vote__img" src="https://picsum.photos/id/237/1200" />
+											</div>
+											<div class="vote__name">
 
+												<div class="form-group">
+													<label class="custom-radio-button">{{ $candidate->name }}
+														<input type="radio" value="{{ $candidate->id }}"
+																			name="{{ $position->id }}">
+																			<span class="checkmark"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									@endif
+								@endforeach
+
+								@foreach($position->candidates as $candidate)
+									@if($candidate->type === config('constants.candidatetypes.abstain'))
+										<div class="vote__entry vote__entry--padding">
 											<div class="form-group">
-												<label class="custom-radio-button">{{ $candidate->name }}
-													<input type="radio" value="{{ $candidate->id }}"
-																		name="{{ $position->id }}">
-																		<span class="checkmark"></span>
+												<label class="custom-radio-button text-uppercase">abstain
+													<input type="radio" value="{{ $candidate->id }}" name="{{ $position->id }}">
+													<span class="checkmark"></span>
 												</label>
 											</div>
 										</div>
-									</div>
+									@endif
 								@endforeach
-								<div class="vote__entry vote__entry--padding">
-									<div class="form-group">
-										<label class="custom-radio-button text-uppercase">abstain
-											<input type="radio" value="-1" name="{{ $position->id }}">
-											<span class="checkmark"></span>
-										</label>
-									</div>
-								</div>
 
 							</div>
 						</div>
