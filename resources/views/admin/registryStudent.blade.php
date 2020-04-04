@@ -5,7 +5,7 @@
 @section('content')
 <article class="registry-student">
     <div class="registry-student__header mt-4">student registry</div>
-    <div class="registry-student__container">
+    <div class="registry-student__container flex-column">
         <div class="registry-student__actions">
             <div class="registry-student__card">
                 <div class="registry-student__card-header">Students</div>
@@ -58,16 +58,10 @@
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text"
-                                                            for="inputGroupSelect01">strand</label>
+                                                        <span class="input-group-text" id="basic-addon1">cn</span>
                                                     </div>
-                                                    <select name="strand" class="candidates__input custom-select"
-                                                        id="inputGroupSelect01">
-                                                        <option value="-1" selected>Choose...</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
-                                                    </select>
+                                                    <input type="number" name="cn" placeholder="01"
+                                                        class="candidates__input form-control">
                                                 </div>
                                             </div>
                                         </div>
