@@ -28,7 +28,7 @@ class CandidateSeeder extends Seeder
                 $candidate = [
                     'name' => "$position->name $count_value",
                     'position_id' => $position->id,
-				'type' => config('constants.candidatetypes.regular'),
+					'type' => config('constants.candidatetypes.regular'),
                     'strand_id' => Arr::random($strands->toArray())['id'],
                 ];
 
