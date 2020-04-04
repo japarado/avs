@@ -36,10 +36,16 @@ Route::get('/dashboard/vote', 'DashboardController@index')->name('dashboard.vote
 Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');
 Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboard.overview');
 
-Route::resource('votes', 'VoteController');
-Route::prefix('votes')->group(function () {
-    Route::post('/create/overview', 'VoteController@overview');
-	Route::get('/create/restart', "VoteController@restart");
+Route::middleware(['auth'])->group(function() {
+	Route::resource('votes', 'VoteController');
+	Route::prefix('votes')->group(function () {
+		Route::post('/create/overview', 'VoteController@overview');
+		Route::get('/create/restart', "VoteController@restart");
+	});
+});
+
+Route::prefix('pages')->group(function() {
+	Route::get('/logout', 'PageController@logout');
 });
 
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
