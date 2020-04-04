@@ -48,6 +48,8 @@ Route::prefix('pages')->group(function() {
 	Route::get('/logout', 'PageController@logout');
 });
 
+Route::resource('students', 'StudentController');
+
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
 
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
