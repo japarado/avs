@@ -19,7 +19,15 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect()->action('VoteController@instructions');
+
+			if(Auth::user()->role_id === config('constants.roles.admin'))
+			{
+				return redirect()->action('SuperUserController@index');
+			}
+			else if(Auth::user()->role_id === config('constants.roles.student'))
+			{
+				return redirect()->action('VoteController@instructions');
+			}
         }
 
         return $next($request);

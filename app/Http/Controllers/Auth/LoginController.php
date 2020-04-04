@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -46,6 +47,16 @@ class LoginController extends Controller
 
 	public function redirectTo()
 	{
-		return action('VoteController@instructions');
+		$action = route('login');
+		if(Auth::user()->role_id === config('constants.roles.admin'))
+		{
+			$action = action('SuperUserController@index');
+		}
+		else if(Auth::user()->role_id === config('constants.roles.student'))
+		{
+			$action = action('VoteController@instructions');
+		}
+
+		return $action;
 	}
 }
