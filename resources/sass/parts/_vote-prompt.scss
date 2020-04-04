@@ -25,6 +25,9 @@
         letter-spacing: 1rem;
         text-shadow: $client-text-shadow;
         color: white;
+        @include media-breakpoint-down(xs) {
+            font-size: 1.5rem;
+        }
     }
 
     &__card-body-text-container {

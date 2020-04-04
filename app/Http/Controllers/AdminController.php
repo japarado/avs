@@ -240,4 +240,19 @@ class AdminController extends Controller
     {
         return view('admin.results-doc');
     }
+
+    public function settings()
+    {
+        return view('admin.settings');
+    }
+
+    public function settingsPrompt()
+    {
+        return view('admin.settings-prompt');
+    }
+
+    public function settingsForm()
+    {
+        return view('admin.settings-form');
+    }
 }

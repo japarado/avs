@@ -15,4 +15,12 @@ $client-blue-3: #E9EBF5;
 
 $theme-colors:(
     "client-blue-green": $client-blue-green, 'client-yellow':$client-yellow,
-)
+);
+
+$spacers: (
+    6: 4rem,
+    7: 4.5rem,
+    8: 5rem,
+    9: 5.5rem,
+    10: 6rem,
+);
