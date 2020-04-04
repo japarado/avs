@@ -2,35 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Candidate;
 use App\Position;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+	}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
 		$context = [
 			'positions' => Position::with('candidates.strand')->get()
 		];
 
 
 		return view('vote.create', $context);
-    }
+	}
 
 	public function overview(Request $request) 
 	{
@@ -43,85 +42,96 @@ class VoteController extends Controller
 			array_push($candidate_ids, $value);
 		}
 
-		$positions = Position::whereIn('id', $position_ids)
-			->with(['candidates' => function($query) use($candidate_ids) {
-				$query->whereIn('id', $candidate_ids);
-			}])
-			->get();
+		$unused_positions = Position::whereNotIn('id', $position_ids)->get();
 
-		$unused_position_names = static::getUnusedPositionNames($positions);
-
-		if(count($unused_position_names) > 0)
+		if(count($unused_positions) > 0 )
 		{
-			return redirect()->back()->with([
-				'show-vote-modal' => true
-			]);
+			$unused_position_names = $unused_positions->implode('name', ', ');
+			return redirect()
+				->back()
+				->with([
+					'show-vote-modal' => true,
+					'unused_position_names' => $unused_position_names
+				])
+				->withInput($request->all());
 		}
-		else 
+		else
 		{
-			return redirect()->back();
-		}
+			$positions = Position::whereIn('id', $position_ids)
+				->with(['candidates' => function($query) use($candidate_ids) {
+					$query->whereIn('id', $candidate_ids);
+				}])
+				->get();
+			$context = [
+				'positions' => $positions
+			];
 
-		/* return redirect()->back()->with('show-vote-modal', true); */
+			return view('vote.overview', $context);
+		}
 	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
+	public function restart()
+	{
+		return redirect()->action('VoteController@create')->with('show-vote-prompt', true);
+	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request)
+	{
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show($id)
+	{
+		//
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, $id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
+		//
+	}
 
 	// Helper functions
-	private static function getUnusedPositionNames(object $positions)
+	private static function getUnusedPositionNames($positions)
 	{
 		$unused_position_names = [];
 
