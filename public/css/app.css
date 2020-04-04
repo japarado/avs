@@ -11032,6 +11032,14 @@ gothic:(
   display: none;
 }
 
+.no-wrap {
+  white-space: nowrap !important;
+}
+
+.no-text-shadow {
+  text-shadow: initial !important;
+}
+
 body {
   height: 100vh;
 }
@@ -11835,6 +11843,99 @@ body {
 
 .candidates__img {
   height: 200px;
+}
+
+.registry-student__container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 5rem;
+}
+
+@media (max-width: 991.98px) {
+  .registry-student__container {
+    flex-direction: column;
+    padding: 0 0 2rem 0;
+  }
+}
+
+.registry-student__card-header {
+  text-align: center;
+  text-transform: uppercase;
+  background: #008080;
+  color: white;
+  font-size: 3rem;
+}
+
+.registry-student__card-title {
+  font-size: 2.5rem;
+}
+
+.registry-student__card-content {
+  font-size: 2rem;
+}
+
+.registry-student__actions {
+  flex-basis: 100%;
+  background: white;
+  border: 2px solid #008080;
+}
+
+.registry-student__actions--custom {
+  border: 2px solid #FFA500;
+}
+
+.registry-student__actions--custom .registry-student__card-header {
+  background: #FFA500;
+  font-size: 2.5rem;
+}
+
+.registry-student__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registry-student__header {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: lemonmilk;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+}
+
+.registry-student__card-body {
+  padding: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .registry-student__card-body {
+    padding: 1rem;
+  }
+}
+
+.registry-student__actions-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .registry-student__actions-container {
+    flex-direction: column;
+  }
+}
+
+.registry-student__button {
+  max-width: initial;
+}
+
+.registry-student__button-container + .registry-student__button-container {
+  margin-top: 1.5rem;
+}
+
+.registry-student__card-content {
+  margin-top: 1.5rem;
 }
 
 

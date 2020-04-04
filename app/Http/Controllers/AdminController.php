@@ -109,6 +109,11 @@ class AdminController extends Controller
         return view('admin.registryStudent');
     }
 
+    public function registryStudentList()
+    {
+        return view('admin.registryStudentList');
+    }
+
     public function registrySection()
     {
         return view('admin.registrySection');
