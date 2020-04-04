@@ -57,4 +57,5 @@ Route::get('/admin/dashboard/candidates/update', 'AdminController@candidatesUpda
 
 Route::get('/admin/dashboard/registry', 'AdminController@registry')->name('admin.registry');
 Route::get('/admin/dashboard/registry/student', 'AdminController@registryStudent')->name('admin.registryStudent');
+Route::get('/admin/dashboard/registry/student/list', 'AdminController@registryStudentList')->name('admin.registryStudentList');
 Route::get('/admin/dashboard/registry/section', 'AdminController@registrySection')->name('admin.registrySection');

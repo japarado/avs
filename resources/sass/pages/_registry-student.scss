@@ -1,0 +1,88 @@
+.registry-student {
+    &__container {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1rem 5rem;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            padding: 0 0 2rem 0;
+        }
+    }
+
+    &__card-header {
+        text-align: center;
+        text-transform: uppercase;
+        background: $client-blue-green;
+        color: white;
+        font-size: 3rem;
+    }
+
+    &__card-title {
+        font-size: 2.5rem;
+    }
+
+    &__card-content {
+        font-size: 2rem;
+    }
+
+    &__actions {
+        flex-basis: 100%;
+        background: white;
+        border: 2px solid $client-blue-green;
+
+        &--custom {
+            border: 2px solid $client-yellow;
+
+            .registry-student__card-header {
+                background: $client-yellow;
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    &__card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__header {
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: lemonmilk;
+        font-weight: 700;
+        letter-spacing: .5rem;
+    }
+
+    &__card-body {
+        padding: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 1rem;
+        }
+    }
+
+    &__actions-container {
+        display: flex;
+        margin-top: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__button {
+        max-width: initial;
+    }
+
+    &__button-container+&__button-container {
+        margin-top: 1.5rem;
+    }
+
+    &__card-content {
+        margin-top: 1.5rem;
+    }
+}
