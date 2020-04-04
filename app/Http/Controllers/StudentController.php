@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function instructions()
-    {
-        return view('student.index');
-    }
+	public function index() 
+	{
+		return
+	}
 }
