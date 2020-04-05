@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
 			CandidateSeeder::class,
 			SectionSeeder::class,
 			UserSeeder::class,
+			PollingStationSeeder::class
 		]);
     }
 }
