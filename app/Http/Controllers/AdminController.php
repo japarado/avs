@@ -163,4 +163,96 @@ class AdminController extends Controller
         ];
         return view('admin.registrySectionList',['sections'=>$sections]);
     }
+
+    public function results()
+    {
+        $data = [
+            [
+                'name' => "President",
+                'candidates' => [
+                    [
+                        "name" => "John Doesss",
+                        "strand" => [
+                            [
+                                "name" => "PES",
+                            ]
+                        ],
+                        "votes" => 20,
+                    ],
+                    [
+                        "name" => "John Doe",
+                        "strand" => [
+                            [
+                                "name" => "PES",
+                            ]
+                        ],
+                        "votes" => 20,
+                    ],
+                    [
+                        "name" => "John Doe",
+                        "strand" => [
+                            [
+                                "name" => "PES",
+                            ]
+                        ],
+                        "votes" => 20,
+                    ]
+                ]
+            ],
+            [
+                'name' => "Vice President",
+                'candidates' => [
+                    [
+                        "name" => "John Deer",
+                        "strand" => [
+                            [
+                                "name" => "MAD",
+                            ]
+                        ],
+                        "votes" => 20,
+                    ]
+                ]
+            ],
+            [
+                'name' => "Secretary",
+                'candidates' => [
+                    [
+                        "name" => "John Ding DOng",
+                        "strand" => [
+                            [
+                                "name" => "MOAR",
+                            ]
+                        ],
+                        "votes" => 20,
+                    ]
+                ]
+            ],
+            [
+                'name' => "Auditor",
+                'candidates' => []
+            ],
+        ];
+
+        return view('admin.results',['positions'=>$data]);
+    }
+
+    public function resultsDoc()
+    {
+        return view('admin.results-doc');
+    }
+
+    public function settings()
+    {
+        return view('admin.settings');
+    }
+
+    public function settingsPrompt()
+    {
+        return view('admin.settings-prompt');
+    }
+
+    public function settingsForm()
+    {
+        return view('admin.settings-form');
+    }
 }

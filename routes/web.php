@@ -76,3 +76,10 @@ Route::get('/admin/dashboard/registry/student', 'AdminController@registryStudent
 Route::get('/admin/dashboard/registry/student/list', 'AdminController@registryStudentList')->name('admin.registryStudentList');
 Route::get('/admin/dashboard/registry/section', 'AdminController@registrySection')->name('admin.registrySection');
 Route::get('/admin/dashboard/registry/section/list', 'AdminController@registrySectionList')->name('admin.registrySectionList');
+
+Route::get('/admin/dashboard/results', 'AdminController@results')->name('admin.results');
+Route::get('/admin/dashboard/results/doc', 'AdminController@resultsDoc')->name('admin.resultsDoc');
+
+Route::get('/admin/dashboard/settings', 'AdminController@settings')->name('admin.settings');
+Route::get('/admin/dashboard/settings/prompt', 'AdminController@settingsPrompt')->name('admin.settingsPrompt');
+Route::get('/admin/dashboard/settings/form', 'AdminController@settingsForm')->name('admin.settingsForm');

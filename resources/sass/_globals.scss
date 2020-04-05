@@ -111,3 +111,19 @@
         border-radius: 0;
     }
 }
+
+.no-letter-spacing {
+    letter-spacing: 0 !important;
+}
+
+.client-custom-input-2 {
+    border: 1px solid $client-blue-green !important;
+
+    .input-group-text {
+        background: $client-blue-green !important;
+    }
+}
+
+.flex-basis-50 {
+    flex-basis: 50% !important;
+}
