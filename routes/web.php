@@ -39,25 +39,31 @@ Route::middleware(['auth'])->group(function () {
 
     /*VOTES*/
     Route::prefix('votes')->group(function () {
-        Route::get('/instructions', 'VoteController@instructions');
-        Route::get('/create/restart', "VoteController@restart");
-        Route::post('/create/overview', 'VoteController@overview');
+		Route::get('create', 'VoteController@create');
+        Route::get('create/restart', "VoteController@restart");
+        Route::get('instructions', 'VoteController@instructions');
+        Route::post('create/overview', 'VoteController@overview');
+		Route::post('', 'VoteController@store');
     });
-    Route::resource('votes', 'VoteController');
 });
 
 Route::prefix('superuser')->group(function () {
+	Route::get('', 'SuperUserController@index');
     Route::get('registry', 'SuperUserController@registry');
 
     Route::prefix('candidates')->group(function () {
         Route::delete('/hide/{id}', 'CandidateController@hide');
     });
 
+	Route::prefix('votes')->group(function() {
+		Route::get('', function() {
+			return 'argh';
+		});
+	});
+
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
     Route::resource('sections', 'SectionController')->parameter('sections', 'id');
     Route::resource('students', 'StudentController')->parameter('students', 'id');
-
-    Route::resource('', 'SuperUserController');
 });
 
 Route::prefix('pages')->group(function () {
