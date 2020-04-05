@@ -87,7 +87,10 @@
                                     <div class="registry-student__card-header">delete</div>
                                     <div class="registry-student__card-body">
                                         <div class="registry-student__card-body-container">
-                                            <form>
+											<form action="{{ action("StudentController@destroy", ['id' => '-1']) }}" method="post">
+												@csrf 
+												@method('delete')
+
                                                 <div class="candidates__input-container input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">student
