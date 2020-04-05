@@ -13,7 +13,7 @@ class VoteController extends Controller
 	{
 		$context = [
 			'positions' => Position::with(['candidates' => function($query) {
-				$query->withCount('users');
+				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
 			}])
 				->get()
 		];

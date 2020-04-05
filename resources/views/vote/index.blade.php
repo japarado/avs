@@ -25,47 +25,54 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(count($position['candidates']) > 0)
-                                                @foreach ($position['candidates'] as $candidate)
-                                                    <tr>
-                                                        <td>{{$candidate['name']}}</td>
-                                                        <td>{{$candidate['strand'][0]['name']}}</td>
-                                                        <td>{{$position['name']}}</td>
-                                                        <td>{{$candidate['votes']}}</td>
-                                                    </tr>
-                                                @endforeach
-                                            @else
-                                                <tr>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                </tr>
-                                            @endif
-                                            <tr>
-                                                <td colspan="3">total</td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
-            <button class="btn btn-lg client-custom-button">printable form</button>
-        </div>
-        <div class="d-flex justify-content-center mb-4">
-            <a href="{{route('admin.dashboard')}}" class="btn btn-lg client-custom-button">Home</a>
-        </div>
-    </div>
+											@if(count($position->candidates) > 0)
+												@foreach ($position->candidates as $candidate)
+													@if($candidate->type === config('constants.candidatetypes.abstain'))
+														<td>abstain</td>
+														<td>-</td>
+														<td>-</td>
+														<td>{{ $candidate->votes }}</td>
+													@else 
+														<tr>
+															<td>{{ $candidate->name }}</td>
+															<td>{{ $candidate->strand->name }}</td>
+															<td>{{ $position->name }}</td>
+															<td>{{ $candidate->votes }}</td>
+														</tr>
+													@endif
+												@endforeach
+											@else
+												<tr>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+												</tr>
+											@endif
+											<tr>
+												<td colspan="3">total</td>
+												<td></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			@endforeach
+			</div>
+		</div>
+		<div class="d-flex justify-content-center mb-4">
+			<button class="btn btn-lg client-custom-button">printable form</button>
+		</div>
+		<div class="d-flex justify-content-center mb-4">
+			<a href="{{route('admin.dashboard')}}" class="btn btn-lg client-custom-button">Home</a>
+		</div>
+	</div>
 </article>
 @endsection
 
 @section('footer')
-    @include('inc.admin-footer')
+	@include('inc.admin-footer')
 @endsection
