@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Section::class);
     }
+
+	public function pollingStation()
+	{
+		return $this->hasOne(PollingStation::class);
+	}
 }

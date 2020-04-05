@@ -51,13 +51,11 @@ Route::prefix('superuser')->group(function () {
 	Route::get('', 'SuperUserController@index');
     Route::get('registry', 'SuperUserController@registry');
 
-	Route::prefix('settings')->group(function(){
-		Route::get('/auth', 'SettingController@authpage');
-		Route::post('/auth', 'SettingController@auth');
+	Route::prefix('pollingstations')->group(function(){
+		Route::get('auth', 'PollingStationController@authpage');
+		Route::get('/edit', "PollingStationController@edit");
+		Route::post('auth', 'PollingStationController@auth');
 	});
-	/* Route::prefix('settings',function(){ */
-	/* 	Route::get('auth', "SettingController@auth"); */
-	/* }); */
 
     Route::prefix('candidates')->group(function () {
         Route::delete('/hide/{id}', 'CandidateController@hide');
@@ -65,6 +63,11 @@ Route::prefix('superuser')->group(function () {
 
 	Route::prefix('votes')->group(function() {
 		Route::get('', 'VoteController@index');
+	});
+
+	Route::prefix('users')->group(function(){
+		Route::put('{id}/update-password', 'UserController@updatePassword');
+		Route::put('{id}/update-username', 'UserController@updateUsername');
 	});
 
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');

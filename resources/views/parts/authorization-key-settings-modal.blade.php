@@ -14,7 +14,7 @@
                 </div>
                 <div class="vote-modal__footer">
                     <div class="d-flex justify-content-center mt-3">
-                        <a class="btn btn-lg client-custom-button vote-modal__button" href="{{ action("SettingController@authpage") }}">ok</a>
+                        <a class="btn btn-lg client-custom-button vote-modal__button" href="{{ action("PollingStationController@authpage") }}">ok</a>
                     </div>
                 </div>
             </div>
