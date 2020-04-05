@@ -51,6 +51,14 @@ Route::prefix('superuser')->group(function () {
 	Route::get('', 'SuperUserController@index');
     Route::get('registry', 'SuperUserController@registry');
 
+	Route::prefix('settings')->group(function(){
+		Route::get('/auth', 'SettingController@authpage');
+		Route::post('/auth', 'SettingController@auth');
+	});
+	/* Route::prefix('settings',function(){ */
+	/* 	Route::get('auth', "SettingController@auth"); */
+	/* }); */
+
     Route::prefix('candidates')->group(function () {
         Route::delete('/hide/{id}', 'CandidateController@hide');
     });
