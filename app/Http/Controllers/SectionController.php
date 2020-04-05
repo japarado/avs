@@ -20,7 +20,6 @@ class SectionController extends Controller
     public function store(Request $request)
     {
         Section::updateOrCreate([
-
             'level' => $request->input('level'),
             'strand_id' => $request->input('strand'),
             'number' => $request->input('number'),
@@ -31,10 +30,10 @@ class SectionController extends Controller
 
     public function destroy(Request $request, $id = null)
     {
-		Section::where('level', $request->input('level'))
-			->where('strand_id', $request->input('strand'))
-			->where('number', $request->input('number'))
-			->delete();
+        Section::where('level', $request->input('level'))
+            ->where('strand_id', $request->input('strand'))
+            ->where('number', $request->input('number'))
+            ->delete();
 
         return redirect()->back();
     }
