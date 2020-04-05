@@ -26,7 +26,7 @@ class CreateUserTable extends Migration
             $table->unsignedInteger('class_number')->nullable();
             $table->unsignedBigInteger('section_id')->nullable();
 
-            $table->foreign('section_id')->references('id')->on('section');
+			$table->foreign('section_id')->references('id')->on('section')->onDelete('set null');
 
             $table->rememberToken();
             $table->timestamps();
