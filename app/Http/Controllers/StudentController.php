@@ -61,7 +61,9 @@ class StudentController extends Controller
 
     public function destroy(Request $request, $id = null)
     {
-        User::where('email', $request->input('student_id'))->where('role_id', config('constants.roles.student'))->delete();
+		User::where('email', $request->input('student_number'))
+			->where('role_id', config('constants.roles.student'))
+			->delete();
 
         return redirect()->back();
     }

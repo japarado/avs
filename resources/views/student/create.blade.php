@@ -93,7 +93,7 @@
                                                             number</span>
                                                     </div>
                                                     <input type="text" name="student_number" placeholder="2018-106296"
-                                                        class="candidates__input form-control">
+                                                        class="candidates__input form-control" required>
                                                 </div>
                                                 <div class="d-flex justify-content-center align-items-center">
                                                     <button type="submit"
