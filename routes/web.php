@@ -56,9 +56,7 @@ Route::prefix('superuser')->group(function () {
     });
 
 	Route::prefix('votes')->group(function() {
-		Route::get('', function() {
-			return 'argh';
-		});
+		Route::get('', 'VoteController@index');
 	});
 
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
