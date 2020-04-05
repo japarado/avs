@@ -17,7 +17,7 @@
                                 <a href="{{ action("SuperUserController@registry") }}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">student registry</a>
                             </div>
                             <div class="admin-dashboard__button-container">
-                                <a class="btn btn-lg client-custom-button admin-dashboard__button">results</a>
+                                <a class="btn btn-lg client-custom-button admin-dashboard__button" href="{{ action('VoteController@index') }}">results</a>
                             </div>
                         </div>
                     </div>
