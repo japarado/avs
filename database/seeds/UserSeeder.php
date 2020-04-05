@@ -21,14 +21,16 @@ class UserSeeder extends Seeder
 				'email' => 'admin@admin.com',
 				'password' => Hash::make('password123'),
 				'role_id' => config('constants.roles.admin'),
-				'section_id' => null
+				'section_id' => null,
+				'class_number' => null,
 			],
 			[
 				'name' => 'Student',
 				'email' => '123456',
 				'password' => Hash::make('password123'),
 				'role_id' => config('constants.roles.student'),
-				'section_id' => Section::find(1)->id
+				'section_id' => Section::find(1)->id,
+				'class_number' => 1,
 			]
 		]);
 	}
