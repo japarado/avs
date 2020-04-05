@@ -8,7 +8,7 @@
 			<div class="candidates__header">
 				<div class="candidates__header-container mb-4">candidate info</div>
 			</div>
-			<form class="candidates__form" action="{{ action("CandidateController@update", ['id' => $candidate->id]) }}" method="post">
+			<form class="candidates__form" action="{{ action("CandidateController@update", ['id' => $candidate->id]) }}" method="post" enctype="multipart/form-data">
 				@csrf
 				@method('put')
 				<div class="candidates__body">
@@ -48,14 +48,14 @@
 								</div>
 								<div class="candidates__input-file">
 									<div class="client-custom-file-input custom-file">
-										<input name="file" onchange="checkFile(event)" type="file" class="custom-file-input"
+										<input name="image" onchange="checkFile(event)" type="file" class="custom-file-input"
 																								   id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
 										<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 									</div>
 								</div>
 							</div>
 							<div class="ml-4 candidates__input-check" id="js-file-chosen">
-								*no file chosen
+								{{ basename($candidate->image) }}
 							</div>
 						</div>
 					</div>

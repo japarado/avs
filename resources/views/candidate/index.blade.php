@@ -35,7 +35,7 @@
 																<td>{{ $candidate->name }}</td>
 																<td>{{ $candidate->strand->name }}</td>
 																<td>{{ $position->name }}</td>
-																<td><img class="candidates__img" src="{{ $candidate->image }}" alt="candidate image"/></td>
+																<td><img class="candidates__img" src="{{ url('storage/' . $candidate->image) }}" alt="candidate image"/></td>
 																<td>
 																	<div class="candidates__button-container">
 																		<a href="{{action('CandidateController@edit', ['id' => $candidate->id])}}" 
