@@ -10,6 +10,15 @@ class SectionController extends Controller
 {
 	public function index()
 	{
+		$context = [
+			'sections' => Section::with('strand')
+				->orderby('level')
+				->orderby('strand_id')
+				->orderby('number')
+				->get()
+		];
+
+		return view('section.index', $context);
 	}
 
     public function create()

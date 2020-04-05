@@ -23,9 +23,9 @@
                                         <tbody>
                                             @foreach($sections as $section)
                                             <tr>
-                                                <td>{{$section['level']}}</td>
-                                                <td class="text-uppercase">{{$section['strand']}}</td>
-                                                <td>{{$section['section']}}</td>
+												<td>{{ $section->level }}</td>
+												<td class="text-uppercase">{{ $section->strand->name }}</td>
+												<td>{{ $section->number }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

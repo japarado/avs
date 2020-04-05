@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap mt-3">
-                                <a href="{{route('admin.registrySectionList')}}"
+                                <a href="{{action('SectionController@index')}}"
                                     class="btn btn-lg client-custom-button no-text-shadow">View list</a>
                             </div>
                         </div>
