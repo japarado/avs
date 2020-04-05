@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Candidate;
 use App\Position;
-use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +11,14 @@ class VoteController extends Controller
 {
 	public function index()
 	{
+		$context = [
+			'positions' => Position::with(['candidates' => function($query) {
+				$query->withCount('users');
+			}])
+				->get()
+		];
 
+		return view('vote.index', $context);
 	}
 
 	public function instructions()
