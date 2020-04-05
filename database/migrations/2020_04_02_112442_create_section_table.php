@@ -20,6 +20,7 @@ class CreateSectionTable extends Migration
             $table->unsignedInteger('number');
             $table->timestamps();
 
+			$table->unique(['level', 'strand_id', 'number']);
 			$table->foreign('strand_id')->references('id')->on('strand');
         });
     }
