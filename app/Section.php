@@ -14,7 +14,7 @@ class Section extends Model
     protected $fillable = [
         'number',
         'level',
-        'strand'
+        'strand_id'
     ];
 
     public function strand()

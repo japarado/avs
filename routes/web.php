@@ -56,6 +56,8 @@ Route::prefix('superuser')->group(function() {
 	});
 
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
+	Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+
     Route::resource('', 'SuperUserController');
 });
 

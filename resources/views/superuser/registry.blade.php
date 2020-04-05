@@ -12,7 +12,7 @@
                     <div class="admin-dashboard__card-body-container">
                         <div class="d-flex flex-column">
                             <div class="admin-dashboard__button-container">
-                                <a href="{{route('admin.registrySection')}}" class="btn btn-lg client-custom-button admin-dashboard__button">sections</a>
+                                <a href="{{action('SectionController@create')}}" class="btn btn-lg client-custom-button admin-dashboard__button">sections</a>
                             </div>
                             <div class="admin-dashboard__button-container">
                                 <a href="{{route('admin.registryStudent')}}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">students</a>
