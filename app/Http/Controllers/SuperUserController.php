@@ -13,10 +13,6 @@ class SuperUserController extends Controller
 	 */
 	public function index()
 	{
-		$context = [
-			'id' => '1234'
-		];
-
 		return view('superuser.index', $context);
 	}
 
@@ -24,4 +20,9 @@ class SuperUserController extends Controller
 	{
 		return view('superuser.registry');
 	}	
+
+	public function settingsAuthorize()
+	{
+		return view('superuser.settings-authorize');
+	}
 }
