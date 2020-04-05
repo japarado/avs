@@ -35,34 +35,33 @@ Route::get('/dashboard/vote', 'DashboardController@index')->name('dashboard.vote
 Route::get('/dashboard', 'DashboardController@instructions')->name('dashboard.instructions');
 Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboard.overview');
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth'])->group(function () {
 
     /*VOTES*/
-	Route::prefix('votes')->group(function () {
-	    Route::get('/instructions', 'VoteController@instructions');
+    Route::prefix('votes')->group(function () {
+        Route::get('/instructions', 'VoteController@instructions');
         Route::get('/create/restart', "VoteController@restart");
-		Route::post('/create/overview', 'VoteController@overview');
-	});
+        Route::post('/create/overview', 'VoteController@overview');
+    });
     Route::resource('votes', 'VoteController');
-
 });
 
-Route::prefix('superuser')->group(function() {
+Route::prefix('superuser')->group(function () {
+    Route::get('registry', 'SuperUserController@registry');
 
-	Route::get('registry', 'SuperUserController@registry');
-
-	Route::prefix('candidates')->group(function() {
-		Route::delete('/hide/{id}', 'CandidateController@hide');
-	});
+    Route::prefix('candidates')->group(function () {
+        Route::delete('/hide/{id}', 'CandidateController@hide');
+    });
 
     Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
-	Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+    Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+    Route::resource('students', 'StudentController')->parameter('students', 'id');
 
     Route::resource('', 'SuperUserController');
 });
 
-Route::prefix('pages')->group(function() {
-	Route::get('/logout', 'PageController@logout');
+Route::prefix('pages')->group(function () {
+    Route::get('/logout', 'PageController@logout');
 });
 
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('dashboard.logout');
