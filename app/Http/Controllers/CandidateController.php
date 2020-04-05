@@ -143,7 +143,9 @@ class CandidateController extends Controller
 	 */
 	public function destroy($id)
 	{
-		$candidate = Candidate::where('id', $id)->withTrashed()->forceDelete();
+		Candidate::where('id', $id)->withTrashed()->forceDelete();
+		Storage::disk('public')->deleteDirectory("candidates/$id");
+
 		return redirect()->back();
 	}
 

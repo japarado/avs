@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Candidate;
 use App\Position;
-use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +11,14 @@ class VoteController extends Controller
 {
 	public function index()
 	{
+		$context = [
+			'positions' => Position::with(['candidates' => function($query) {
+				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
+			}])
+				->get()
+		];
 
+		return view('vote.index', $context);
 	}
 
 	public function instructions()
@@ -108,25 +114,6 @@ class VoteController extends Controller
 		}
 	}
 
-	public function show($id)
-	{
-		//
-	}
-
-	public function edit($id)
-	{
-		//
-	}
-
-	public function update(Request $request, $id)
-	{
-		//
-	}
-
-	public function destroy($id)
-	{
-		//
-	}
 
 	// Helper functions
 	private static function getUnusedPositionNames($positions)

@@ -18,7 +18,7 @@
 									@if($candidate->type === config('constants.candidatetypes.regular'))
 										<div class="vote__entry">
 											<div class="vote__img-container">
-												<img class="vote__img" src="https://picsum.photos/id/237/1200" />
+												<img class="vote__img" src="{{ $candidate->image ? url("storage/$candidate->image") : 'https://picsum.photos/id/870/1200' }}" alt="candidate image" />
 											</div>
 											<div class="vote__name">
 
