@@ -13,6 +13,18 @@ class StudentController extends Controller
 {
     public function index()
     {
+        $context = [
+            'sections' => Section::with('strand')
+				->with(['students' => function($query) {
+					$query->orderby('class_number')->where('role_id', config('constants.roles.student'))->with('candidates');
+				}])
+                ->orderby('section.level')
+                ->orderby('section.strand_id')
+                ->orderby('section.number')
+                ->get()
+        ];
+
+		return view('student.index', $context);
     }
 
     public function create()
