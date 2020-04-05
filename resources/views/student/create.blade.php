@@ -25,7 +25,6 @@
                                                 <input type="text" name="name"
                                                     placeholder="surname, first name, m.i."
                                                     class="candidates__input form-control"
-													value="TEST PERSON"
 													required>
                                             </div>
                                             <div class="candidates__form-inputs">
@@ -36,7 +35,6 @@
                                                     </div>
                                                     <input type="text" name="student_number" placeholder="2018-106296"
                                                         class="candidates__input form-control"
-														value="1234567"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -59,7 +57,6 @@
                                                     </div>
                                                     <input type="text" name="password" placeholder="161100001"
                                                         class="candidates__input form-control" 
-														value="password123"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -68,7 +65,6 @@
                                                     </div>
                                                     <input type="number" name="cn" placeholder="01"
                                                         class="candidates__input form-control" 
-														value="13"
 														required>
                                                 </div>
                                             </div>
