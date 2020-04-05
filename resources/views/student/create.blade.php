@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap mt-3 mt-md-0">
-                                <a href="{{route('admin.registryStudentList')}}" class="btn btn-lg client-custom-button no-text-shadow">View list</a>
+                                <a href="{{action('StudentController@index')}}" class="btn btn-lg client-custom-button no-text-shadow">View list</a>
                             </div>
                         </div>
                     </div>
