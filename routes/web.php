@@ -38,42 +38,43 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 Route::middleware(['auth'])->group(function () {
 
     /*VOTES*/
-    Route::prefix('votes')->group(function () {
+	Route::middleware(['student'])->prefix('votes')->group(function () {
 		Route::get('create', 'VoteController@create');
         Route::get('create/restart', "VoteController@restart");
         Route::get('instructions', 'VoteController@instructions');
         Route::post('create/overview', 'VoteController@overview');
 		Route::post('', 'VoteController@store');
     });
+
+	Route::middleware(['admin'])->prefix('superuser')->group(function () {
+		Route::get('', 'SuperUserController@index');
+		Route::get('registry', 'SuperUserController@registry');
+
+		Route::prefix('pollingstations')->group(function(){
+			Route::get('auth', 'PollingStationController@authpage');
+			Route::get('edit', "PollingStationController@edit");
+			Route::post('auth', 'PollingStationController@auth');
+		});
+
+		Route::prefix('candidates')->group(function () {
+			Route::delete('/hide/{id}', 'CandidateController@hide');
+		});
+
+		Route::prefix('votes')->group(function() {
+			Route::get('', 'VoteController@index');
+		});
+
+		Route::prefix('users')->group(function(){
+			Route::put('{id}/update-password', 'UserController@updatePassword');
+			Route::put('{id}/update-username', 'UserController@updateUsername');
+		});
+
+		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
+		Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+		Route::resource('students', 'StudentController')->parameter('students', 'id');
+	});
 });
 
-Route::prefix('superuser')->group(function () {
-	Route::get('', 'SuperUserController@index');
-    Route::get('registry', 'SuperUserController@registry');
-
-	Route::prefix('pollingstations')->group(function(){
-		Route::get('auth', 'PollingStationController@authpage');
-		Route::get('/edit', "PollingStationController@edit");
-		Route::post('auth', 'PollingStationController@auth');
-	});
-
-    Route::prefix('candidates')->group(function () {
-        Route::delete('/hide/{id}', 'CandidateController@hide');
-    });
-
-	Route::prefix('votes')->group(function() {
-		Route::get('', 'VoteController@index');
-	});
-
-	Route::prefix('users')->group(function(){
-		Route::put('{id}/update-password', 'UserController@updatePassword');
-		Route::put('{id}/update-username', 'UserController@updateUsername');
-	});
-
-    Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
-    Route::resource('sections', 'SectionController')->parameter('sections', 'id');
-    Route::resource('students', 'StudentController')->parameter('students', 'id');
-});
 
 Route::prefix('pages')->group(function () {
     Route::get('/logout', 'PageController@logout');

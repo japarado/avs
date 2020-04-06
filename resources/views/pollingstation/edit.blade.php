@@ -86,7 +86,7 @@
         </div>
 </article>
 <div class="d-flex justify-content-center align-items-center no-wrap my-3">
-    <a href="#" class="btn btn-lg client-custom-button no-text-shadow">back</a>
+    <a href="{{ action('SuperUserController@index') }}" class="btn btn-lg client-custom-button no-text-shadow">back</a>
 </div>
 @endsection
 

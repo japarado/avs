@@ -18,10 +18,8 @@ class SuperUserController extends Controller
 		/* $admin = User::where('id', Auth::user()->id)->withkj */
 		$context = [
 			'admin' => User::where('id', Auth::user()->id)->with(['pollingStation' => function($query){
-				$query->first();
 			}])->get()->first()
 		];
-
 
 		return view('superuser.index', $context);
 	}

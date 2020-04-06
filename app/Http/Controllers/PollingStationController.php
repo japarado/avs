@@ -45,6 +45,10 @@ class PollingStationController extends Controller
 
 	public function updateName(Request $request, $id)
 	{
+	}
+	
+	public function updateUserPassword()
+	{
 
 	}
 }
