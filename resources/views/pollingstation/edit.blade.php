@@ -67,14 +67,16 @@
             <div class="registry-student__actions border-client-yellow registry-student__actions--custom-2">
                 <div class="registry-student__card">
                     <div class="registry-student__card-header bg-client-yellow">change polling staton</div>
-                    <form>
+					<form action="{{ action('PollingStationController@update', ['id' => $user->pollingStation->id]) }}" method="post">
+						@csrf
+						@method('put')
                         <div class="registry-student__card-body">
                             <div class="registry-student__card-body-container">
                                 <div class="candidates__input-container input-group mb-3 client-custom-input-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">new</span>
                                     </div>
-                                    <input type="text" name="new_polling" class="candidates__input form-control">
+									<input type="text" name="name" class="candidates__input form-control" value="{{ $user->pollingStation->name }}" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap my-3">

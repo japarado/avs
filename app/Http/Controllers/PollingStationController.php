@@ -43,6 +43,26 @@ class PollingStationController extends Controller
 		return view('pollingstation.edit', $context);
 	}
 
+	public function update(Request $request, $id)
+	{
+		$user = Auth::user();
+		$polling_station = PollingStation::where('user_id', $id)->where('id', $id)->first();
+
+		$new_polling_station_name = $request->input('name');
+
+		if($polling_station && $polling_station->name !== $new_polling_station_name)
+		{
+			$polling_station->name = $new_polling_station_name;
+			$polling_station->save();
+			Auth::logout();
+			return redirect()->route('login');
+		}
+		else 
+		{
+			return redirect()->back();
+		}
+	}
+
 	public function updateAdminId(Request $request, $id)
 	{
 		$user = User::find($id);

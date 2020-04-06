@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::prefix('pollingstations')->group(function(){
 			Route::get('auth', 'PollingStationController@authpage');
 			Route::get('edit', "PollingStationController@edit");
+			Route::put('{id}', 'PollingStationController@update');
 			Route::post('auth', 'PollingStationController@auth');
 		});
 
