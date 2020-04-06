@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
 
 		Route::prefix('votes')->group(function() {
 			Route::get('', 'VoteController@index');
+			Route::get('/download-results', 'VoteController@download');
 		});
 
 		Route::prefix('users')->group(function(){

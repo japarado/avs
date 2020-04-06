@@ -34,7 +34,8 @@ class StudentController extends Controller
                 ->orderby('section.level')
                 ->orderby('section.strand_id')
                 ->orderby('section.number')
-                ->get()
+				->get(),
+			'students' => User::where('role_id', config('constants.roles.student'))->select('email')->get()
         ];
 
         return view('student.create', $context);
