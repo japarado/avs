@@ -7,6 +7,7 @@ use App\Position;
 use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class VoteController extends Controller
 {
@@ -146,6 +147,9 @@ class VoteController extends Controller
 			}])->get(),
 			'sections' => $sections
 		];
+
+		$pdf = PDF::loadView('vote.results-doc', $context);
+		/* return $pdf->download('results.pdf'); */
 
 		return view('vote.results-doc', $context);
 	}
