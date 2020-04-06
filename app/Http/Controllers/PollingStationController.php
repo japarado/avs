@@ -43,12 +43,39 @@ class PollingStationController extends Controller
 		return view('pollingstation.edit', $context);
 	}
 
-	public function updateName(Request $request, $id)
+	public function updateAdminId(Request $request, $id)
 	{
+		$user = User::find($id);
+
+		if(!$user || $user->email === $request->input('new_id'))
+		{
+			return redirect()->back();
+		}
+		else 
+		{
+			$user->email = $request->input('new_id');
+			$user->save();
+
+			Auth::logout();
+			return redirect()->route('login');
+		}
 	}
 	
-	public function updateUserPassword()
+	public function updateAdminPassword(Request $request, $id)
 	{
+		$user = User::find($id);
 
+		if(!$user || $request->input('new_password') !== $request->input('confirm_password') || Hash::check($request->input('new_password'), $user->password))
+		{
+			return redirect()->back();
+		}
+		else 
+		{
+			$user->password = Hash::make($request->input('new_password'));
+			$user->save();
+			Auth::logout();
+
+			return redirect()->route('login');
+		}
 	}
 }

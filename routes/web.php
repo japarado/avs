@@ -65,8 +65,8 @@ Route::middleware(['auth'])->group(function () {
 		});
 
 		Route::prefix('users')->group(function(){
-			Route::put('{id}/update-password', 'UserController@updatePassword');
-			Route::put('{id}/update-username', 'UserController@updateUsername');
+			Route::put('{id}/update-password', 'PollingStationController@updateAdminPassword');
+			Route::put('{id}/update-admin-id', 'PollingStationController@updateAdminId');
 		});
 
 		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
