@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class PollingStationAuthMiddleware
+class PollingStationAuth
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,15 @@ class PollingStationAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
+		if(session('polling-station-auth'))
+		{
+			$request->session()->reflash();
+		}
+		else 
+		{
+			return redirect()->action('PollingStationController@authpage');
+		}
+
         return $next($request);
     }
 }

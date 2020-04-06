@@ -21,6 +21,8 @@ class PollingStationController extends Controller
 
 		if(Hash::check($request->input('auth_key'), $polling_station->auth_key))
 		{
+			$request->session()->flash('polling-station-auth', true);
+
 			return redirect()->action('PollingStationController@edit');
 		}
 		else 
