@@ -38,31 +38,44 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 Route::middleware(['auth'])->group(function () {
 
     /*VOTES*/
-    Route::prefix('votes')->group(function () {
+	Route::middleware(['student'])->prefix('votes')->group(function () {
 		Route::get('create', 'VoteController@create');
         Route::get('create/restart', "VoteController@restart");
         Route::get('instructions', 'VoteController@instructions');
         Route::post('create/overview', 'VoteController@overview');
 		Route::post('', 'VoteController@store');
     });
-});
 
-Route::prefix('superuser')->group(function () {
-	Route::get('', 'SuperUserController@index');
-    Route::get('registry', 'SuperUserController@registry');
+	Route::middleware(['admin'])->prefix('superuser')->group(function () {
+		Route::get('', 'SuperUserController@index');
+		Route::get('registry', 'SuperUserController@registry');
 
-    Route::prefix('candidates')->group(function () {
-        Route::delete('/hide/{id}', 'CandidateController@hide');
-    });
+		Route::prefix('pollingstations')->group(function(){
+			Route::get('auth', 'PollingStationController@authpage');
+			Route::get('edit', "PollingStationController@edit");
+			Route::put('{id}', 'PollingStationController@update');
+			Route::post('auth', 'PollingStationController@auth');
+		});
 
-	Route::prefix('votes')->group(function() {
-		Route::get('', 'VoteController@index');
+		Route::prefix('candidates')->group(function () {
+			Route::delete('/hide/{id}', 'CandidateController@hide');
+		});
+
+		Route::prefix('votes')->group(function() {
+			Route::get('', 'VoteController@index');
+		});
+
+		Route::prefix('users')->group(function(){
+			Route::put('{id}/update-password', 'PollingStationController@updateAdminPassword');
+			Route::put('{id}/update-admin-id', 'PollingStationController@updateAdminId');
+		});
+
+		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
+		Route::resource('sections', 'SectionController')->parameter('sections', 'id');
+		Route::resource('students', 'StudentController')->parameter('students', 'id');
 	});
-
-    Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
-    Route::resource('sections', 'SectionController')->parameter('sections', 'id');
-    Route::resource('students', 'StudentController')->parameter('students', 'id');
 });
+
 
 Route::prefix('pages')->group(function () {
     Route::get('/logout', 'PageController@logout');

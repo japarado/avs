@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'student_number', 'class_number', 'role_id', 'section_id'
+        'name', 'email', 'password', 'student_number', 'class_number', 'role_id', 'section_id',  'auth_key', 'admin_id'
     ];
 
     /**
@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Section::class);
     }
+
+	public function pollingStation()
+	{
+		return $this->hasOne(PollingStation::class);
+	}
 }

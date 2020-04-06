@@ -62,7 +62,7 @@ class CandidateController extends Controller
 		if($image)
 		{
 			$image_file_path = $request->file('image')->storeAs(
-				"candidates/$candidate->id", 
+				"storage/candidates/$candidate->id", 
 				$image->getClientOriginalName(),
 				'public'
 			);
