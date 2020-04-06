@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Candidate;
 use App\Position;
+use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class VoteController extends Controller
 {
@@ -114,20 +116,41 @@ class VoteController extends Controller
 		}
 	}
 
-
-	// Helper functions
-	private static function getUnusedPositionNames($positions)
+	public function download()
 	{
-		$unused_position_names = [];
 
-		foreach($positions->toArray() as $position)
+		$sections = Section::with('strand')
+			->with(['students' => function($query){
+				$query->withCount('candidates as votes');
+			}])
+			->withCount('students as population')
+			->get();
+
+		foreach($sections as $section)
 		{
-			if(count($position['candidates']) === 0)
+			$voted_count = 0;
+			foreach($section->students as $student)
 			{
-				array_push($unused_position_names, $position['name']);
+				if($student->votes > 0)
+				{
+					$voted_count++;
+				}
 			}
+			$section->voted_count = $voted_count;
+			$section->no_vote_count = count($section->students) - $voted_count;
+			$section->vote_percentage = $section->no_vote_count === 0 ? 0 : $voted_count / count($section->students);
 		}
 
-		return $unused_position_names;
+		$context = [
+			'positions' => Position::with(['candidates' => function($query) {
+				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
+			}])->get(),
+			'sections' => $sections
+		];
+
+		return PDF::loadView('vote.results-doc', $context)->download(now() . "-RESULTS-IURIS");
+		/* PDF::loadView('vote.results-doc', $context)->storeAs('storage/documents/', 'results.pdf', 'public'); */
+
+		return view('vote.results-doc', $context);
 	}
 }

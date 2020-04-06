@@ -92,8 +92,12 @@
                                                         <span class="input-group-text" id="basic-addon1">student
                                                             number</span>
                                                     </div>
-                                                    <input type="text" name="student_number" placeholder="2018-106296"
-                                                        class="candidates__input form-control" required>
+													<select class="candidates__input form-control" name="student_number" placeholder="2018-106296" required>
+														<option disabled selected value></option>
+														@foreach($students as $student)
+															<option value="{{ $student->email }}">{{ $student->email }}</option>
+														@endforeach
+													</select>
                                                 </div>
                                                 <div class="d-flex justify-content-center align-items-center">
                                                     <button type="submit"

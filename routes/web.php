@@ -50,12 +50,6 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('', 'SuperUserController@index');
 		Route::get('registry', 'SuperUserController@registry');
 
-		Route::prefix('pollingstations')->group(function(){
-			Route::get('auth', 'PollingStationController@authpage');
-			Route::get('edit', "PollingStationController@edit");
-			Route::put('{id}', 'PollingStationController@update');
-			Route::post('auth', 'PollingStationController@auth');
-		});
 
 		Route::prefix('candidates')->group(function () {
 			Route::delete('/hide/{id}', 'CandidateController@hide');
@@ -63,11 +57,24 @@ Route::middleware(['auth'])->group(function () {
 
 		Route::prefix('votes')->group(function() {
 			Route::get('', 'VoteController@index');
+			Route::get('/download-results', 'VoteController@download');
 		});
 
 		Route::prefix('users')->group(function(){
-			Route::put('{id}/update-password', 'PollingStationController@updateAdminPassword');
-			Route::put('{id}/update-admin-id', 'PollingStationController@updateAdminId');
+			Route::middleware(['pollingstation'])->group(function(){
+				Route::put('{id}/update-password', 'PollingStationController@updateAdminPassword');
+				Route::put('{id}/update-admin-id', 'PollingStationController@updateAdminId');
+			});
+		});
+
+		Route::prefix('pollingstations')->group(function(){
+			Route::get('auth', 'PollingStationController@authpage');
+			Route::post('auth', 'PollingStationController@auth');
+
+			Route::middleware(['pollingstation'])->group(function(){
+				Route::get('edit', "PollingStationController@edit");
+				Route::put('{id}', 'PollingStationController@update');
+			});
 		});
 
 		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
