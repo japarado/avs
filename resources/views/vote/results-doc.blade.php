@@ -235,7 +235,7 @@
 										<td>{{ $section->no_vote_count }}</td>
 									</tr>
 									<tr>
-										<td>Voted</td>
+										<td>Population</td>
 										<td>{{ $section->population }}</td>
 									</tr>
 									<tr class="result-doc__table-row-custom">
@@ -271,7 +271,7 @@
 									</tr>
 									@endforeach
 								</tbody>
-							</table>
+							</table>airplane
 							@endforeach
 
 						</div>

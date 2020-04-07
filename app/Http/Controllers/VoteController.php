@@ -158,7 +158,7 @@ class VoteController extends Controller
 			'sections' => $sections
 		];
 
-		return PDF::loadView('vote.results-doc', $context)->download(now() . "-RESULTS-IURIS");
+		return PDF::loadView('vote.results-doc', $context)->stream(now() . "-RESULTS-IURIS");
 		/* PDF::loadView('vote.results-doc', $context)->storeAs('storage/documents/', 'results.pdf', 'public'); */
 
 		return view('vote.results-doc', $context);
