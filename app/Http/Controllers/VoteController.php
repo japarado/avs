@@ -13,11 +13,21 @@ class VoteController extends Controller
 {
 	public function index()
 	{
+		$positions = Position::with(['candidates' => function($query) {
+			$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
+		}])->get();
+
+		foreach($positions as $position)
+		{
+			$position->total_votes = 0;
+			foreach($position->candidates as $candidate)
+			{
+				$position->total_votes += $candidate->votes;
+			}
+		}
+
 		$context = [
-			'positions' => Position::with(['candidates' => function($query) {
-				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
-			}])
-				->get()
+			'positions' => $positions
 		];
 
 		return view('vote.index', $context);
@@ -138,7 +148,8 @@ class VoteController extends Controller
 			}
 			$section->voted_count = $voted_count;
 			$section->no_vote_count = count($section->students) - $voted_count;
-			$section->vote_percentage = $section->no_vote_count === 0 ? 0 : $voted_count / count($section->students);
+			/* $section->vote_percentage = $section->no_vote_count === 0 ? 100 : $voted_count / count($section->students); */
+			$section->vote_percentage = count($section->students) > 0 ? $section->voted_count / count($section->students) : 0;
 		}
 
 		$context = [
@@ -148,7 +159,7 @@ class VoteController extends Controller
 			'sections' => $sections
 		];
 
-		return PDF::loadView('vote.results-doc', $context)->download(now() . "-RESULTS-IURIS");
+		return PDF::loadView('vote.results-doc', $context)->stream(now() . "-RESULTS-IURIS"); */
 		/* PDF::loadView('vote.results-doc', $context)->storeAs('storage/documents/', 'results.pdf', 'public'); */
 
 		return view('vote.results-doc', $context);

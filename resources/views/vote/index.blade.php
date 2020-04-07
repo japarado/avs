@@ -51,7 +51,7 @@
 											@endif
 											<tr>
 												<td colspan="3">total</td>
-												<td></td>
+												<td>{{ $position->total_votes }}</td>
 											</tr>
 										</tbody>
 									</table>
