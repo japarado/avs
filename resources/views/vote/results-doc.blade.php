@@ -44,7 +44,6 @@
 		}
 
 		body {
-			height: 100vh;
 			margin: 0;
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 			font-size: 1rem;
@@ -68,7 +67,7 @@
 		.app-client {
 			/* display: flex;
 			flex-direction: column; */
-			height: 100%;
+			/* height: 100%; */
 		}
 
 		.app-client__main-container {
@@ -78,7 +77,7 @@
 
 		.result-doc {
 			background: white;
-			height: 100%;
+			/* height: 100%; */
 			font-family: Arial;
 		}
 
@@ -271,7 +270,7 @@
 									</tr>
 									@endforeach
 								</tbody>
-							</table>airplane
+							</table>
 							@endforeach
 
 						</div>
