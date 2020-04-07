@@ -13,11 +13,21 @@ class VoteController extends Controller
 {
 	public function index()
 	{
+		$positions = Position::with(['candidates' => function($query) {
+			$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
+		}])->get();
+
+		foreach($positions as $position)
+		{
+			$position->total_votes = 0;
+			foreach($position->candidates as $candidate)
+			{
+				$position->total_votes += $candidate->votes;
+			}
+		}
+
 		$context = [
-			'positions' => Position::with(['candidates' => function($query) {
-				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
-			}])
-				->get()
+			'positions' => $positions
 		];
 
 		return view('vote.index', $context);
