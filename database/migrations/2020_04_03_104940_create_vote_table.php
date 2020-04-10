@@ -22,7 +22,7 @@ class CreateVoteTable extends Migration
 
 			$table->primary(['user_id', 'candidate_id']);
             $table->foreign('user_id')->references('id')->on('user');
-            $table->foreign('candidate_id')->references('id')->on('candidate');
+			$table->foreign('candidate_id')->references('id')->on('candidate')->onDelete('cascade');
         });
     }
 
