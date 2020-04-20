@@ -23,8 +23,8 @@
                                                     <span class="input-group-text" id="basic-addon1">full name</span>
                                                 </div>
                                                 <input type="text" name="name"
-                                                    placeholder="surname, first name, m.i."
-                                                    class="candidates__input form-control"
+                                                    placeholder="Surname, First Name, M.I."
+                                                    class="form-control"
 													required>
                                             </div>
                                             <div class="candidates__form-inputs">
@@ -34,7 +34,7 @@
                                                             number</span>
                                                     </div>
                                                     <input type="text" name="student_number" placeholder="2018-106296"
-                                                        class="candidates__input form-control"
+                                                        class="form-control"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -42,7 +42,7 @@
                                                         <label class="input-group-text"
                                                             for="inputGroupSelect01">section</label>
                                                     </div>
-                                                    <select name="section" class="candidates__input custom-select"
+                                                    <select name="section" class="custom-select"
                                                         id="inputGroupSelect01" required>
 														@foreach($sections as $section)
 															<option value="{{ $section->id }}">{{ $section->level }} / {{ $section->strand->name }} / {{ $section->number }}</option>
@@ -56,7 +56,7 @@
                                                         <span class="input-group-text" id="basic-addon1">password</span>
                                                     </div>
                                                     <input type="text" name="password" placeholder="161100001"
-                                                        class="candidates__input form-control" 
+                                                        class="form-control" 
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -64,7 +64,7 @@
                                                         <span class="input-group-text" id="basic-addon1">cn</span>
                                                     </div>
                                                     <input type="number" name="cn" placeholder="01"
-                                                        class="candidates__input form-control" 
+                                                        class="form-control" 
 														required>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@
                                                         <span class="input-group-text" id="basic-addon1">student
                                                             number</span>
                                                     </div>
-													<select class="candidates__input form-control" name="student_number" placeholder="2018-106296" required>
+													<select class="form-control" name="student_number" placeholder="2018-106296" required>
 														<option disabled selected value></option>
 														@foreach($students as $student)
 															<option value="{{ $student->email }}">{{ $student->email }}</option>
