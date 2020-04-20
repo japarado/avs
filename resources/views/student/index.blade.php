@@ -8,6 +8,11 @@
 			<div class="student-list__actions">
 				<div class="student-list__card">
 
+					<div class="d-flex justify-content-center align-items-center my-3">
+						<a href="{{route('students.create')}}"
+						   class="btn btn-lg client-custom-button-2 no-text-shadow">return</a>
+					</div>
+
 					@foreach($sections as $section)
 						<div>
 							<div class="student-list__card-header">{{ $section->level }} {{ $section->strand->name }} {{ $section->number }} </div>
