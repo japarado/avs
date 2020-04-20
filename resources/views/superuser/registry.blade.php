@@ -17,6 +17,9 @@
                             <div class="admin-dashboard__button-container">
                                 <a href="{{action('StudentController@create')}}" class="btn btn-lg client-custom-button-2 admin-dashboard__button">students</a>
                             </div>
+                            <div class="admin-dashboard__button-container">
+                                <a href="{{action('SuperUserController@index')}}" class="btn btn-lg client-custom-button admin-dashboard__button">back</a>
+                            </div>
                         </div>
                     </div>
                 </div>
