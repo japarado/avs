@@ -46,7 +46,7 @@
 						</div>
 					@endforeach
 					<div class="d-flex justify-content-center align-items-center my-3">
-						<a href="{{route('admin.registryStudent')}}"
+						<a href="{{route('students.create')}}"
 						   class="btn btn-lg client-custom-button-2 no-text-shadow">return</a>
 					</div>
 				</div>
