@@ -5,6 +5,13 @@
 @section('content')
 <article class="candidates">
     <div class="candidates__container">
+		<div class="d-flex justify-content-center my-4">
+			<a href="{{ action("VoteController@download") }}" class="btn btn-lg client-custom-button">printable form</a>
+		</div>
+		<div class="d-flex justify-content-center mb-4">
+			<a href="{{action('SuperUserController@index')}}" class="btn btn-lg client-custom-button">Home</a>
+		</div>
+
         <div class="candidates__body">
             <div class="candidates__body-container">
                 {{-- CUT --}}
