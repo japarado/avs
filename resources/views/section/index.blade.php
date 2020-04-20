@@ -32,7 +32,7 @@
                                     </table>
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center mt-3">
-                                    <a href="{{route('admin.registrySection')}}"
+                                    <a href="{{route('sections.create')}}"
                                         class="btn btn-lg client-custom-button-2 no-text-shadow">return</a>
                                 </div>
                             </div>
