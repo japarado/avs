@@ -11,6 +11,12 @@
                     <div class="student-list__card-body-container">
                         <div class="candidates__position-body">
                             <div class="candidates__position-body-container">
+
+                                <div class="d-flex justify-content-center align-items-center my-3">
+                                    <a href="{{route('sections.create')}}"
+                                        class="btn btn-lg client-custom-button-2 no-text-shadow">return</a>
+                                </div>
+
                                 <div class="candidates__table-container mx-0 mx-md-4">
                                     <table class="candidates__table student-list__table">
                                         <thead>
