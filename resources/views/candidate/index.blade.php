@@ -79,13 +79,9 @@
 														</tr>
 													@endif
 													<tr>
-														<td></td>
-														<td></td>
-														<td>
+														<td colspan="5">
 															<a href="{{action('CandidateController@create')}}" class="btn candidates__table-button client-custom-button">add</a>
 														</td>
-														<td></td>
-														<td></td>
 													</tr>
 												</tbody>
 											</table>
