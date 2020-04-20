@@ -18,19 +18,19 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">current</span>
                                 </div>
-                                <input type="text" name="current_password" class="candidates__input form-control" required>
+                                <input type="password" name="current_password" class="form-control" required>
                             </div>
                             <div class="candidates__input-container input-group mb-3 client-custom-input-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">new</span>
                                 </div>
-                                <input type="text" name="new_password" class="candidates__input form-control" required>
+                                <input type="password" name="new_password" class="form-control" required>
                             </div>
                             <div class="candidates__input-container input-group mb-3 client-custom-input-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">confirm new</span>
                                 </div>
-                                <input type="text" name="confirm_password" class="candidates__input form-control" required>
+                                <input type="password" name="confirm_password" class="form-control" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center no-wrap my-3">
@@ -53,7 +53,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">new</span>
                                     </div>
-									<input type="text" name="new_id" class="candidates__input form-control" value="{{ $user->email }}" required>
+									<input type="text" name="new_id" class="form-control" value="{{ $user->email }}" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap my-3">
@@ -76,7 +76,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">new</span>
                                     </div>
-									<input type="text" name="name" class="candidates__input form-control" value="{{ $user->pollingStation->name }}" required>
+									<input type="text" name="name" class="form-control" value="{{ $user->pollingStation->name }}" required>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap my-3">
