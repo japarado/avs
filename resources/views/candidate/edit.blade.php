@@ -17,7 +17,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1">full name</span>
 							</div>
-							<input type="text" name="name" class="candidates__input form-control" value="{{ $candidate->name }}" required>
+							<input type="text" name="name" class="form-control" value="{{ $candidate->name }}" required>
 						</div>
 						<div class="candidates__form-inputs">
 							<div class="candidates__input-container input-group mb-3">
