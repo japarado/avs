@@ -23,7 +23,6 @@
 															<th>cn</th>
 															<th>student number</th>
 															<th>full name</th>
-															<th>password</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -33,7 +32,6 @@
 																<td>{{ $student->class_number }}</td>
 																<td>{{ $student->email }}</td>
 																<td>{{ $student->name }}</td>
-																<td>Password Here</td>
 															</tr>
 														@endforeach
 													</tbody>

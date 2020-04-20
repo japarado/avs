@@ -14,18 +14,18 @@
 					@csrf
                     <div class="form-group">
                         <input id="js-student-number" type="text" class="form-control client-custom-input" name="email"
-                            placeholder="Student Number">
+                            placeholder="Student Number" required>
                     </div>
 
                     <div class="form-group">
                         <input id="js-password" type="password" class="form-control client-custom-input" name="password"
-                            placeholder="Password">
+                            placeholder="Password" required>
                     </div>
 
                     <div class="form-group">
                         <label class="custom-radio-button">I understand that the choices I will make is influenced by my
                             own preference and is not coerced by any candidate or party.
-                            <input id="js-access" type="checkbox" value="true" name="access">
+                            <input id="js-access" type="checkbox" value="true" name="access" required>
                             <span class="checkmark"></span>
                         </label>
                     </div>
