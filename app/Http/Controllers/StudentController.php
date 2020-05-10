@@ -68,4 +68,11 @@ class StudentController extends Controller
 
         return redirect()->back();
     }
+
+	public function import(Request $request)
+	{
+		$excel = $request->file("excel_file");
+
+		return "import route";
+	}
 }

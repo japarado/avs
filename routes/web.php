@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get("/", function () {
-    return redirect()->route('login');
+	return redirect()->route('login');
 });
 
 Route::get("/admin", function () {
-    return view('admin.login');
+	return view('admin.login');
 });
 
 
@@ -37,45 +37,53 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 
 Route::middleware(['auth'])->group(function () {
 
-    /*VOTES*/
+	/*VOTES*/
 	Route::middleware(['student'])->prefix('votes')->group(function () {
 		Route::get('create', 'VoteController@create');
-        Route::get('create/restart', "VoteController@restart");
-        Route::get('instructions', 'VoteController@instructions');
-        Route::post('create/overview', 'VoteController@overview');
+		Route::get('create/restart', "VoteController@restart");
+		Route::get('instructions', 'VoteController@instructions');
+		Route::post('create/overview', 'VoteController@overview');
 		Route::post('', 'VoteController@store');
-    });
+	});
 
 	Route::middleware(['admin'])->prefix('superuser')->group(function () {
+		// Super user pages
 		Route::get('', 'SuperUserController@index');
 		Route::get('registry', 'SuperUserController@registry');
 
 
+		// Candidates
 		Route::prefix('candidates')->group(function () {
 			Route::delete('/hide/{id}', 'CandidateController@hide');
 		});
 
-		Route::prefix('votes')->group(function() {
+		// Votes
+		Route::prefix('votes')->group(function () {
 			Route::get('', 'VoteController@index');
 			Route::get('/download-results', 'VoteController@download');
 		});
 
-		Route::prefix('users')->group(function(){
-			Route::middleware(['pollingstation'])->group(function(){
+		// User (admin user details)
+		Route::prefix('users')->group(function () {
+			Route::middleware(['pollingstation'])->group(function () {
 				Route::put('{id}/update-password', 'PollingStationController@updateAdminPassword');
 				Route::put('{id}/update-admin-id', 'PollingStationController@updateAdminId');
 			});
 		});
 
-		Route::prefix('pollingstations')->group(function(){
+		// Polling station
+		Route::prefix('pollingstations')->group(function () {
 			Route::get('auth', 'PollingStationController@authpage');
 			Route::post('auth', 'PollingStationController@auth');
 
-			Route::middleware(['pollingstation'])->group(function(){
+			Route::middleware(['pollingstation'])->group(function () {
 				Route::get('edit', "PollingStationController@edit");
 				Route::put('{id}', 'PollingStationController@update');
 			});
 		});
+
+		Route::post('students/upload', 'StudentController@upload');
+
 
 		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');
 		Route::resource('sections', 'SectionController')->parameter('sections', 'id');
@@ -85,10 +93,10 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::prefix('pages')->group(function () {
-    Route::get('/logout', 'PageController@logout');
+	Route::get('/logout', 'PageController@logout');
 });
 
-Route::fallback(function(){
+Route::fallback(function () {
 	return redirect()->route('login');
 });
 

@@ -41,24 +41,6 @@
 																		<a href="{{action('CandidateController@edit', ['id' => $candidate->id])}}" 
 																			class="btn candidates__table-button client-custom-button">update</a>
 																	</div>
-																	@if($candidate->trashed() ?? false)
-																		<form class="candidates__button-container"
-																			  action="{{ action("CandidateController@hide", ['id' => $candidate->id]) }}"
-																			  method="post"
-																			  >
-																			  @csrf
-																			  @method('delete')
-																			  <button class="btn candidates__table-button client-custom-button-2">show</button>
-																		</form>
-																	@else
-																		<form class="candidates__button-container" 
-																			  action="{{ action('CandidateController@hide', ['id' => $candidate->id]) }}" 
-																			  method="post">
-																			  @csrf
-																			  @method('delete')
-																			  <button class="btn candidates__table-button client-custom-button-2">hide</button>
-																		</form>
-																	@endif
 																	<form class="candidates__button-container"
 																		  action="{{ action('CandidateController@destroy', ['id' => $candidate->id]) }}"
 																		  method="post">
