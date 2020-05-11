@@ -48,6 +48,10 @@
     @include('parts/login-modal')
 @endsection
 
+@if(session('invalid-login'))
+	@include('parts/invalid-login-prompt')
+@endif
+
 @section('javascript')
     <script>
         function promptAlert(e){

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Request;
 
 class LoginController extends Controller
 {
@@ -36,27 +37,30 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-		$this->middleware('guest')->except(['logout', 'prompt']);
-		$this->middleware('auth')->only('prompt');
+        $this->middleware('guest')->except(['logout', 'prompt']);
+        $this->middleware('auth')->only('prompt');
     }
 
     public function prompt()
     {
-        return view('auth/login')->with('showModal',true);
+        return view('auth/login')->with('showModal', true);
     }
 
-	public function redirectTo()
-	{
-		$action = route('login');
-		if(Auth::user()->role_id === config('constants.roles.admin'))
-		{
-			$action = action('SuperUserController@index');
-		}
-		else if(Auth::user()->role_id === config('constants.roles.student'))
-		{
-			$action = action('VoteController@instructions');
-		}
+    public function redirectTo()
+    {
+        $action = route('login');
+        if (Auth::user()->role_id === config('constants.roles.admin')) {
+            $action = action('SuperUserController@index');
+        } elseif (Auth::user()->role_id === config('constants.roles.student')) {
+            $action = action('VoteController@instructions');
+        }
 
-		return $action;
-	}
+        return $action;
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $request->session()->flash('invalid-login', true);
+        return redirect()->back();
+    }
 }
