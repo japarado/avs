@@ -35,6 +35,7 @@
                                                     </div>
                                                     <input type="text" name="student_number" placeholder="2018-106296"
                                                         class="form-control"
+														maxlength="16"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -57,15 +58,21 @@
                                                     </div>
                                                     <input type="text" name="password" placeholder="161100001"
                                                         class="form-control" 
+														maxlength="10"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">cn</span>
                                                     </div>
-                                                    <input type="number" name="cn" placeholder="01"
-                                                        class="form-control" 
-														required>
+													<input type="number"
+														   id="js-cn-input"
+														   name="cn"
+														   placeholder="01"
+														   class="form-control" 
+														   min="1"
+														   max="99"
+														   required>
                                                 </div>
                                             </div>
                                         </div>
