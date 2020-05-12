@@ -71,7 +71,7 @@ class StudentController extends Controller
 
 	public function import(Request $request)
 	{
-		$excel = $request->file("excel_file");
+		/* $excel = $request->file("excel_file"); */
 
 		return "import route";
 	}

@@ -94,14 +94,16 @@
                                     <div class="registry-student__card-header">mass import</div>
                                     <div class="registry-student__card-body">
                                         <div class="registry-student__card-body-container">
-											<form action="{{ action("StudentController@upload") }}" method="post" enctype="multipart/form-data">
+											<form action="{{ route("students.import") }}" method="post" enctype="multipart/form-data">
+												@csrf 
+												@method('post')
 												<div class="candidates__input-container input-group mb-3">
 													<div class="input-group-prepend">
 														<span class="input-group-text" id="inputGroupFileAddon01">excel/csv</span>
 													</div>
 													<div class="candidates__input-file--w-100">
 														<div class="client-custom-file-input custom-file">
-															<input name="image"
+															<input name="student_import"
 																   type="file" 
 																   class="custom-file-input"
 																   id="inputGroupFile01"
