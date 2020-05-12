@@ -82,7 +82,9 @@ Route::middleware(['auth'])->group(function () {
 			});
 		});
 
-		Route::post('students/upload', 'StudentController@upload');
+		Route::prefix("students")->group(function() {
+			Route::post("upload", "StudentController@upload");
+		});
 
 
 		Route::resource('candidates', 'CandidateController')->parameter('candidates', 'id');

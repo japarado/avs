@@ -13951,6 +13951,10 @@ body {
   text-transform: uppercase;
 }
 
+.candidates__input-file--w-100 {
+  width: 100%;
+}
+
 .candidates__form {
   width: 100%;
 }

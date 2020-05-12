@@ -11,6 +11,8 @@
                 <div class="registry-student__card-header">Students</div>
                 <div class="registry-student__card-body">
                     <div class="registry-student__card-body-container">
+
+						<!-- Create -->
                         <div class="registry-student__actions registry-student__actions--custom">
                             <div class="registry-student__card">
                                 <div class="registry-student__card-header">add</div>
@@ -83,6 +85,44 @@
                                 </div>
                             </div>
                         </div>
+
+						<!-- Import -->
+
+                        <div class="registry-student__actions-container">
+                            <div class="registry-student__actions mr-0 mr-md-3 registry-student__actions--custom">
+                                <div class="registry-student__card">
+                                    <div class="registry-student__card-header">mass import</div>
+                                    <div class="registry-student__card-body">
+                                        <div class="registry-student__card-body-container">
+											<form action="{{ action("StudentController@upload") }}" method="post" enctype="multipart/form-data">
+												<div class="candidates__input-container input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="inputGroupFileAddon01">excel/csv</span>
+													</div>
+													<div class="candidates__input-file--w-100">
+														<div class="client-custom-file-input custom-file">
+															<input name="image"
+																   type="file" 
+																   class="custom-file-input"
+																   id="inputGroupFile01"
+																   aria-describedby="inputGroupFileAddon01"
+																   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv"
+																   required>
+															<label class="custom-file-label" for="inputGroupFile01">choose file</label>
+														</div>
+													</div>
+												</div>
+												<div class="d-flex justify-content-center align-items-center">
+													<button type="submit" class="btn btn-lg client-custom-button-2 no-text-shadow">import</button>
+												</div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+						<!-- Destroy -->
                         <div class="registry-student__actions-container">
                             <div class="registry-student__actions mr-0 mr-md-3 registry-student__actions--custom">
                                 <div class="registry-student__card">
@@ -116,33 +156,6 @@
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap mt-3 mt-md-0">
                                 <a href="{{action('StudentController@index')}}" class="btn btn-lg client-custom-button no-text-shadow">View list</a>
-                            </div>
-                        </div>
-                        <div class="registry-student__actions-container">
-                            <div class="registry-student__actions mr-0 mr-md-3 registry-student__actions--custom">
-                                <div class="registry-student__card">
-                                    <div class="registry-student__card-header">mass import (excel file)</div>
-                                    <div class="registry-student__card-body">
-                                        <div class="registry-student__card-body-container">
-											<form action="{{ action("StudentController@upload") }}" method="post">
-												@csrf 
-												@method('post')
-
-                                                <div class="candidates__input-container input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">student
-                                                            number</span>
-                                                    </div>
-													<input type="file" class="form-control" required>
-                                                </div>
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <button type="submit"
-                                                        class="btn btn-lg client-custom-button-2 no-text-shadow">Submit</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
