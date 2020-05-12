@@ -171,6 +171,10 @@
 </article>
 @endsection
 
+@section('modal')
+	@include('parts.generic-modal')
+@endsection
+
 @section('footer')
 @include('inc.admin-footer')
 @endsection
