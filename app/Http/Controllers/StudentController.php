@@ -15,16 +15,16 @@ class StudentController extends Controller
     {
         $context = [
             'sections' => Section::with('strand')
-				->with(['students' => function($query) {
-					$query->orderby('class_number')->where('role_id', config('constants.roles.student'))->with('candidates');
-				}])
+                ->with(['students' => function ($query) {
+                    $query->orderby('class_number')->where('role_id', config('constants.roles.student'))->with('candidates');
+                }])
                 ->orderby('section.level')
                 ->orderby('section.strand_id')
                 ->orderby('section.number')
                 ->get()
         ];
 
-		return view('student.index', $context);
+        return view('student.index', $context);
     }
 
     public function create()
@@ -34,8 +34,8 @@ class StudentController extends Controller
                 ->orderby('section.level')
                 ->orderby('section.strand_id')
                 ->orderby('section.number')
-				->get(),
-			'students' => User::where('role_id', config('constants.roles.student'))->select('email')->get()
+                ->get(),
+            'students' => User::where('role_id', config('constants.roles.student'))->select('email')->get()
         ];
 
         return view('student.create', $context);
@@ -46,7 +46,7 @@ class StudentController extends Controller
         User::updateOrCreate(
             [
                 'email' => $request->input('student_number'),
-				'role_id' => config('constants.roles.student')
+                'role_id' => config('constants.roles.student')
             ],
             [
                 'name' => $request->input('name'),
@@ -57,22 +57,24 @@ class StudentController extends Controller
             ]
         );
 
+		$this->flashGenericModal($request, 'Student created Successfully');
         return redirect()->back();
     }
 
     public function destroy(Request $request, $id = null)
     {
-		User::where('email', $request->input('student_number'))
-			->where('role_id', config('constants.roles.student'))
-			->delete();
+        User::where('email', $request->input('student_number'))
+            ->where('role_id', config('constants.roles.student'))
+            ->delete();
 
+		$this->flashGenericModal($request, "Student deleted");
         return redirect()->back();
     }
 
-	public function import(Request $request)
-	{
-		/* $excel = $request->file("excel_file"); */
+    public function import(Request $request)
+    {
+        /* $excel = $request->file("excel_file"); */
 
-		return "import route";
-	}
+        return "import route";
+    }
 }
