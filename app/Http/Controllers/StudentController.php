@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Candidate;
+use App\Imports\StudentImport;
 use App\Section;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class StudentController extends Controller
 {
@@ -57,7 +60,7 @@ class StudentController extends Controller
             ]
         );
 
-		$this->flashGenericModal($request, 'Student created Successfully');
+        $this->flashGenericModal($request, 'Student created');
         return redirect()->back();
     }
 
@@ -67,14 +70,33 @@ class StudentController extends Controller
             ->where('role_id', config('constants.roles.student'))
             ->delete();
 
-		$this->flashGenericModal($request, "Student deleted");
+        $this->flashGenericModal($request, "Student deleted");
         return redirect()->back();
     }
 
     public function import(Request $request)
     {
-        /* $excel = $request->file("excel_file"); */
+		$spreadsheet_file = $request->file("student_import");
+		Excel::import(new StudentImport, $spreadsheet_file);
+		/* try */
+		/* { */
+		/* 	$spreadsheet_file = $request->file("student_import"); */
+		/* 	Excel::import(new StudentImport, $spreadsheet_file); */
+		/* } */
+		/* catch(ValidationException $e) */
+		/* { */
+		/* 	$failures = $e->failures(); */
+		/* 	foreach ($failures as $failure) */ 
+		/* 	{ */
+		/* 		$failure->row(); // row that went wrong */
+		/* 		$failure->attribute(); // either heading key (if using heading row concern) or column index */
+		/* 		$failure->errors(); // Actual error messages from Laravel validator */
+		/* 		$failure->values(); // The values of the row that has failed. */
+		/* 	} */
+		/* } */
+		
 
-        return "import route";
+		$this->flashGenericModal($request, "Student Import Successful");
+		return redirect()->back();
     }
 }
