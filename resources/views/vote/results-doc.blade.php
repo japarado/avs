@@ -286,10 +286,13 @@
 									Signature Over Printed Name of Polling Station Deputy
 								</div>
 								<div class="result-doc__footer-text">
-									Double Checked by:
+									Approved by:
 								</div>
 								<div class="result-doc__sign result-doc__footer-text">
-									Signature Over Printed Name of Legal Division
+									Signature Over Printed Name of Head Legal Officer
+								</div>
+								<div class="result-doc__sign result-doc__footer-text">
+									Signature Over Printed Name of Chairperson
 								</div>
 							</div>
 						</div>

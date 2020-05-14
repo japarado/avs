@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Candidate;
+use App\Imports\StudentImport;
 use App\Section;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class StudentController extends Controller
 {
@@ -15,16 +18,16 @@ class StudentController extends Controller
     {
         $context = [
             'sections' => Section::with('strand')
-				->with(['students' => function($query) {
-					$query->orderby('class_number')->where('role_id', config('constants.roles.student'))->with('candidates');
-				}])
+                ->with(['students' => function ($query) {
+                    $query->orderby('class_number')->where('role_id', config('constants.roles.student'))->with('candidates');
+                }])
                 ->orderby('section.level')
                 ->orderby('section.strand_id')
                 ->orderby('section.number')
                 ->get()
         ];
 
-		return view('student.index', $context);
+        return view('student.index', $context);
     }
 
     public function create()
@@ -34,8 +37,8 @@ class StudentController extends Controller
                 ->orderby('section.level')
                 ->orderby('section.strand_id')
                 ->orderby('section.number')
-				->get(),
-			'students' => User::where('role_id', config('constants.roles.student'))->select('email')->get()
+                ->get(),
+            'students' => User::where('role_id', config('constants.roles.student'))->select('email')->get()
         ];
 
         return view('student.create', $context);
@@ -46,7 +49,7 @@ class StudentController extends Controller
         User::updateOrCreate(
             [
                 'email' => $request->input('student_number'),
-				'role_id' => config('constants.roles.student')
+                'role_id' => config('constants.roles.student')
             ],
             [
                 'name' => $request->input('name'),
@@ -57,22 +60,43 @@ class StudentController extends Controller
             ]
         );
 
+        $this->flashGenericModal($request, 'Student created');
         return redirect()->back();
     }
 
     public function destroy(Request $request, $id = null)
     {
-		User::where('email', $request->input('student_number'))
-			->where('role_id', config('constants.roles.student'))
-			->delete();
+        User::where('email', $request->input('student_number'))
+            ->where('role_id', config('constants.roles.student'))
+            ->delete();
 
+        $this->flashGenericModal($request, "Student deleted");
         return redirect()->back();
     }
 
-	public function import(Request $request)
-	{
-		$excel = $request->file("excel_file");
+    public function import(Request $request)
+    {
+		$spreadsheet_file = $request->file("student_import");
+		Excel::import(new StudentImport, $spreadsheet_file);
+		/* try */
+		/* { */
+		/* 	$spreadsheet_file = $request->file("student_import"); */
+		/* 	Excel::import(new StudentImport, $spreadsheet_file); */
+		/* } */
+		/* catch(ValidationException $e) */
+		/* { */
+		/* 	$failures = $e->failures(); */
+		/* 	foreach ($failures as $failure) */ 
+		/* 	{ */
+		/* 		$failure->row(); // row that went wrong */
+		/* 		$failure->attribute(); // either heading key (if using heading row concern) or column index */
+		/* 		$failure->errors(); // Actual error messages from Laravel validator */
+		/* 		$failure->values(); // The values of the row that has failed. */
+		/* 	} */
+		/* } */
+		
 
-		return "import route";
-	}
+		$this->flashGenericModal($request, "Student Import Successful");
+		return redirect()->back();
+    }
 }

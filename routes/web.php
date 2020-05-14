@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
 		});
 
 		Route::prefix("students")->group(function() {
-			Route::post("upload", "StudentController@upload");
+			Route::post("import", "StudentController@import")->name("students.import");
 		});
 
 
