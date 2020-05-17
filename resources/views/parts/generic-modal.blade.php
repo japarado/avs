@@ -37,4 +37,4 @@
 			document.getElementById("js-vote-prompt").classList.add('d-none')
 		}
 	</script>
-@endsection
+@append
