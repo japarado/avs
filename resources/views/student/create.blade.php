@@ -109,6 +109,7 @@
 																   id="inputGroupFile01"
 																   aria-describedby="inputGroupFileAddon01"
 																   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv"
+																   onchange="checkFile(event)"
 																   required>
 															<label class="custom-file-label" for="inputGroupFile01">choose file</label>
 														</div>
@@ -171,6 +172,18 @@
 </article>
 @endsection
 
+@section('javascript')
+	<script>
+		function checkFile(e) {
+			const target = e.target;
+			const fileName = target.value.replace(/^.*[\\\/]/, '');
+			target.nextElementSibling.innerHTML = fileName;
+			if(fileName){
+				document.getElementById("js-file-chosen").innerHTML = "";
+			}
+		}
+	</script>
+@endsection
 @section('modal')
 	@include('parts.generic-modal')
 @endsection
@@ -178,3 +191,4 @@
 @section('footer')
 @include('inc.admin-footer')
 @endsection
+
