@@ -10,7 +10,7 @@
         color: white;
         letter-spacing: 1rem;
         width: max-content;
-        padding: .5rem 6rem;
+        padding: 0.5rem 6rem;
         border-radius: 0 20px 20px 0;
         text-shadow: $client-text-shadow;
 
@@ -37,6 +37,7 @@
     &__body-container {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     &__img {
@@ -44,14 +45,26 @@
         @include no-drag;
     }
 
-    &__entry+&__entry {
-        margin-left: 5rem;
-    }
+    // &__entry+&__entry {
+    //     margin-right: 5rem;
+    // }
 
     &__entry {
-
         &--padding {
             padding-right: 5rem;
         }
+    }
+}
+
+.vote__entry {
+    &:not(:last-child) {
+        margin-right: 2.5rem;
+    }
+}
+
+.vote__body-container {
+    @media only screen and (max-width: $bp-largest) {
+        flex-direction: column;
+		justify-content: center;
     }
 }
