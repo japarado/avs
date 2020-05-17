@@ -211,7 +211,7 @@
 						<div class="result-doc__header-text">
 							<span class="result-doc__header-title">results</span>
 							<div class="result-doc__header-content">
-								Rm. 7D Buenaventura Garcia Paredes, O.P.<br />March 21, 2020
+								{{ $polling_station->name }}<br />{{ $date }}
 							</div>
 						</div>
 						<div class="result-doc__body-container">
