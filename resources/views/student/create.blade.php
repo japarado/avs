@@ -184,6 +184,7 @@
 		}
 	</script>
 @endsection
+
 @section('modal')
 	@include('parts.generic-modal')
 @endsection
