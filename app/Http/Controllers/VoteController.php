@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Candidate;
+use App\PollingStation;
 use App\Position;
 use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use Illuminate\Support\Carbon;
 
 class VoteController extends Controller
 {
@@ -156,7 +158,9 @@ class VoteController extends Controller
 			'positions' => Position::with(['candidates' => function($query) {
 				$query->with('strand')->withCount('users as votes')->orderBy('votes', 'desc');
 			}])->get(),
-			'sections' => $sections
+			'sections' => $sections,
+			'polling_station' => PollingStation::first(),
+			'date' => Carbon::now()->isoFormat('MMMM Do, YYYY'),
 		];
 
 		return PDF::loadView('vote.results-doc', $context)->stream(now() . "-RESULTS-IURIS");
