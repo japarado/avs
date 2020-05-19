@@ -8,18 +8,18 @@ use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
-	public function index()
-	{
-		$context = [
-			'sections' => Section::with('strand')
-				->orderby('level')
-				->orderby('strand_id')
-				->orderby('number')
-				->get()
-		];
+    public function index()
+    {
+        $context = [
+            'sections' => Section::with('strand')
+                ->orderby('level')
+                ->orderby('strand_id')
+                ->orderby('number')
+                ->get()
+        ];
 
-		return view('section.index', $context);
-	}
+        return view('section.index', $context);
+    }
 
     public function create()
     {
@@ -32,11 +32,27 @@ class SectionController extends Controller
 
     public function store(Request $request)
     {
-        Section::updateOrCreate([
-            'level' => $request->input('level'),
-            'strand_id' => $request->input('strand'),
-            'number' => $request->input('number'),
-        ]);
+        $level = $request->input('level');
+        $strand_id = $request->input('strand');
+        $number = $request->input('number');
+
+        $existing_section = Section::where('level', $level)
+            ->where('strand_id', $strand_id)
+            ->where('number', $number)
+            ->get();
+
+        if (!$existing_section->first()) {
+            $section = new Section();
+            $section->level = $level;
+            $section->strand_id = $strand_id;
+            $section->number = $number;
+            $section->save();
+
+			$this->flashGenericModal($request, "Level: {$level} | Strand: {$section->strand->name} | Number: {$number}");
+        }
+		else {
+			$this->flashGenericModal($request, "Level: {$level} | Strand: {$existing_section->first()->strand->name} | Number: {$number}", 'Error - Already Exists');
+		}
 
         return redirect()->back();
     }
