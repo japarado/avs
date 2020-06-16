@@ -2236,11 +2236,6 @@ pre code {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -14139,6 +14134,8 @@ body {
 
 .registry-student__container {
   display: flex;
+  grid-template-rows: repeat(auto-fill, repeat(2, 1fr));
+  grid-template-columns: repeat(auto-fill, repeat(2, 1fr));
   justify-content: space-evenly;
   padding: 1rem 5rem;
 }
