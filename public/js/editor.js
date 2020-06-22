@@ -114,7 +114,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/.pnpm/@ckeditor/ckeditor5-build-classic@19.0.2/node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
 
-_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default.a.create(document.querySelector("#editor")).then(function (editor) {
+_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default.a.create(document.querySelector("#editor"), {
+  toolbar: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "blockQuote"],
+  heading: {
+    options: [{
+      model: "paragraph",
+      title: "Paragraph",
+      "class": "ck-heading_paragraph"
+    }, {
+      model: "heading1",
+      view: "h1",
+      title: "Heading 1",
+      "class": "ck-heading_heading1"
+    }, {
+      model: "heading2",
+      view: "h2",
+      title: "Heading 2",
+      "class": "ck-heading_heading2"
+    }]
+  }
+}).then(function (editor) {
   return console.log(editor);
 })["catch"](function (err) {
   return console.log(err);

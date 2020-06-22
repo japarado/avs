@@ -91,9 +91,20 @@
             </div>
         </div>
 </article>
+<textarea id="mytextarea" name="" cols="30" rows="10"></textarea>
 <div class="d-flex justify-content-center align-items-center no-wrap my-3">
     <a href="{{ action('SuperUserController@index') }}" class="btn btn-lg client-custom-button no-text-shadow">back</a>
 </div>
+
+@endsection
+
+@section('javascript')
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+		tinymce.init({
+			selector: '#mytextarea'
+		});
+	</script>
 @endsection
 
 @section('footer')
