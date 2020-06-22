@@ -93,7 +93,7 @@
 </article>
 <article class="registry-student">
     <div class="registry-student__container justify-content-center mt-md-7">
-        <div class="flex-basis-50">
+        <div class="w-100">
             <div class="registry-student__actions border-client-yellow registry-student__actions--custom-2 mb-lg-4">
                 <div class="registry-student__card">
                     <div class="registry-student__card-header bg-client-yellow">Instructions Page Contents</div>
@@ -103,7 +103,7 @@
                         <div class="registry-student__card-body">
                             <div class="registry-student__card-body-container">
                                 <div class="candidates__input-container input-group mb-3 client-custom-input-2">
-									<textarea id="instructions" name="instructions" cols="30" rows="10"></textarea>
+									<textarea style="width: 100%;" id="instructions" name="instructions" cols="30" rows="10">{{ $user->pollingStation->instructions }}</textarea>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center no-wrap my-3">
