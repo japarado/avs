@@ -1,32 +1,18 @@
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import tinymce from "tinymce/tinymce";
 
-ClassicEditor.create(document.querySelector("#editor"))
-	.then(editor => console.log(editor))
-	.catch(err => console.log(err))
+// Default icons are required for TinyMCE 5.3 or above
+import "tinymce/icons/default";
 
-// import Quill from "quill/core";
+// A theme is also required
+import "tinymce/themes/silver";
 
-// import Toolbar from "quill/modules/toolbar";
-// import Snow from "quill/themes/snow";
+// Any plugins you want to use has to be imported
+import "tinymce/plugins/paste";
+import "tinymce/plugins/link";
 
-// import Bold from "quill/formats/bold";
-// import Italic from "quill/formats/italic";
-// import Header from "quill/formats/header";
+tinymce.init({
+	selector: "#instructions",
+	plugins: ["paste", "link"]
+});
 
-// Quill.register({
-// 	modules: {
-// 		toolbar: {
-// 			container: document.getElementById("toolbar")
-// 		}
-// 	},
-// 	"themes/snow": Snow,
-// 	"formats/bold": Bold,
-// 	"formats/italic": Italic,
-// 	"formats/header": Header
-// });
-// Quill.debug("info");
-
-
-
-// const editor = new Quill("#editor");
-// console.log(editor)
+console.log("editor module loaded")

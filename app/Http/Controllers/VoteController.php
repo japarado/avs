@@ -37,7 +37,10 @@ class VoteController extends Controller
 
 	public function instructions()
     {
-        return view('vote.instructions');
+		$context = [
+			'instructions' => PollingStation::first()->instructions
+		];
+        return view('vote.instructions', $context);
     }
 
 	public function create()

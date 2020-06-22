@@ -13,7 +13,7 @@
                 <div class="instructions__body-container">
                     <div class="instructions__card">
                         <div class="instructions__card-header">
-                            (General Instructions)
+							{!! $instructions !!}
                         </div>
                     </div>
                 </div>
