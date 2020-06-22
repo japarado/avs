@@ -100,4 +100,12 @@ class PollingStationController extends Controller
 			return redirect()->route('login');
 		}
 	}
+
+	public function updateInstructions(Request $request)
+	{
+		$instructions = $request->input('instructions');
+		PollingStation::where('user_id', Auth::user()->id)
+			->update(['instructions' => $instructions]);
+		return redirect()->back();
+	}
 }

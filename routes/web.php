@@ -78,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
 			Route::middleware(['pollingstation'])->group(function () {
 				Route::get('edit', "PollingStationController@edit");
+				Route::put('updateInstructions', "PollingStationController@updateInstructions");
 				Route::put('{id}', 'PollingStationController@update');
 			});
 		});

@@ -19,7 +19,7 @@
 							<div class="login-modal__card-body-text-container">
 								<span class="login-modal__card-body-text">
 									<div class="form-group custom-form-input-text">
-										<input type="text" name="auth_key" min="0" autocomplete="off" class="form-control no-letter-spacing">
+										<input type="text" name="auth_key" min="0" autocomplete="off" class="form-control no-letter-spacing" autofocus>
 									</div>
 								</span>
 							</div>

@@ -1,4 +1,4 @@
- mix = require('laravel-mix');
+mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +11,11 @@
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-   .sourceMaps(true, 'source-map')
-   .setResourceRoot('../')
+mix.js("resources/js/app.js", "public/js")
+	.js("resources/js/editor.js", "public/js")
+	.sass("resources/sass/app.scss", "public/css")
+	.sourceMaps(true, "source-map")
+	.setResourceRoot("../")
+	.browserSync({
+		proxy: "https://iuris.apc"
+	});
