@@ -17,7 +17,7 @@
         "linebreak-style": ["error", "unix"],
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
-        "brace-style": ["warn", "stroustrup"],
+        "brace-style": ["warn", "allman"],
         "no-var": "warn",
         "prefer-const": "warn",
         "prefer-arrow-callback": "warn",

@@ -17,6 +17,7 @@ class CreatePollingStationTable extends Migration
             $table->id();
 			$table->string('name')->nullable()->default('RM. XXXA');
 			$table->string('auth_key');
+			$table->text('instructions')->nullable();
 			$table->unsignedBigInteger('user_id');
             $table->timestamps();
 
