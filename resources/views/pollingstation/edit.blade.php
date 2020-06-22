@@ -120,8 +120,6 @@
 <div class="d-flex justify-content-center align-items-center no-wrap my-3">
     <a href="{{ action('SuperUserController@index') }}" class="btn btn-lg client-custom-button no-text-shadow">back</a>
 </div>
-
-<textarea id="instructions"></textarea>
 @endsection
 
 @section('javascript')
