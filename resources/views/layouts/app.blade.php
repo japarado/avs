@@ -21,6 +21,7 @@
 
 	<!-- Custom Styles --> 
 	@yield('styles')
+
 </head>
 <body>
     <div class="app-client" id="app">

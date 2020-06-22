@@ -91,18 +91,44 @@
             </div>
         </div>
 </article>
-<textarea id="mytextarea" name="" cols="30" rows="10"></textarea>
+<article class="registry-student">
+    <div class="registry-student__container justify-content-center mt-md-7">
+        <div class="flex-basis-50">
+            <div class="registry-student__actions border-client-yellow registry-student__actions--custom-2 mb-lg-4">
+                <div class="registry-student__card">
+                    <div class="registry-student__card-header bg-client-yellow">Instructions Page Contents</div>
+					<form action="{{ action("PollingStationController@updateInstructions") }}" method="post">
+						@csrf
+						@method('put')
+                        <div class="registry-student__card-body">
+                            <div class="registry-student__card-body-container">
+                                <div class="candidates__input-container input-group mb-3 client-custom-input-2">
+									<textarea id="instructions" name="instructions" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center no-wrap my-3">
+                                <button type="submit"
+                                    class="btn btn-lg client-custom-button no-text-shadow">submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</div>
+</article>
 <div class="d-flex justify-content-center align-items-center no-wrap my-3">
     <a href="{{ action('SuperUserController@index') }}" class="btn btn-lg client-custom-button no-text-shadow">back</a>
 </div>
 
+<textarea id="instructions"></textarea>
 @endsection
 
 @section('javascript')
-		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	  <script src="https://cdn.tiny.cloud/1/ald473q2wszkcp6f80q5lgj0pgmeqnwhpbnr5rabybrz621h/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({
-			selector: '#mytextarea'
+			selector: '#instructions'
 		});
 	</script>
 @endsection
