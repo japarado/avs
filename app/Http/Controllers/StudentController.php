@@ -76,27 +76,27 @@ class StudentController extends Controller
 
     public function import(Request $request)
     {
-		$spreadsheet_file = $request->file("student_import");
-		Excel::import(new StudentImport, $spreadsheet_file);
-		/* try */
-		/* { */
-		/* 	$spreadsheet_file = $request->file("student_import"); */
-		/* 	Excel::import(new StudentImport, $spreadsheet_file); */
-		/* } */
-		/* catch(ValidationException $e) */
-		/* { */
-		/* 	$failures = $e->failures(); */
-		/* 	foreach ($failures as $failure) */ 
-		/* 	{ */
-		/* 		$failure->row(); // row that went wrong */
-		/* 		$failure->attribute(); // either heading key (if using heading row concern) or column index */
-		/* 		$failure->errors(); // Actual error messages from Laravel validator */
-		/* 		$failure->values(); // The values of the row that has failed. */
-		/* 	} */
-		/* } */
-		
+        $spreadsheet_file = $request->file("student_import");
+        Excel::import(new StudentImport, $spreadsheet_file);
+        /* try */
+        /* { */
+        /* 	$spreadsheet_file = $request->file("student_import"); */
+        /* 	Excel::import(new StudentImport, $spreadsheet_file); */
+        /* } */
+        /* catch(ValidationException $e) */
+        /* { */
+        /* 	$failures = $e->failures(); */
+        /* 	foreach ($failures as $failure) */
+        /* 	{ */
+        /* 		$failure->row(); // row that went wrong */
+        /* 		$failure->attribute(); // either heading key (if using heading row concern) or column index */
+        /* 		$failure->errors(); // Actual error messages from Laravel validator */
+        /* 		$failure->values(); // The values of the row that has failed. */
+        /* 	} */
+        /* } */
+        
 
-		$this->flashGenericModal($request, "Student Import Successful");
-		return redirect()->back();
+        $this->flashGenericModal($request, "Student Import Successful");
+        return redirect()->back();
     }
 }
