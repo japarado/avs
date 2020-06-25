@@ -37,6 +37,8 @@ Route::get('/dashboard/overview', 'DashboardController@overview')->name('dashboa
 
 Route::middleware(['auth'])->group(function () {
 
+	Route::get('logout', 'PageController@logout');
+
 	/*VOTES*/
 	Route::middleware(['student'])->prefix('votes')->group(function () {
 		Route::get('create', 'VoteController@create');
