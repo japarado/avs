@@ -6,6 +6,7 @@ use App\Candidate;
 use App\Imports\StudentImport;
 use App\Section;
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -77,7 +78,9 @@ class StudentController extends Controller
     public function import(Request $request)
     {
         $spreadsheet_file = $request->file("student_import");
-        Excel::import(new StudentImport, $spreadsheet_file);
+
+		Excel::import(new StudentImport, $spreadsheet_file);
+
         /* try */
         /* { */
         /* 	$spreadsheet_file = $request->file("student_import"); */

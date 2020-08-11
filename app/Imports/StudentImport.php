@@ -4,12 +4,16 @@ namespace App\Imports;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Illuminate\Validation\Rule;
 
 class StudentImport implements OnEachRow, WithHeadingRow
 {
+	use Importable;
     /**
     * @param array $row
     *
