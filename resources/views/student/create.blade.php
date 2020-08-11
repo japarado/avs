@@ -108,7 +108,9 @@
 																   class="custom-file-input"
 																   id="inputGroupFile01"
 																   aria-describedby="inputGroupFileAddon01"
-																   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv"
+																   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+																		   application/vnd.oasis.opendocument.spreadsheet
+																		   .csv"
 																   onchange="checkFile(event)"
 																   required>
 															<label class="custom-file-label" for="inputGroupFile01">choose file</label>

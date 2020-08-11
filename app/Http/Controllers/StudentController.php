@@ -6,7 +6,7 @@ use App\Candidate;
 use App\Imports\StudentImport;
 use App\Section;
 use App\User;
-use Illuminate\Http\Request;
+use Exception; use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -76,27 +76,44 @@ class StudentController extends Controller
 
     public function import(Request $request)
     {
-		$spreadsheet_file = $request->file("student_import");
-		Excel::import(new StudentImport, $spreadsheet_file);
-		/* try */
-		/* { */
-		/* 	$spreadsheet_file = $request->file("student_import"); */
-		/* 	Excel::import(new StudentImport, $spreadsheet_file); */
-		/* } */
-		/* catch(ValidationException $e) */
-		/* { */
-		/* 	$failures = $e->failures(); */
-		/* 	foreach ($failures as $failure) */ 
-		/* 	{ */
-		/* 		$failure->row(); // row that went wrong */
-		/* 		$failure->attribute(); // either heading key (if using heading row concern) or column index */
-		/* 		$failure->errors(); // Actual error messages from Laravel validator */
-		/* 		$failure->values(); // The values of the row that has failed. */
-		/* 	} */
-		/* } */
-		
+        $spreadsheet_file = $request->file("student_import");
+		$modal_title = '';
+		$modal_message = '';
 
-		$this->flashGenericModal($request, "Student Import Successful");
-		return redirect()->back();
+		try 
+		{
+			Excel::import(new StudentImport, $spreadsheet_file);
+			$modal_title = 'Success';
+			$modal_message = "Student import succesful";
+		}
+		catch (ValidationException $e)
+	   	{
+			$failures = $e->failures();
+			$whole_failure_message = '';
+			$ctr = 1;
+			foreach ($failures as $failure) 
+			{
+				$consolidated_error_message = self::errorArrayToString($failure->errors());
+				$single_failure_message = "{$ctr}. Row: {$failure->row()}. Column: {$failure->attribute()}. \n Error Message: {$consolidated_error_message} \r\n";
+				$whole_failure_message .= $single_failure_message;
+				$ctr++;
+			}
+			$modal_title = "Failure";
+			$modal_message = $whole_failure_message;
+		}
+        
+
+        $this->flashGenericModal($request, $modal_message, $modal_title);
+        return redirect()->back();
     }
+
+	private static function errorArrayToString(array $errors): string 
+	{
+		$main_error_message = '';
+		foreach($errors as $error)
+		{
+			$main_error_message .= "{$error} \n";
+		}
+		return $main_error_message;
+	}
 }

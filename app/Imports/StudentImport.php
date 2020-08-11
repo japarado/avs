@@ -4,49 +4,39 @@ namespace App\Imports;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Illuminate\Validation\Rule;
 
-class StudentImport implements OnEachRow, WithHeadingRow
+class StudentImport implements ToModel, WithHeadingRow, WithValidation
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    /* public function model(array $row) */
-    /* { */
-		/* /1* echo '<pre>'; *1/ */
-		/* /1* print_r($row); *1/ */
-		/* /1* echo "</pre>"; *1/ */
-		/* /1* die(); *1/ */
-
-    /*     return new User([ */
-    /*         'name' => $row['name'], */
-    /*         'email' => $row['email'], */
-    /*         'password' => $row['password'], */
-    /*         'class_number' => $row['class_number'], */
-    /*         'section_id' => $row['section_id'], */
-    /*     ]); */
-    /* } */
-
-	public function onRow(\Maatwebsite\Excel\Row $row)
-	{
-		$row_array = $row->toArray();
-
-        User::updateOrCreate(
+    use Importable;
+    public function model(array $row)
+    {
+        $user = User::updateOrCreate(
             [
-                'email' => $row_array['email'],
+                'email' => $row['email'],
                 'role_id' => config('constants.roles.student')
             ],
             [
-                'name' => $row_array['name'],
-                'password' => Hash::make($row_array['password']),
-                'class_number' => $row_array['class_number'],
-                'section_id' => $row_array['section_id'],
+                'name' => $row['name'],
+                'password' => Hash::make($row['password']),
+                'class_number' => $row['class_number'],
+                'section_id' => $row['section_id'],
                 'role_id' => config('constants.roles.student')
             ]
         );
-	}
+    }
+
+    public function rules(): array
+    {
+        return [
+            'email' => 'email|required|unique:user',
+			'name' => 'required',
+			'password' => 'required'
+        ];
+    }
 }
