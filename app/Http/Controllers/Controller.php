@@ -18,4 +18,5 @@ class Controller extends BaseController
 		$request->session()->flash('generic-modal-title', $title);
 		$request->session()->flash('generic-modal-body', $body);
 	}
+
 }
