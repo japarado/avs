@@ -10,8 +10,9 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Illuminate\Validation\Rule;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 
-class StudentImport implements ToModel, WithHeadingRow, WithValidation
+class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatchInserts
 {
     use Importable;
     public function model(array $row)
@@ -39,4 +40,9 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation
 			'password' => 'required'
         ];
     }
+
+	public function batchSize(): int
+	{
+		return 500;
+	}
 }
