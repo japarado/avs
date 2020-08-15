@@ -35,9 +35,10 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatc
     public function rules(): array
     {
         return [
-            'email' => 'email|required|unique:user',
+            'email' => 'required',
 			'name' => 'required',
-			'password' => 'required'
+			'password' => 'required',
+			'section_id' => 'exists:section,id'
         ];
     }
 
