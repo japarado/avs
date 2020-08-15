@@ -29,13 +29,14 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatc
                 'section_id' => $row['section_id'],
                 'role_id' => config('constants.roles.student')
             ]
-        );
+		)
+			->where('role_id', '!=', config('constants.roles.admin'));
     }
 
     public function rules(): array
     {
         return [
-            'email' => 'required',
+            'student_number' => 'required',
 			'name' => 'required',
 			'password' => 'required',
 			'section_id' => 'exists:section,id'
