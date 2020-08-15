@@ -17,7 +17,7 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatc
     use Importable;
     public function model(array $row)
     {
-        $user = User::updateOrCreate(
+        User::updateOrCreate(
             [
                 'email' => $row['email'],
                 'role_id' => config('constants.roles.student')
