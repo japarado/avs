@@ -19,7 +19,7 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatc
     {
         User::updateOrCreate(
             [
-                'email' => $row['email'],
+                'email' => $row['student_number'],
                 'role_id' => config('constants.roles.student')
             ],
             [
