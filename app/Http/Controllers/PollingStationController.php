@@ -56,13 +56,15 @@ class PollingStationController extends Controller
 		{
 			$polling_station->name = $new_polling_station_name;
 			$polling_station->save();
-			Auth::logout();
-			return redirect()->route('login');
+
+			$this->flashGenericModal($request, "Polling station name udpated", "Success");
 		}
 		else 
 		{
-			return redirect()->back();
+			$this->flashGenericModal($request, "Polling station name unchanged", "Warning");
 		}
+
+		return redirect()->back();
 	}
 
 	public function updateAdminId(Request $request, $id)
@@ -71,6 +73,7 @@ class PollingStationController extends Controller
 
 		if(!$user || $user->email === $request->input('new_id'))
 		{
+			$this->flashGenericModal($request, 'Admin ID Unchanged', 'Warning');
 			return redirect()->back();
 		}
 		else 
@@ -78,8 +81,9 @@ class PollingStationController extends Controller
 			$user->email = $request->input('new_id');
 			$user->save();
 
-			Auth::logout();
-			return redirect()->route('login');
+			$this->flashGenericModal($request, 'Admin ID updated succesfully', 'Success');
+			return redirect()->back();
+			/* return redirect()->route('login'); */
 		}
 	}
 	
@@ -87,18 +91,29 @@ class PollingStationController extends Controller
 	{
 		$user = User::find($id);
 
-		if(!$user || $request->input('new_password') !== $request->input('confirm_password') || Hash::check($request->input('new_password'), $user->password))
+		if(!$user)
 		{
-			return redirect()->back();
+			$this->flashGenericModal($request, "User not found", "Error");
+		}
+		else if(!Hash::check($request->input('current_password'), $user->password)) 
+		{
+			$this->flashGenericModal($request, "Password Incorrect", "Error");
+		}
+		else if($request->input('new_password') !== $request->input('confirm_password'))
+		{
+			$this->flashGenericModal($request, "Passwords do not match", "Error");
+		}
+		elseif (Hash::check($request->input('new_password'), $user->password)) 
+		{
+			$this->flashGenericModal($request, "Password unchanged", "Warning");
 		}
 		else 
 		{
 			$user->password = Hash::make($request->input('new_password'));
 			$user->save();
-			Auth::logout();
-
-			return redirect()->route('login');
+			$this->flashGenericModal($request, "Password upated", "Success");
 		}
+		return redirect()->back();
 	}
 
 	public function updateInstructions(Request $request)
@@ -106,6 +121,7 @@ class PollingStationController extends Controller
 		$instructions = $request->input('instructions');
 		PollingStation::where('user_id', Auth::user()->id)
 			->update(['instructions' => $instructions]);
+		$this->flashGenericModal($request, "Instructions saved", "Success");
 		return redirect()->back();
 	}
 }
