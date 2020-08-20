@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
 use App\Imports\StudentImport;
 use App\Section;
 use App\User;
+use Exception; use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Validators\ValidationException;
