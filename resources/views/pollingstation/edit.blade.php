@@ -122,8 +122,12 @@
 </div>
 @endsection
 
+@section('modal')
+	@include('parts.generic-modal')
+@endsection
+
 @section('javascript')
-	  <script src="https://cdn.tiny.cloud/1/ald473q2wszkcp6f80q5lgj0pgmeqnwhpbnr5rabybrz621h/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="https://cdn.tiny.cloud/1/ald473q2wszkcp6f80q5lgj0pgmeqnwhpbnr5rabybrz621h/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({
 			selector: '#instructions'
