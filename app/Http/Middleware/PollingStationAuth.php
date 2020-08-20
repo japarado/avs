@@ -17,7 +17,7 @@ class PollingStationAuth
     {
 		if(session('polling-station-auth'))
 		{
-			$request->session()->reflash();
+			$request->session()->keep(['polling-station-auth']);
 		}
 		else 
 		{
