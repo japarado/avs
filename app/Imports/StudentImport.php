@@ -4,42 +4,61 @@ namespace App\Imports;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\OnEachRow;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
+use Maatwebsite\Excel\Row;
 
-class StudentImport implements ToModel, WithHeadingRow, WithValidation, WithBatchInserts
+class StudentImport implements WithHeadingRow, WithValidation, WithBatchInserts, OnEachRow
 {
-    use Importable;
-    public function model(array $row)
-    {
-        $user = User::updateOrCreate(
-            [
-                'email' => $row['email'],
-                'role_id' => config('constants.roles.student')
-            ],
-            [
-                'name' => $row['name'],
-                'password' => Hash::make($row['password']),
-                'class_number' => $row['class_number'],
-                'section_id' => $row['section_id'],
-                'role_id' => config('constants.roles.student')
-            ]
-        );
-    }
+	public function onRow(Row $row)
+	{
+		$row = $row->toArray();
+		$existing_user = User::where('email', $row['student_number'])->first();
+		$altered_user = null;
 
-    public function rules(): array
-    {
-        return [
-            'email' => 'email|required|unique:user',
+		$values = [
+			'name' => $row['name'],
+			'password' => Hash::make($row['password']),
+			'class_number' => $row['class_number'],
+			'section_id' => $row['section_id'],
+			'role_id' => config('constants.roles.student')
+		];
+
+		if($existing_user) {
+			if($existing_user->role_id === config('constants.roles.student')) 
+			{
+				$existing_user->fill($values);
+				$altered_user = $existing_user;
+			}
+		}
+		else
+		{
+			$altered_user = new User();
+			$altered_user->fill(array_merge(
+				[
+					'email' => $row['student_number'],
+				],
+				$values
+			));
+		}
+
+		if($altered_user) 
+		{
+			$altered_user->save();
+		}
+	}
+
+	public function rules(): array
+	{
+		return [
+			'student_number' => 'required',
 			'name' => 'required',
-			'password' => 'required'
-        ];
-    }
+			'password' => 'required',
+			'section_id' => 'exists:section,id'
+		];
+	}
 
 	public function batchSize(): int
 	{

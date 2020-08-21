@@ -28,13 +28,19 @@
 			</div>
 		</div>
 	</article>
-@endif
-
-@section('javascript')
 	<script>
+		const modal = document.getElementById('js-vote-prompt');
+		document.addEventListener("keydown", (e) => 
+		{
+			if(e.key === "Escape" && !modal.classList.contains('d-none')) 
+			{
+				modal.classList.add('d-none');
+			}
+		});
 		function hideModal()
 		{
 			document.getElementById("js-vote-prompt").classList.add('d-none')
 		}
 	</script>
-@append
+@endif
+
