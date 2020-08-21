@@ -64,10 +64,4 @@ class StudentImport implements WithHeadingRow, WithValidation, WithBatchInserts,
 	{
 		return 500;
 	}
-
-	public function prettyPrint($object) {
-		echo "<pre>";
-		print_r($object);
-		echo "</pre>";
-	}
 }
