@@ -75,6 +75,10 @@
 	@include('inc.admin-footer')
 @endsection
 
+@section('modal')
+	@include('parts.generic-modal')
+@endsection
+
 @section('javascript')
 	<script>
 		function checkFile(e) {
