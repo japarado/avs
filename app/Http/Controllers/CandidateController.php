@@ -71,6 +71,7 @@ class CandidateController extends Controller
 			$candidate->save();
 		}
 
+		$this->flashGenericModal($request, "Candidate \"{$candidate->name}\" created");
 		return redirect()->route('candidates.edit', ['id' => $candidate->id]);
 	}
 
@@ -132,6 +133,7 @@ class CandidateController extends Controller
 
 		$candidate->save();
 
+		$this->flashGenericModal($request, "Candidate \"{$candidate->name}\" edited");
 		return redirect()->back();
 	}
 
