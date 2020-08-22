@@ -144,7 +144,7 @@
 													<select class="form-control" name="student_number" placeholder="2018-106296" required>
 														<option disabled selected value></option>
 														@foreach($students as $student)
-															<option value="{{ $student->email }}">{{ $student->email }}</option>
+															<option value="{{ $student->email }}">{{ $student->email }} - {{ $student->name }}</option>
 														@endforeach
 													</select>
                                                 </div>
