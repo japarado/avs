@@ -21,6 +21,7 @@
                                     <table class="candidates__table student-list__table">
                                         <thead>
                                             <tr>
+												<th>ID</th>
                                                 <th>lvl</th>
                                                 <th>strand</th>
                                                 <th>section</th>
@@ -29,6 +30,7 @@
                                         <tbody>
                                             @foreach($sections as $section)
                                             <tr>
+												<td>{{ $section->id }}</td>
 												<td>{{ $section->level }}</td>
 												<td class="text-uppercase">{{ $section->strand->name }}</td>
 												<td>{{ $section->number }}</td>
