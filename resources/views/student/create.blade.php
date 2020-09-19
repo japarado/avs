@@ -37,7 +37,7 @@
                                                     </div>
                                                     <input type="text" name="student_number" placeholder="2018-106296"
                                                         class="form-control"
-														maxlength="16"
+														maxlength=""
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
@@ -60,7 +60,6 @@
                                                     </div>
                                                     <input type="text" name="password" placeholder="161100001"
                                                         class="form-control" 
-														maxlength="10"
 														required>
                                                 </div>
                                                 <div class="candidates__input-container ml-md-3 input-group mb-3">
